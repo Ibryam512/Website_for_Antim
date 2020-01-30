@@ -6,8 +6,11 @@ ul {
     background-color: #88eabd;
 }
 
-li {
+#options {
     float: right;
+}
+#image{
+	float: left;
 }
 
 li a {
@@ -23,4 +26,20 @@ li a:hover {
 }
 a { 
 	color: #b3ffff;
+}
+#post{
+	background-color: #f7e7e7;
+	width: 1200;
+	margin-top: 45;
+	margin-left: 80;
+	border: 2px solid blue;
+	background-color:
+	
+}
+.pheader{
+	text-align: center;
+	font-size: 22px;
+}
+.pbody, .pfooter{
+	text-align: right;
 }
