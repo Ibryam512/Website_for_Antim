@@ -28,18 +28,10 @@ a {
 	color: #b3ffff;
 }
 #post{
-	background-color: #f7e7e7;
+	transition: all .25s ease-in-out;
+	display: block;
+	transform: translate(7%, 50%);
 	width: 1200;
-	margin-top: 45;
-	margin-left: 80;
-	border: 2px solid blue;
-	background-color:
 	
 }
-.pheader{
-	text-align: center;
-	font-size: 22px;
-}
-.pbody, .pfooter{
-	text-align: right;
-}
+
