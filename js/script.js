@@ -1,4 +1,4 @@
-//code for choosing date
+//функция, подпомагаща избирането на дата
  $(document).ready(function(){
     $('.datepicker').datepicker();
   });
