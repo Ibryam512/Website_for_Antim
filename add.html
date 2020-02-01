@@ -22,19 +22,30 @@
 				<li id="image"><img src="pic/image.png" height="45" width="45"</li>
 			</ul>
 		</div>
-		<div id="upload">
+		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
 			<div class="row">
 				<form class="col s12">
 				<div class="row">
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input id="title" type="text" class="validate">
 						<label for="title">Заглавие</label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input id="details" type="text" class="validate">
 						<label for="details">Описание</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="file-field input-field col s12">
+						<div class="btn">
+							<span>Избери снимкa (.JPG)</span>
+							<input type="file" name="item_photo" id="photoBtn">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text" placeholder="Снимка">
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -52,7 +63,7 @@
 					</p>
 				</div>
 				<div class="row">
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input id="end_date" type="text" class="datepicker">
 						<label for="end_date">До кога обявата да е активна?</label>
 					</div>
