@@ -17,8 +17,8 @@
 				<il id="options"><a href="Profile.html"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
-				<li id="options"><a style="background-color: white;" href="lost_things.html">Изгубени вещи</a></li>
-				<li id="options"><a href="index.html">Сергия</a></li>
+				<li id="options"><a style="background-color: white;" href="lost_things.php">Изгубени вещи</a></li>
+				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.html" style="margin-top: 10%"><i class="material-icons">+</i></a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
@@ -51,7 +51,7 @@
 										<p><a href='detail.html'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>затвори</i></span>
+										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
 										<p>$desc</p>
 									</div></td>";
 							$smth++;		
@@ -67,7 +67,7 @@
 										<p><a href='detail.html'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>затвори</i></span>
+										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
 										<p>$desc</p>
 									</div></td></tr>";
 							$smth++;
