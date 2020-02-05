@@ -32,19 +32,24 @@
 					$conn = OpenCon();
 					$sql = "SELECT * FROM items
 							WHERE type=TRUE
-							ORDER BY ID DESC;";
+							LEFT JOIN images
+							ON items.imageID = images.ID
+							ORDER BY items.ID DESC;";
 					$result = $conn->query($sql);
 					$smth = 0;
 					while($row = $result->fetch_assoc())
 					{
 						$title = $row["title"];
 						$desc = $row["description"];
+						$image = $row['name'];
+						$image_src = "upload/".$image;
+
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img style='object-fit: contain;' src='pic/image.png' height='100'>
+										<img style='object-fit: contain;' src='$image_src' height='100'>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
@@ -60,7 +65,7 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img style='object-fit: contain;' src='pic/image.png' height='100'>
+										<img style='object-fit: contain;' src='$image_src' height='100'>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
