@@ -14,23 +14,19 @@
 			$typ = false;
 		}
 
-		$sql = "INSERT INTO items
-					(title, description, price, type, date)
-					VALUES ('$title', '$desc', $price, '$typ', '$date')";
+		
+
+		$check = getimagesize($_FILES["image"]["tmp_name"]);
+        $image = $_FILES['image']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
+
+		$sql = "INSERT into images (image) VALUES ('$imgContent')";
 		$conn->query($sql);
-
-		$name = $_FILES['file']['name'];
-		$target_dir = "upload/";
-		$target_file = $target_dir . basename($_FILES["file"]["name"]);
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		$extensions_arr = array("jpg","jpeg","png","gif");
-		if( in_array($imageFileType,$extensions_arr) )
-		{
-			$sql = "insert into images(name) values('".$name."')";
-			$conn->query($sql);
-			move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-		}
-
+		$last_id = $conn->insert_id;
+		$sql = "INSERT INTO items
+					(title, description, price, type, date, imageID)
+					VALUES ('$title', '$desc', $price, '$typ', '$date', $last_id)";
+		$conn->query($sql);
 		CloseCon($conn);
 		header("Location: index.php");
 	}
