@@ -4,28 +4,27 @@
 	function Add($title, $desc, $price, $type, $date)
 	{
 		$conn = OpenCon();
-		$typ;
+		$table;
 		if($type == "Обява")
 		{
-			$typ = true;
+			$table = "items";
 		}
 		else
 		{
-			$typ = false;
+			$table = "lthings";
 		}
 
+		   
 		
-
-		$check = getimagesize($_FILES["image"]["tmp_name"]);
-        $image = $_FILES['image']['tmp_name'];
+        $image = $_FILES["image"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
 
-		$sql = "INSERT into images (image) VALUES ('$imgContent')";
+		$sql = "INSERT INTO images (image) VALUES ('$imgContent')";
 		$conn->query($sql);
 		$last_id = $conn->insert_id;
-		$sql = "INSERT INTO items
-					(title, description, price, type, date, imageID)
-					VALUES ('$title', '$desc', $price, '$typ', '$date', $last_id)";
+		$sql = "INSERT INTO $table
+					(title, description, price, date, imageID)
+					VALUES ('$title', '$desc', $price, '$date', $last_id)";
 		$conn->query($sql);
 		CloseCon($conn);
 		header("Location: index.php");
