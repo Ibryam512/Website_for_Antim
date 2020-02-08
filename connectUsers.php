@@ -1,22 +1,24 @@
 <?php
-$email = $POST['email'];
-$password = $POST['password'];
+$host="localhost";
+$user="root";
+$password="";
+$db="login";
+$som=mysqli_connect($host,$user,$password);
+mysqli_select_db($som,$db);
 
-$email = stripcslashes($email);
-$password = stripcslashes($password);
-$email = mysql_real_escape_string($email);
-$password = mysql_real_escape_string($password);
+if(isset($_POST['email'])){
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $sql="select * from users where e-mail='".$email."' AND pass='".$password."'limit 1";
 
-mysql_connect("localhost","root","");
-mysql_select_db("login");
-
-$result = mysql_query("select * from users where email = '$email' and  password = '$password'")
-or die("Failed to query database");
-$row = mysql_fetch_array($result);
-if($row['email'] == $email && $row['password'] == $password){
-        echo "loged in".$row['email'];
-}
-else{
-    echo "Failed";
+        $result=mysql_query($sql);
+        if(mysql_num_rows($result) == 1){
+          echo"Logged in !!!";
+          exit();
+        }
+        else{
+          echo"Incorrect";
+          exit();
+        }
 }
 ?>
