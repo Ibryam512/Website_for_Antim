@@ -5,21 +5,20 @@ $password="";
 $db="login";
 $som=mysqli_connect($host,$user,$password);
 mysqli_select_db($som,$db);
-echo"text"
-if(isset($_POST['email'])){
-        $email=$_POST['email'];
-        $password=$_POST['password'];
+echo"text";
+if(isset($_GET['email'])&& isset($_GET['password'])){
+  echo"maika ti";
+        $email=$_GET['email'];
+        $password=$_GET['password'];
         $sql="SELECT * FROM users WHERE e-mail='".$email."' AND pass='".$password."'LIMIT 1";
 
-        $result=mysql_query($sql);
+        $result=mysqli_query($som,$sql);
         
-        if(mysql_num_rows($result) == 1){
-          echo"maikoooo";
-          
+        if($result ->num_rows > 0){
+          echo"IN";
         }
         else{
-         echo"miau";
-         
+         echo"NOT IN";
         }
 }
 ?>
