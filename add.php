@@ -16,7 +16,7 @@
 
 		   
 		
-        $image = $_FILES["image"]["tmp_name"];
+        $image = $_FILES["item_photo"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
 
 		$sql = "INSERT INTO images (image) VALUES ('$imgContent')";
