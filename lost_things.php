@@ -33,7 +33,7 @@
 					$sql = "SELECT * FROM lthings
 							LEFT JOIN images
 							ON lthings.imageID = images.ID
-							ORDER BY items.ID DESC;";
+							ORDER BY lthings.ID DESC;";
 							
 					$result = $conn->query($sql);
 					$smth = 0;
@@ -49,11 +49,11 @@
 							echo"<tr>
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img style='object-fit: contain;' src='data:image/jpeg;base64,'.base64_encode($image).' height='100'>
+										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
+										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -65,7 +65,7 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img style='object-fit: contain;' src='$image' height='100'>
+										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>

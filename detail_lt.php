@@ -27,10 +27,10 @@
 			include 'connect.php';
 			$conn = OpenCon();
 			$item = $_GET["item"];
-			$sql = "SELECT * FROM items
+			$sql = "SELECT * FROM lthings
 			LEFT JOIN images
-			ON items.imageID = images.ID
-			ORDER BY items.ID DESC;";
+			ON lthings.imageID = images.ID
+			ORDER BY lthings.ID DESC;";
 			$result = $conn->query($sql);
 			while($row = $result->fetch_assoc())
 			{
@@ -49,10 +49,6 @@
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Описание</h4>
 							<p>$desc</p>
-						</div>
-						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
-							<h4 style='text-align: center;'>Цена</h4>
-							<p>Цена: $price лева</p>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Потребител</h4>

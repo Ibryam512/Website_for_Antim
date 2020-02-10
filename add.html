@@ -25,10 +25,10 @@
 		</div>
 		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
 			<div class="row">
-				<form class="col s12" action="add.php" method="post" enctype='multipart/form-data'>
+				<form class="col s12" id="form" action="add.php" method="post" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="title" type="text" class="validate" name="title">
+						<input id="title" type="text" class="validate" name="title"id="title">
 						<label for="title">Заглавие</label>
 					</div>
 				</div>
@@ -75,10 +75,67 @@
 						<label for="end_date">До кога обявата да е активна?</label>
 					</div>
 				</div>
-				 <button class="btn waves-effect waves-light" type="submit" name="action">Качи</button>
+				 <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Качи</button>
         
 				</form>
 			</div>
 		</div>
 	</body>
 </html>
+<script>
+$(document).ready(function(){  
+      $('#action').click(function(){  
+           var option = $('input[name=group3]:checked', '#form').val();
+		   var price = $('#price').val();
+		   var title = $('#title').val();
+		   var desc = $('#details').val();
+		   var image_name = $('#photoBtn').val();
+		   var date = $('#end_date').val();
+		   
+		   if(title == '')
+		   {
+				alert("Моля, сложете заглавие");
+				return false;
+				
+		   }
+		   if(desc == '')
+		   {
+				alert("Моля, сложете описание");
+				return false;
+		   }
+		   if(image_name == '')  
+           {  
+                alert("Моля, изберете снимка");  
+                return false;  
+           }
+		   if(option == "Обява")
+           {
+				if(price == '')
+				{
+					alert("Моля, сложете някаква цена");
+					return false;
+				}
+		   }
+		   else if(option == "Загубена вещ")
+		   {
+				if(price != '')
+				{
+					alert("Моля, махнете цената, все пак това е изгубена вещ, не предмет за продажба.");
+					return false;
+				}
+		   }
+		   else
+		   {
+				alert("Моля, изберете опция");
+				return false;
+		   }
+		   if(date == '')
+		   {
+				alert("Моля, изберете крайна дата");
+				return false;
+		   }
+		   
+      });  
+ });  
+
+</script>
