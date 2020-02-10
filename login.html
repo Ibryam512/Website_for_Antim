@@ -14,18 +14,19 @@
 	<body>
         <h1 style="text-align:center">Моето училище</h1>
 		<div class="row">
-      <form action="connectUsers.php" method="GET" class="col s12" >
+      <form action="login.php" method="POST" class="col s12">
         <div class="row">
           <div class="input-field col s12" style="text-align: center; margin-top: 10;">
-            <input style="text-align: center;" placeholder="Имейл" id="email" type="email" class="validate">
+            <input style="text-align: center;" placeholder="Имейл" name="email" id="email" class="validate">
           </div>
         </div>
         <div class="row" style="text-align: center;">
           <div class="input-field col s12" style="text-align: center;margin-top: 10;">
-            <input style="text-align: center" placeholder="Парола" id="password" type="password" class="validate">
+            <input style="text-align: center" placeholder="Парола" name="password" id="password" type="password"  class="validate">
           </div>
         </div>
         <div class="row">
+          <p style="text-align: center;" name="error" id="error"></p>
           <div class="input-field col s12" style="text-align: center;margin-top: 10;">
             <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action">Напред</button>
           </div>
