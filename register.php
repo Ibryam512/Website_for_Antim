@@ -2,7 +2,7 @@
 $host="localhost";
 $user="root";
 $pas="";
-$db="login";
+$db="website_for_antim";
 $conn=new mysqli($host,$user,$pas,$db);
 
 $email=hash('sha256',$_POST['email']."Ibrqmov,Nenov");
@@ -14,7 +14,7 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
     if($conn->connect_error){
         die('Conn failed !!!! '.$conn->connect_error);
     }
-     $sql="INSERT INTO `users`(`id`, `e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES (NULL,'$email','$password','$name','$secName','$lastName')";
+     $sql="INSERT INTO `profiles`(`email`, `password`, `name`, `surname`, `lastname`) VALUES ('$email','$password','$name','$secName','$lastName')";
      $result = $conn->query($sql);
 }
 ?>

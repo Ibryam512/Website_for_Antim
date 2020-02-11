@@ -36,9 +36,55 @@
                 </div>
               </div>
               <div class="input-field col s12" style="text-align: center;margin-top: 10;">
-                <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action">Напред</button>
+                <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
               </div>
             </form>
           </div>
     </body>
 </html>
+<script>
+$(document).ready(function(){  
+      $('#action').click(function(){  
+           var name = $('#name').val();
+		   var secname = $('#secName').val();
+		   var lastname = $('#lastName').val();
+		   var pass = $('#password').val();
+		   var email = $('#email').val();
+		   
+		   
+		   if(name == '')
+		   {
+				alert("Моля, напишете имената си");
+				return false;
+				
+		   }
+		   if(secname == '')
+		   {
+				alert("Моля, напишете имената си");
+				return false;
+		   }
+		   if(lastname == '')  
+           {  
+                alert("Моля, напишете имената си");
+                return false;  
+           }
+		   if(pass == '')
+           {
+				alert("Моля, напишете паролата си");
+				return false;
+		   }
+		   else if(pass.length < 6 )
+		   {
+				alert("Паролата трябва да е с минимум 6 знака");
+				return false;
+		   }
+		   if(email == '')
+		   {
+				alert("Моля, напишете вашия имейл");
+				return false;
+		   }
+		   
+      });  
+ });  
+
+</script>
