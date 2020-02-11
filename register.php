@@ -5,8 +5,8 @@ $pas="";
 $db="login";
 $conn=new mysqli($host,$user,$pas,$db);
 
-$email=hash('sha256',$_POST['email']);
-$password=hash('sha256',$_POST['password']);
+$email=hash('sha256',$_POST['email']."Ibrqmov,Nenov");
+$password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 $name=$_POST['name'];
 $secName=$_POST['secName'];
 $lastName=$_POST['lastName'];
