@@ -8,8 +8,8 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
            die('Conn failed !!!! '.$conn->connect_error);
        }
-        $email=$_POST['email'];
-        $password=$_POST['password'];
+        $email=hash('sha256',$_POST['email']);
+        $password=hash('sha256',$_POST['password']);
         $sql="SELECT * FROM users";
         $result = $conn->query($sql);
         $int = 0;
