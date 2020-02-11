@@ -31,5 +31,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
           echo "<script type='text/javascript'>alert('Wrong');</script>";
         }
 }
-
+else{
+  header("Location: login.html");
+}
 ?>
