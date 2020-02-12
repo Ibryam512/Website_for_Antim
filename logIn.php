@@ -2,26 +2,36 @@
 $host="localhost";
 $user="root";
 $password="";
-$db="website_for_antim";
+$db="login";
 $conn=new mysqli($host,$user,$password,$db);
 if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
            die('Conn failed !!!! '.$conn->connect_error);
        }
-        $email=hash('sha256',$_POST['email']."Ibrqmov,Nenov");
+        $email=$_POST['email'];
+        $passii=$_POST['password'];
         $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
-        $sql="SELECT * FROM profiles";
+        $sql="SELECT * FROM users";
         $result = $conn->query($sql);
         $int = 0;
         $mom = false;
         while($int < $row=$result->num_rows){
           $row = $result->fetch_assoc();
-          $dbEmail = $row['email'];
-          $dbPassword = $row['password'];
+          $dbEmail = $row['e-mail'];
+          $dbPassword = $row['pass'];
+          $name = $row['name'];
+          $secName=$row['secName'];
+          $lastName=$row['lastName'];
           // ima takuv
           if($dbEmail === $email  &&  $dbPassword === $password){
-              header("Location: Profile.html");
-              $mom = true;
+            session_start();
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$passii;
+            $_SESSION['name']=$name;
+            $_SESSION['secName']=$secName;
+            $_SESSION['lastName']=$lastName;
+            header("Location: Profile.php");
+            $mom = true;
           }
           $int++;
         }
