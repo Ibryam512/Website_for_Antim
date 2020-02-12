@@ -29,29 +29,29 @@
             </div>
         </div>
         <div style="text-align: center;">
-            <label for="disabled">Име</label>
+            <h5>Име<h5>
             <?php 
             session_start();
             $name = $_SESSION['name'];
-            echo "<p>$name<p>";
+            echo "<h4>$name<h4>";
             ?>
         </div>
         <div style="text-align: center;">
-            <label for="disabled">Презиме</label>
+            <h5>Презиме<h5l>
             <?php
             $secName = $_SESSION['secName'];
-            echo"<p>$secName<p>";
+            echo"<h4>$secName<h4>";
             ?>
         </div>
         <div style="text-align: center;">
-            <label for="disabled">Фамилия</label>
+            <h5>Фамилия<h5>
             <?php
             $lastName=$_SESSION['lastName'];
-            echo"<p>$lastName<p>";
+            echo"<h4>$lastName<h4>";
             ?>
         </div>
         <div style="text-align: center;">
-            <label for="disabled">Парола</label>
+            <h5>Парола<h5>
             <?php
             $passii=$_SESSION['password'];
             $new="";
@@ -60,14 +60,14 @@
                 $new .= '*';
                 $int++;
             }
-            echo"<p>$new<p>";
+            echo"<h4>$new<h4>";
             ?>
         </div>
         <div style="text-align: center;margin-bottom: 50;">
-            <label for="disabled">Имейл</label>
+            <h5>Имейл<h5>
             <?php
             $email=$_SESSION['email'];
-            echo"<p>$email<p>";
+            echo"<h4>$email<h4>";
             ?>
         </div>
     </body>

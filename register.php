@@ -21,10 +21,10 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
         while($int < $row=$result->num_rows){
           $row = $result->fetch_assoc();
           $bdEmail=$row['e-mail'];
-          if(){
+          if($email==$bdEmail){
               $mom=true;
           }
-          int++;
+          $int++;
         }
         if($mom == false){
             $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
@@ -37,7 +37,7 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
             header("Location: Profile.php");
         }
      else{
-         //ima go ve4e
+        header("Location: register.html");
      }
 }
 ?>
