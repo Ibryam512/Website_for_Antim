@@ -26,7 +26,7 @@
 		<div id="search">
 			<form  method="post" action="index.php"> 
 				<input style="text-align: center;" placeholder="Търси" name="search" class="validate">
-				<input  type="submit" name="submit" value="Search"> 
+				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
 		<table style="width:100%">
@@ -37,7 +37,9 @@
 					$conn = OpenCon();
 					$search = strtolower($_POST["search"]);
 					$sql = "SELECT * FROM items
-							WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
+							LEFT JOIN images
+							ON items.imageID = images.ID
+							WHERE LOWER(title) LIKE '%$search%'";
 					$result = $conn->query($sql);
 					$smth = 0;
 					while($row = $result->fetch_assoc())
@@ -55,7 +57,7 @@
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
+										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -107,7 +109,7 @@
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
+										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>

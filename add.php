@@ -12,8 +12,8 @@
 		$sql = "INSERT INTO images (image) VALUES ('$imgContent')";
 		$conn->query($sql);
 		$last_id = $conn->insert_id;
-		$title = strtolower($title);
-		$desc = strtolower($desc);
+		$title = $title;
+		$desc = $desc;
 		if($type == "Обява")
 		{
 			$sql = "INSERT INTO items

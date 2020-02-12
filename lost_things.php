@@ -23,10 +23,67 @@
 				<li id="image"><img src="Pic/lost.png" height="45" width="45"></li>
 			</ul>
 		</div>
+		<div id="search">
+			<form  method="post" action="lost_things.php"> 
+				<input style="text-align: center;" placeholder="Търси" name="search" class="validate">
+				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
+			</form> 
+		</div>
 		<table style="width:100%">
 			<?php
 				include 'connect.php';
-				
+				function Search()
+				{
+					$conn = OpenCon();
+					$search = strtolower($_POST["search"]);
+					$sql = "SELECT * FROM lthings
+							LEFT JOIN images
+							ON lthings.imageID = images.ID
+							WHERE LOWER(title) LIKE '%$search%'";
+					$result = $conn->query($sql);
+					$smth = 0;
+					while($row = $result->fetch_assoc())
+					{
+						$title = $row["title"];
+						$desc = $row["description"];
+						$image = $row["image"];
+						$id = $row["ID"];
+						if($smth % 2 == 0)
+						{
+							echo"<tr>
+									<td><div id='post' class='card'>
+									<div class='card-image waves-effect waves-block waves-light'>
+										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+									</div>
+									<div class='card-content'>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
+									</div>
+									<div class='card-reveal'>
+										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+										<p>$desc</p>
+									</div></td>";
+							$smth++;		
+						}
+						else
+						{
+							echo"	<td><div id='post' class='card'>
+									<div class='card-image waves-effect waves-block waves-light'>
+										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+									</div>
+									<div class='card-content'>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
+									</div>
+									<div class='card-reveal'>
+										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+										<p>$desc</p>
+									</div></td></tr>";
+							$smth++;
+						}
+					}
+					
+				}
 				function Show()
 				{
 					$conn = OpenCon();
@@ -69,7 +126,7 @@
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
+										<p><a href='detail_lt.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -79,7 +136,14 @@
 						}
 					}
 				}
-				Show();
+				if(isset($_POST["submit"]))
+				{
+					Search();
+				}
+				else
+				{
+					Show();
+				}
 			?>
 		</table>
 	</body>
