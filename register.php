@@ -38,6 +38,7 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
         }
      else{
         header("Location: register.html");
+        
      }
 }
 ?>

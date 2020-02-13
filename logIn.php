@@ -38,7 +38,6 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         /// Nqma takuv
         if($mom == false){
           header("Location: login.html");
-          echo "<script type='text/javascript'>alert('Wrong');</script>";
         }
 }
 else{

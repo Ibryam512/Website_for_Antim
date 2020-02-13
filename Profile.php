@@ -14,7 +14,7 @@
         <div id="menu">
 			<div id="menu">
 			<ul>
-				<il id="options"><a href="Profile.html"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
+				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
@@ -28,10 +28,20 @@
                 <button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button>
             </div>
         </div>
+        <?php
+        session_start();
+        if(!isset($_SESSION['email'])){
+            echo"<div style='text-align: center;'>";
+            echo"<a style='margin-right:10px' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
+            echo"<a style='margin-left:10px' href='register.html' class='waves-effect waves-light btn-large'>Регистрирайсе</a>";
+            echo"</div>";
+            exit();
+        }
+        ?>
         <div style="text-align: center;">
             <h5>Име<h5>
             <?php 
-            session_start();
+            
             $name = $_SESSION['name'];
             echo "<h4>$name<h4>";
             ?>
@@ -70,5 +80,16 @@
             echo"<h4>$email<h4>";
             ?>
         </div>
+        <div style="text-align: center;margin-bottom: 50;">
+            <button type="submit" class='waves-effect waves-light btn-large' onclick="logOut()">Излез от профила</button>
+        </div>
     </body>
 </html>
+<?php
+
+function logOut(){
+    session_destroy();
+    header("Location: Profile.php");
+}
+
+?>
