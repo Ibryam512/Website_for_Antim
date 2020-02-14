@@ -80,16 +80,22 @@
             echo"<h4>$email<h4>";
             ?>
         </div>
+        <form method="POST" action="">
         <div style="text-align: center;margin-bottom: 50;">
-            <button type="submit" class='waves-effect waves-light btn-large' onclick="logOut()">Излез от профила</button>
+            <button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>
         </div>
+        </form>
     </body>
 </html>
 <?php
-
-function logOut(){
-    session_destroy();
-    header("Location: Profile.php");
+if(isset($_POST['logout'])){
+    unset($_SESSION['email']);
+    unset($_SESSION['password']);
+    unset($_SESSION['name']);
+    unset($_SESSION['secName']);
+    unset($_SESSION['lastName']);
+   header("Location: index.php");
 }
+        
 
 ?>
