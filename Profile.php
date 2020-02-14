@@ -27,17 +27,19 @@
             <div>
                 <button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button>
             </div>
+            <div>
+                <?php
+                  session_start();
+                  if(!isset($_SESSION['email'])){
+                       echo"<div style='text-align: center;'>";
+                       echo"<a style='margin-right:1%' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
+                       echo"<a style='margin-left:1%' href='register.html' class='waves-effect waves-light btn-large'>Регистрирайсе</a>";
+                       echo"</div>";
+                       exit();
+                   }
+                ?>
+            </div>
         </div>
-        <?php
-        session_start();
-        if(!isset($_SESSION['email'])){
-            echo"<div style='text-align: center;'>";
-            echo"<a style='margin-right:10px' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
-            echo"<a style='margin-left:10px' href='register.html' class='waves-effect waves-light btn-large'>Регистрирайсе</a>";
-            echo"</div>";
-            exit();
-        }
-        ?>
         <div style="text-align: center;">
             <h5>Име<h5>
             <?php 

@@ -5,7 +5,13 @@
 	{
 		$conn = OpenCon();
 		$table;
-		   
+		   //ne znam kak se kazvat kolonite taka 4e eto ti kak da gi getne6
+		   //sesion_start();
+		   //if(isset($_SESSION['name'])){
+		   //$_SESSION['name']-първо име
+		   //$_SESSION['secName']-второ
+		   //$_SESSION['lastName']-treto
+		   //}
 		$image = $_FILES["item_photo"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
 

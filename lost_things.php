@@ -20,7 +20,7 @@
 				<li id="options"><a style="background-color: white;" href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.html" style="margin-top: 10%"><i class="material-icons">+</i></a></li>
-				<li id="image"><img src="Pic/lost.png" height="45" width="45"></li>
+				<li id="image"><img style="border-radius:5000px" src="Pic/lost.png" height="45" width="45"></li>
 			</ul>
 		</div>
 		<div id="search">
