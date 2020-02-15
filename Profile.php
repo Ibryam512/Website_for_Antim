@@ -25,12 +25,9 @@
         <div style="text-align: center;">
             <img style="border-radius: 5000px;" src="Pic/profilePic.png" height="400"width="400">
             <div>
-                <button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button>
-            </div>
-            <div>
-                <?php
+            <?php
                   session_start();
-                  if(!isset($_SESSION['email'])){
+                  if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
                        echo"<div style='text-align: center;'>";
                        echo"<a style='margin-right:1%' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
                        echo"<a style='margin-left:1%' href='register.html' class='waves-effect waves-light btn-large'>Регистрирайсе</a>";
@@ -38,12 +35,12 @@
                        exit();
                    }
                 ?>
+                <a href="CHprofile.php"><button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button></a>
             </div>
         </div>
         <div style="text-align: center;">
             <h5>Име<h5>
             <?php 
-            
             $name = $_SESSION['name'];
             echo "<h4>$name<h4>";
             ?>
@@ -65,10 +62,10 @@
         <div style="text-align: center;">
             <h5>Парола<h5>
             <?php
-            $passii=$_SESSION['password'];
+            $pass=$_SESSION['password'];
             $new="";
             $int=0;
-            while($int <= strlen($passii)){
+            while($int <= strlen($pass)){
                 $new .= '*';
                 $int++;
             }
@@ -91,6 +88,7 @@
 </html>
 <?php
 if(isset($_POST['logout'])){
+    unset($_SESSION['id']);
     unset($_SESSION['email']);
     unset($_SESSION['password']);
     unset($_SESSION['name']);

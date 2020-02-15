@@ -21,7 +21,32 @@
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
-        </div>
+		</div>
+	<form action="CHprofile.php" method="POST">
         <div style="text-align: center;">
-            <img style="border-radius: 5000px;" src="Pic/profilePic.png" height="400"width="400">
-        </div>
+			<img style="border-radius: 5000px;" src="Pic/profilePic.png" height="400"width="400">
+			<button id="photo" name="photo" style="border-radius: 5000px;"><img style="border-radius: 5000px;" src="pic/CHimg.jpg" height="30"width="30"></button>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate">
+			</div>
+			<div class="input-field col s12"> 
+			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
+			</div>
+			<div  class="input-field col s12">
+			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
+			</div>
+			<div class="input-field col s12">
+			  <input placeholder="Парола" name="password" id="password" type="password" class="validate">
+			</div>
+			<div class="input-field col s12">
+			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate">
+			</div>
+		  	<div class="input-field col s12" style="text-align: center;margin-top: 10;">	
+			<button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
+		  	</div>
+		</div>
+	</form>
+	</html>
+	

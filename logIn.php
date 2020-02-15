@@ -24,7 +24,9 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
           $lastName=$row['lastName'];
           // ima takuv
           if($dbEmail === $email  &&  $dbPassword === $password){
+            $dbID=$row['id'];
             session_start();
+            $_SESSION['id']=$dbID;
             $_SESSION['email']=$email;
             $_SESSION['password']=$passii;
             $_SESSION['name']=$name;
