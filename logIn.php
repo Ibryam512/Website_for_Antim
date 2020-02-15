@@ -1,9 +1,6 @@
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="login";
-$conn=new mysqli($host,$user,$password,$db);
+include 'profileCon.php';
+$conn = OpenCon();
 if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
            die('Conn failed !!!! '.$conn->connect_error);

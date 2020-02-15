@@ -1,10 +1,6 @@
 <?php
-$host="localhost";
-$user="root";
-$pas="";
-$db="login";
-$conn=new mysqli($host,$user,$pas,$db);
-
+include 'profileCon.php';
+$conn=OpenCon();
 $email=$_POST['email'];
 $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 $name=$_POST['name'];

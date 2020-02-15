@@ -1,12 +1,9 @@
 <?php
-	$host="localhost";
-    $user="root";
-    $pas="";
-    $db="login";
-    $conn=new mysqli($host,$user,$pas,$db);
-
+    include 'profileCon.php';
+    $conn=OpenCon();
 		if(isset($_POST['photo'])){
-    		
+    		$image = $_FILES["item_photo"]["tmp_name"];
+        	$imgContent = addslashes(file_get_contents($image));
 		}
 		else if(isset($_POST['save'])){
 			session_start();
