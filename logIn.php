@@ -5,7 +5,8 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
            die('Conn failed !!!! '.$conn->connect_error);
        }
-        $email=$_POST['email'];
+        $emailii=$_POST['email'];
+        $email=hash('sha256',$_POST['password']."Ibrqm,Venci");
         $passii=$_POST['password'];
         $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
         $sql="SELECT * FROM users";
@@ -24,7 +25,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
             $dbID=$row['id'];
             session_start();
             $_SESSION['id']=$dbID;
-            $_SESSION['email']=$email;
+            $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
             $_SESSION['name']=$name;
             $_SESSION['secName']=$secName;

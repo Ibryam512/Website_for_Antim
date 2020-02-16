@@ -1,12 +1,17 @@
 <?php
-    include 'profileCon.php';
+	include 'profileCon.php';
+	session_start();
     $conn=OpenCon();
 		if(isset($_POST['photo'])){
-    		$image = $_FILES["item_photo"]["tmp_name"];
-        	$imgContent = addslashes(file_get_contents($image));
+			$idDB=$_SESSION['id'];
+			$image=addslashes($_FILES['photo']['tmp_name']);
+			$name=addcslashes($_FILES['image']['name']);
+			$image= file_get_contents($image);
+			$image=base64_encode($image);
+			$sql="UPDATE `users` SET `id`='$dbID',`pic`='$image' WHERE 1";
+			$result=mysqli_query($sql,$conn);
 		}
 		else if(isset($_POST['save'])){
-			session_start();
 			if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
 				$dbID = $_SESSION['id'];
                 $email=$_POST['email'];

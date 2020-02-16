@@ -1,7 +1,7 @@
 <?php
 include 'profileCon.php';
 $conn=OpenCon();
-$email=$_POST['email'];
+$email=hash('sha256',$_POST['email']."Ibrqm,Venci");
 $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 $name=$_POST['name'];
 $secName=$_POST['secName'];
@@ -25,9 +25,12 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
         if($mom == false){
             $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
             $result = $conn->query($sql);
+            $emailii=$_POST['email'];
+            $passii=$_POST['password'];
             session_start();
             $_SESSION['id']=$id;
-            $_SESSION['email']=$email;
+            $_SESSION['email']=$emailii;
+            $_SESSION['password']=$passii;
             $_SESSION['name']=$name;
             $_SESSION['secName']=$secName;
             $_SESSION['lastName']=$lastName;
