@@ -6,7 +6,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
            die('Conn failed !!!! '.$conn->connect_error);
        }
         $emailii=$_POST['email'];
-        $email=hash('sha256',$_POST['password']."Ibrqm,Venci");
+        $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
         $passii=$_POST['password'];
         $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
         $sql="SELECT * FROM users";
