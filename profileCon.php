@@ -4,7 +4,7 @@ function OpenCon()
     $host="localhost";
     $user="root";
     $password="";
-    $db="login";
+    $db="website_for_antim";
     $conn=new mysqli($host,$user,$password,$db);
     return $conn;
 }

@@ -4,14 +4,13 @@
 	function Add($title, $desc, $price, $type, $date)
 	{
 		$conn = OpenCon();
-		$table;
-		   //ne znam kak se kazvat kolonite taka 4e eto ti kak da gi getne6
-		   //sesion_start();
-		   //if(isset($_SESSION['name'])){
-		   //$_SESSION['name']-първо име
-		   //$_SESSION['secName']-второ
-		   //$_SESSION['lastName']-treto
-		   //}
+		session_start();
+		if(isset($_SESSION['name'])){
+		$name = $_SESSION['name'];
+		}
+		else{
+		$name = "Гост";
+		}
 		$image = $_FILES["item_photo"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
 
@@ -23,14 +22,14 @@
 		if($type == "Обява")
 		{
 			$sql = "INSERT INTO items
-					(title, description, price, date, imageID)
-					VALUES ('$title', '$desc', $price, '$date', $last_id)";
+					(title, description, price, date, imageID, userID)
+					VALUES ('$title', '$desc', $price, '$date', $last_id, '$name')";
 		}
 		else
 		{
 			$sql = "INSERT INTO lthings
-					(title, description, date, imageID)
-					VALUES ('$title', '$desc', '$date', $last_id)";
+					(title, description, date, imageID, userID)
+					VALUES ('$title', '$desc', '$date', $last_id, '$name')";
 		}
 		$conn->query($sql);
 		CloseCon($conn);

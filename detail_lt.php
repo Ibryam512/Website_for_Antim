@@ -30,6 +30,8 @@
 			$sql = "SELECT * FROM lthings
 			LEFT JOIN images
 			ON lthings.imageID = images.ID
+			LEFT JOIN users
+			ON lthings.userID = users.name
 			ORDER BY lthings.ID DESC;";
 			$result = $conn->query($sql);
 			while($row = $result->fetch_assoc())
@@ -40,6 +42,9 @@
 				$image = $row["image"];
 				$date = $row["date"];
 				$id = $row["ID"];
+				$name = $row["name"];
+				$secName = $row["secName"];
+				$lastName = $row["lastName"];
 				if($item == $id)
 				{
 					echo "<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
@@ -52,7 +57,7 @@
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Потребител</h4>
-							<p>Име презиме фамилия</p>
+							<p>$name $secName $lastName</p>
 							<p>Клас</p>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
