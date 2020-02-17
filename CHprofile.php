@@ -19,7 +19,7 @@
 					$lastName=$_POST['lastName'];
 					if(strlen($passii)>=6){
 						////skildfjhgjlkdsfhgjlkdsfhglkjfdhsglkjsd
-					$sql="UPDATE `users` SET `id`=$dbID,`e-mail`='$email',`pass`='$pass',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE 1";
+					$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$pass',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
                 	$result = $conn->query($sql);
                 	unset($_SESSION['id']);
                 	unset($_SESSION['email']);

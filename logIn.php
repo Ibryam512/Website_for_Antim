@@ -5,6 +5,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
            die('Conn failed !!!! '.$conn->connect_error);
        }
+       //CHECK (username>=8);
         $emailii=$_POST['email'];
         $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
         $passii=$_POST['password'];
