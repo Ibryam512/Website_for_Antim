@@ -88,7 +88,6 @@
 </html>
 <?php
 if(isset($_POST['logout'])){
-    unset($_SESSION['id']);
     unset($_SESSION['email']);
     unset($_SESSION['password']);
     unset($_SESSION['name']);

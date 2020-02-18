@@ -28,7 +28,6 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
             $emailii=$_POST['email'];
             $passii=$_POST['password'];
             session_start();
-            $_SESSION['id']=$id;
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
             $_SESSION['name']=$name;

@@ -3,11 +3,24 @@
 	session_start();
     $conn=OpenCon();
 		if(isset($_POST['save'])){
-						$dbID = $_SESSION['id'];
+			$email=hash('sha256',$_SESSION['email']."Ibrqm,Venci");
+        	$password=hash('sha256',$_SESSION['password']."Ibrqmov,Nenov");
+        	$sql="SELECT * FROM users";
+        	$result = $conn->query($sql);
+			$int = 0;
+			$dbID;
+        	while($int < $row=$result->num_rows){
+          	$row = $result->fetch_assoc();
+          	$dbEmail = $row['e-mail'];
+          	$dbPassword = $row['pass'];
+          	// ima takuv
+          	if($dbEmail === $email  &&  $dbPassword === $password){
+				$dbID=$row['id'];
+          	}
+          $int++;
+        }			
 						$emailii=$_POST['email'];
-						$email=hash('sha256',$_POST['email']."Ibrqm,Venci");
 						$passii=$_POST['password'];
-						$pass=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 						$name=$_POST['name'];
 						$secName=$_POST['secName'];
 						$lastName=$_POST['lastName'];
@@ -18,10 +31,8 @@
 				if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
 						
 						if(strlen($passii)>=6){
-						$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$pass',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
+						$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
 						$result = $conn->query($sql);
-						$dbID++;
-						$_SESSION['id']=$dbID;
 						$_SESSION['email']=$emailii;
 						$_SESSION['password']=$passii;
 						$_SESSION['name']=$name;

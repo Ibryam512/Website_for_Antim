@@ -25,7 +25,6 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
           if($dbEmail === $email  &&  $dbPassword === $password){
             $dbID=$row['id'];
             session_start();
-            $_SESSION['id']=$dbID;
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
             $_SESSION['name']=$name;
