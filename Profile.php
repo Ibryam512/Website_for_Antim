@@ -30,7 +30,7 @@
                   if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
                        echo"<div style='text-align: center;'>";
                        echo"<a style='margin-right:1%' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
-                       echo"<a style='margin-left:1%' href='register.html' class='waves-effect waves-light btn-large'>Регистрирайсе</a>";
+                       echo"<a style='margin-left:1%' href='register.html' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
                        echo"</div>";
                        exit();
                    }

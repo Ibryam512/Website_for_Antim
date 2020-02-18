@@ -1,12 +1,16 @@
 <?php
+// връзка с бата данни
 include 'profileCon.php';
 $conn = OpenCon();
+//проверяваме да ли са попълнени полетата за email и password
 if(!empty($_POST['email'])&&!empty($_POST['password'])){
         if($conn->connect_error){
+          //прожеряваме дали е възникнал проблем при връзката с базата данни
            die('Conn failed !!!! '.$conn->connect_error);
        }
-       //CHECK (username>=8);
+       //взимаме данните от емейл полето
         $emailii=$_POST['email'];
+      //взимаме данните от полето за имейла, само че хеширани(с цел сигурност) за да може дори и ние да не знаем какви са данните на нашия портебител
         $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
         $passii=$_POST['password'];
         $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
@@ -21,9 +25,8 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
           $name = $row['name'];
           $secName=$row['secName'];
           $lastName=$row['lastName'];
-          // ima takuv
+          // има създаден профил и иска да велзе в него
           if($dbEmail === $email  &&  $dbPassword === $password){
-            $dbID=$row['id'];
             session_start();
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
@@ -31,16 +34,13 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
             $_SESSION['secName']=$secName;
             $_SESSION['lastName']=$lastName;
             header("Location: Profile.php");
-            $mom = true;
+            exit();
           }
           $int++;
-        }
-        /// Nqma takuv
-        if($mom == false){
-          header("Location: login.html");
         }
 }
 else{
   header("Location: login.html");
+  exit();
 }
 ?>

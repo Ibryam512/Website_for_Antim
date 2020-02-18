@@ -1,4 +1,5 @@
 <?php
+// отваряне на връзката
 function OpenCon()
 {
     $host="localhost";
@@ -8,7 +9,7 @@ function OpenCon()
     $conn=new mysqli($host,$user,$password,$db);
     return $conn;
 }
-
+// приключване на връзката
 function CloseCon($conn)
 {
     $conn -> close();

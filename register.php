@@ -1,16 +1,27 @@
 <?php
+//свързвеаме се с базата данни
 include 'profileCon.php';
 $conn=OpenCon();
+
+//взимаме хешираните данни напортебителя
 $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
 $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
+
+//взимаме именат на потребителя
 $name=$_POST['name'];
 $secName=$_POST['secName'];
 $lastName=$_POST['lastName'];
+
+//проверяваме дали са попълнени полетата
 if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastName)){
+
+    //при евентуална грешка при връзката с базата данни
     if($conn->connect_error){
         die('Conn failed !!!! '.$conn->connect_error);
     }
-    $sql1="SELECT * FROM users";
+
+        //подсигуряваме се дали вече няма създаден профил с този имейл
+        $sql1="SELECT * FROM users";
         $result = $conn->query($sql1);
         $id = 0;
         $mom = false;
@@ -22,9 +33,16 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
           }
           $id++;
         }
+
+
+        // ако не е бил използван този профил
         if($mom == false){
+
+            //добавяме портребитеял в базата данни
             $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
             $result = $conn->query($sql);
+
+
             $emailii=$_POST['email'];
             $passii=$_POST['password'];
             session_start();
@@ -33,11 +51,13 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
             $_SESSION['name']=$name;
             $_SESSION['secName']=$secName;
             $_SESSION['lastName']=$lastName;
+
+            //препращаме потребителя към току-що създаеният му профил
             header("Location: Profile.php");
+            exit();
         }
-     else{
-        header("Location: register.html");
-        
-     }
+        else{
+
+        }
 }
 ?>
