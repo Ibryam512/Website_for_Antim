@@ -23,6 +23,15 @@
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
         </div>
-        
+        <?php
+			include 'connect.php';
+			$conn = OpenCon();
+			$userID = $_GET['userID'];
+			$sql = "SELECT * FROM users WHERE ID=$userID";
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+			echo "";
+			
+		?>
     </body>
 </html>

@@ -41,11 +41,12 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
             //добавяме портребитеял в базата данни
             $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
             $result = $conn->query($sql);
-
+			$id = $conn->insert_id;
 
             $emailii=$_POST['email'];
             $passii=$_POST['password'];
             session_start();
+			$_SESSION['ID'] = $id;
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
             $_SESSION['name']=$name;

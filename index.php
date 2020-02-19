@@ -31,10 +31,14 @@
 		</div>
 		<table style="width:100%">
 			<?php
+				//включваме файлът за връзка с базата данни
 				include 'connect.php';
+				//функция за търсене на постове
 				function Search()
 				{
+					//отваряме връзка
 					$conn = OpenCon();
+					//изпълняваме заявка
 					$search = strtolower($_POST["search"]);
 					$sql = "SELECT * FROM items
 							LEFT JOIN images
@@ -42,6 +46,7 @@
 							WHERE LOWER(title) LIKE '%$search%'";
 					$result = $conn->query($sql);
 					$smth = 0;
+					//извеждаме нужната информация
 					while($row = $result->fetch_assoc())
 					{
 						$title = $row["title"];
@@ -84,16 +89,20 @@
 					}
 					
 				}
+				//функция за извеждане на всички постове
 				function Show()
 				{
+					//отваряме връзка
 					$conn = OpenCon();
+					//изпълняваме заявка
 					$sql = "SELECT * FROM items
 							LEFT JOIN images
 							ON items.imageID = images.ID
-							ORDER BY items.ID DESC;";
+							ORDER BY items.IID DESC;";
 							
 					$result = $conn->query($sql);
 					$smth = 0;
+					//извеждаме нужната информация
 					while($row = $result->fetch_assoc())
 					{
 						$title = $row["title"];
@@ -135,6 +144,7 @@
 						}
 					}
 				}
+				//проверка дали потребителя търси пост
 				if(isset($_POST["submit"]))
 				{
 					Search();

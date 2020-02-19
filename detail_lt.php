@@ -24,16 +24,20 @@
 			</ul>
 		</div>
 		<?php
+			//връзка с базата данни
 			include 'connect.php';
+			//отваряне на връзка
 			$conn = OpenCon();
 			$item = $_GET["item"];
+			//изпълнение на заявка
 			$sql = "SELECT * FROM lthings
 			LEFT JOIN images
 			ON lthings.imageID = images.ID
 			LEFT JOIN users
 			ON lthings.userID = users.name
-			ORDER BY lthings.ID DESC;";
+			ORDER BY lthings.IID DESC;";
 			$result = $conn->query($sql);
+			//извеждане на нужната информация
 			while($row = $result->fetch_assoc())
 			{
 				$title = $row["title"];
@@ -41,7 +45,7 @@
 				$price = $row["price"];
 				$image = $row["image"];
 				$date = $row["date"];
-				$id = $row["ID"];
+				$id = $row["IID"];
 				$name = $row["name"];
 				$secName = $row["secName"];
 				$lastName = $row["lastName"];

@@ -31,23 +31,27 @@
 		</div>
 		<table style="width:100%">
 			<?php
+				//връзка с базата данни
 				include 'connect.php';
 				function Search()
 				{
+					//отваряне на връзка
 					$conn = OpenCon();
 					$search = strtolower($_POST["search"]);
+					//изпълнение на заявка
 					$sql = "SELECT * FROM lthings
 							LEFT JOIN images
 							ON lthings.imageID = images.ID
 							WHERE LOWER(title) LIKE '%$search%'";
 					$result = $conn->query($sql);
 					$smth = 0;
+					//извеждане на нужната информация
 					while($row = $result->fetch_assoc())
 					{
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
-						$id = $row["ID"];
+						$id = $row["IID"];
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
@@ -90,7 +94,7 @@
 					$sql = "SELECT * FROM lthings
 							LEFT JOIN images
 							ON lthings.imageID = images.ID
-							ORDER BY lthings.ID DESC;";
+							ORDER BY lthings.IID DESC;";
 							
 					$result = $conn->query($sql);
 					$smth = 0;
@@ -99,7 +103,7 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
-						$id = $row["ID"];
+						$id = $row["IID"];
 
 						if($smth % 2 == 0)
 						{

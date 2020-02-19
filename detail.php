@@ -24,9 +24,12 @@
 			</ul>
 		</div>
 		<?php
+			//връзка с базата данни
 			include 'connect.php';
+			//отватяме връзка
 			$conn = OpenCon();
 			$item = $_GET["item"];
+			//изпълнение на заявка
 			$sql = "SELECT * FROM items
 			LEFT JOIN images
 			ON items.imageID = images.ID
@@ -34,6 +37,7 @@
 			ON items.userID = users.name
 			ORDER BY items.ID DESC;";
 			$result = $conn->query($sql);
+			//извеждане на нужната информация
 			while($row = $result->fetch_assoc())
 			{
 				$title = $row["title"];
@@ -41,10 +45,11 @@
 				$price = $row["price"];
 				$image = $row["image"];
 				$date = $row["date"];
-				$id = $row["ID"];
+				$id = $row["IID"];
 				$name = $row["name"];
 				$secName = $row["secName"];
 				$lastName = $row["lastName"];
+				$userID = $row["userID"];
 				if($item == $id)
 				{
 					echo "<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
@@ -62,6 +67,7 @@
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Потребител</h4>
 							<p>$name $secName $lastName</p>
+							<a href='Chat.php?userID=$userID'>Пиши на потребител</a>
 							<p>Клас</p>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>

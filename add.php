@@ -5,11 +5,12 @@
 	{
 		$conn = OpenCon();
 		session_start();
-		if(isset($_SESSION['name'])){
-		$name = $_SESSION['name'];
+		if(isset($_SESSION['ID'])){
+		$id = $_SESSION['ID'];
 		}
 		else{
-		$name = "Гост";
+			
+		return;
 		}
 		$image = $_FILES["item_photo"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
@@ -23,13 +24,13 @@
 		{
 			$sql = "INSERT INTO items
 					(title, description, price, date, imageID, userID)
-					VALUES ('$title', '$desc', $price, '$date', $last_id, '$name')";
+					VALUES ('$title', '$desc', $price, '$date', $last_id, '$id')";
 		}
 		else
 		{
 			$sql = "INSERT INTO lthings
 					(title, description, date, imageID, userID)
-					VALUES ('$title', '$desc', '$date', $last_id, '$name')";
+					VALUES ('$title', '$desc', '$date', $last_id, '$id')";
 		}
 		$conn->query($sql);
 		CloseCon($conn);

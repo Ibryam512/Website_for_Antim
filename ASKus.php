@@ -1,4 +1,5 @@
 <?php
+	//изпрашане на имейл
 	$to_email = "bamko2003@gmail.com";
 	$subject = 'Testing PHP Mail';
 	$message = 'email by: '. $_POST["name"]. 'email: '. $_POST["email"]. 'message: '. $_POST["message"];
