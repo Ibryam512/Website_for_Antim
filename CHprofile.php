@@ -126,8 +126,8 @@
 
 					// Format the image SRC:  data:{mime};base64,{data};
 					$img = 'data: '.mime_content_type($image).';base64,'.$imageData;
-					$image=$_FILES['image']['name'];
-					$sql="UPDATE 'users' SET 'pic'='$image' WHERE id=$dbID";
+					
+					$sql="UPDATE 'users' SET 'pic'='$imageData' WHERE id=$dbID";
 					$result=$conn->query($sql);
 					
 					$_SESSION['image']=$img;
