@@ -14,9 +14,10 @@
 		<div id="menu">
 			<div id="menu">
 			<ul>
-				<il id="options"><a href="Profile.html"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
+				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
+				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.html" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
@@ -34,8 +35,8 @@
 			LEFT JOIN images
 			ON items.imageID = images.ID
 			LEFT JOIN users
-			ON items.userID = users.name
-			ORDER BY items.ID DESC;";
+			ON items.userID = users.ID
+			ORDER BY items.IID DESC;";
 			$result = $conn->query($sql);
 			//извеждане на нужната информация
 			while($row = $result->fetch_assoc())
@@ -67,8 +68,11 @@
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Потребител</h4>
 							<p>$name $secName $lastName</p>
-							<a href='Chat.php?userID=$userID'>Пиши на потребител</a>
 							<p>Клас</p>
+							<form  method='post' action='send.php?to=$userID'> 
+								<input style='text-align: center;' placeholder='Съобщение' name='message' class='validate'>
+								<button class='btn waves-effect waves-light' type='submit' name='send'>Прати</button>
+							</form>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Дата</h4>

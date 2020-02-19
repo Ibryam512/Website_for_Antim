@@ -9,8 +9,8 @@
 		$id = $_SESSION['ID'];
 		}
 		else{
-			
-		return;
+			header("Location: login.php");
+			return;
 		}
 		$image = $_FILES["item_photo"]["tmp_name"];
         $imgContent = addslashes(file_get_contents($image));
