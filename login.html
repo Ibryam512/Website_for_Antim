@@ -30,7 +30,7 @@
         <div class="row">
           <p style="text-align: center;" name="error" id="error"></p>
           <div   style="text-align: center;margin-top: 10;">
-            <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action">Напред</button>
+            <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
           </div>
         </div>
         
@@ -38,3 +38,27 @@
     </div>
   </body>
 </html>
+<script>
+$(document).ready(function(){  
+  $('#action').click(function(){ 
+      var password = $('#password').val();
+      var email = $('#email').val();
+   
+   if(password == '')
+       {
+    alert("Моля, напишете паролата си");
+    return false;
+   }
+   else if(pass.length < 6 )
+   {
+    alert("Паролата трябва да е с минимум 6 знака");
+    return false;
+   }
+   if(email == '')
+   {
+    alert("Моля, напишете вашия имейл");
+    return false;
+   }
+  });  
+});  
+</script>

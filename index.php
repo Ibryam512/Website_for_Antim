@@ -17,9 +17,8 @@
 				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
-				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
-				<li id="options"><a href="index.php">Сергия</a></li>
+				<li id="options"><a style="background-color: white;" href="index.php">Сергия</a></li>
 				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.html" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
@@ -53,7 +52,7 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
-						$id = $row["IID"];
+						$id = $row["ID"];
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
@@ -109,7 +108,7 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
-						$id = $row["IID"];
+						$id = $row["ID"];
 						if($smth % 2 == 0)
 						{
 							echo"<tr>

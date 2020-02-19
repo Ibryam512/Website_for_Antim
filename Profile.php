@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <html>
     <head>
 		<meta charset="utf-8">
@@ -17,17 +20,25 @@
 				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
-				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
         </div>
         <div style="text-align: center;">
-            <img style="border-radius: 5000px;" src="Pic/profilePic.png" height="400"width="400">
-            <div>
+        <?php
+            session_start();
+            if(!empty($_SESSION['image'])){
+                $i=$_SESSION['image'];
+                echo"<img style='border-radius: 5000px;' src='$i' height='400'width='400'>";
+            }
+            else{
+                echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
+            }
+        ?>
+        <div>
             <?php
-                  session_start();
+                  
                   if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
                        echo"<div style='text-align: center;'>";
                        echo"<a style='margin-right:1%' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
@@ -35,7 +46,7 @@
                        echo"</div>";
                        exit();
                    }
-                ?>
+            ?>
                 <a href="CHprofile.php"><button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button></a>
             </div>
         </div>
@@ -94,8 +105,8 @@ if(isset($_POST['logout'])){
     unset($_SESSION['name']);
     unset($_SESSION['secName']);
     unset($_SESSION['lastName']);
-   header("Location: index.php");
+    unset($_SESSION['image']);
+   header("Location:Profile.php");
+    ob_enf_fluch();
 }
-        
-
 ?>
