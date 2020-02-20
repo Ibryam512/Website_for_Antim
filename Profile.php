@@ -31,7 +31,8 @@ ob_start();
             session_start();
             if(!empty($_SESSION['image'])){
                 $i=$_SESSION['image'];
-                echo"<img style='border-radius: 5000px;' src='$i' height='400'width='400'>";
+                $l="pic/PROF/".$i;
+                echo"<img style='border-radius: 5000px;' src='$l' height='400'width='400'>";
             }
             else{
                 echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";

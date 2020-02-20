@@ -29,7 +29,8 @@
             session_start();
             if(!empty($_SESSION['image'])){
                 $i=$_SESSION['image'];
-                echo"<img style='border-radius: 5000px;' src='$i' height='400'width='400'>";
+                $l="pic/PROF/".$i;
+                echo"<img style='border-radius: 5000px;' src='$l' height='400'width='400'>";
             }
             else{
                 echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
@@ -68,7 +69,6 @@
 	
 		//ако са кликнали бутона за запазване
 		if(isset($_POST['save'])){
-
 
 			$email=hash('sha256',$_SESSION['email']."Ibrqm,Venci");
 			$password=hash('sha256',$_SESSION['password']."Ibrqmov,Nenov");
@@ -114,30 +114,36 @@
 						header("Location: Profile.php");
 						exit();
 				}
-			}
-			else{
-				//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
-				if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
-					echo"в това за всички сме";
-				}
-				// трябва да сменим само снимката на профила
 				else{
-					// Read image path, convert to base64 encoding
-					$imageData = base64_encode(file_get_contents($image));
-
-					// Format the image SRC:  data:{mime};base64,{data};
-					$img = 'data: '.mime_content_type($image).';base64,'.$imageData;
-					
-					$sql="UPDATE 'users' SET 'pic'='$imageData' WHERE id=$dbID";
-					$result=$conn->query($sql);
-					
-					$_SESSION['image']=$img;
-
-					header("Location: Profile.php");
-					exit();
+					echo"???????";
 				}
-			}	
-		}
+			}
+			//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
+			//сменяме цялата информация за профила
+			else if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
+				$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
+				$result = $conn->query($sql);
+				$_SESSION['email']=$emailii;
+				$_SESSION['password']=$passii;
+				$_SESSION['name']=$name;
+				$_SESSION['secName']=$secName;
+				$_SESSION['lastName']=$lastName;
+				move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+				$Fname=basename('pic/'.$_FILES['photo']['name']);
+				$_SESSION['image']=$Fname;
+				header("Location: Profile.php");
+				exit();
+			}
+			// трябва да сменим само снимката на профила
+			else{
+				move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+				$Fname=basename('pic/'.$_FILES['photo']['name']);
+				$_SESSION['image']=$Fname;
+				header("Location: Profile.php");
+				exit();
+			}
+		}	
+	
 		
 	?>
 	
