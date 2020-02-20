@@ -31,7 +31,6 @@
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 			echo "";
-			
 		?>
     </body>
 </html>
