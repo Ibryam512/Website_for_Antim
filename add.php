@@ -23,7 +23,7 @@
                 	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
             	}
             	else{
-                	echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il>";
             	}
         		?>
 				<li id="options"><a href="team.php">За нас</a></li>
@@ -61,7 +61,7 @@
 							<span>Избери снимкa</span>
 							<input type="file" name="item_photo" id="photoBtn">
 						</div>
-						<div class="file-path-wrapper">
+						<div class="file-path-wrapper" style=>
 							<input class="file-path validate" type="text" placeholder="Снимка">
 						</div>
 					</div>

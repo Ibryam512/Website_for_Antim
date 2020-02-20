@@ -14,7 +14,17 @@
         <div id="menu">
 			<div id="menu">
 			<ul>
-				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
+			<?php
+            	session_start();
+            	if(!empty($_SESSION['image'])){
+                	$i=$_SESSION['image'];
+                	$l="pic/PROF/".$i;
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:white;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
+            	}
+            	else{
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:white;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il>";
+            	}
+        		?> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
 				<li id="options"><a href="messages.php">Съобщения</a></li>
@@ -24,9 +34,9 @@
 			</ul>
 		</div>
 	<form action="" method="POST" enctype="multipart/form-data">
-        <div style="text-align: center;">
+		<div style="text-align: center;">
+			<div>
 			<?php
-            session_start();
             if(!empty($_SESSION['image'])){
                 $i=$_SESSION['image'];
                 $l="pic/PROF/".$i;
@@ -35,25 +45,23 @@
             else{
                 echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
             }
-        	?>
-			<div>
-				<input id="photo" name="photo" type="file">
+			?>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
+			<input type="file" name="photo" id="photo">
+			<div class="row">
+			<div class="input-field col s12" style="background-color: white;">
 			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate">
 			</div>
-			<div class="input-field col s12"> 
+			<div class="input-field col s12" style="background-color: white;"> 
 			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
 			</div>
-			<div  class="input-field col s12">
+			<div  class="input-field col s12" style="background-color: white;">
 			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
 			</div>
-			<div class="input-field col s12">
+			<div class="input-field col s12" style="background-color: white;">
 			  <input placeholder="Парола" name="password" id="password" type="password" class="validate">
 			</div>
-			<div class="input-field col s12">
+			<div class="input-field col s12" style="background-color: white;">
 			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate">
 			</div>
 		  	<div class="input-field col s12" style="text-align: center;margin-top: 10;">	
@@ -129,21 +137,39 @@
 					$_SESSION['name']=$name;
 					$_SESSION['secName']=$secName;
 					$_SESSION['lastName']=$lastName;
-					move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
-					$Fname=basename('pic/'.$_FILES['photo']['name']);
-					$_SESSION['image']=$Fname;
-					header("Location: Profile.php");
-					exit();
+					$type = mime_content_type($image);
+					//проверка типа на файл
+					if ($type == 'image/png' || $type == 'image/jpeg'){
+						move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+						$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
+						$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
+						$conn->query($sql);
+						$_SESSION['image']=$Fname;
+						header("Location: Profile.php");
+						exit();
+					}
+					else{
+						echo"<h1>Избрали сте грешен тип файл!!!</h1>";
+						exit();
+					}
 				}
 				// трябва да сменим само снимката на профила
 				else{
-					move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
-					$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
-					$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
-					$conn->query($sql);
-					$_SESSION['image']=$Fname;
-					header("Location: Profile.php");
-					exit();
+					$type = mime_content_type($image);
+					//проверка типа на файл
+					if ($type == 'image/png' || $type == 'image/jpeg'){
+						move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+						$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
+						$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
+						$conn->query($sql);
+						$_SESSION['image']=$Fname;
+						header("Location: Profile.php");
+						exit();
+					}
+					else{
+						echo"<h1>Избрали сте грешен тип файл!!!</h1>";
+						exit();
+					}
 				}
 			}
 		}	

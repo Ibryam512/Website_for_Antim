@@ -22,16 +22,19 @@
                 	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
             	}
             	else{
-                	echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il>";
             	}
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
-				<li id="options"><a style="background-color: white;" href="questions.html">Въпроси</a></li>
+				<li id="options"><a style="background-color: white;" href="questions.php">Въпроси</a></li>
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
+		</div>
+		<div>
+				<p>За да видите отговорите на самите въпроси цъкнете върху тях</p>
 		</div>
 		<table style="width:100%">
 			<div style="text-align: right; margin-top: 20px;margin-right: 20px;">
@@ -82,7 +85,7 @@
 						<span class="card-title activator grey-text text-darken-4">Как да сменя данните към профила си?</span>
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Цъкнете върху профилната си снимка. Тя ще ви препрати към вашия профил след това трябва да цъкнете сърху бутона с молива и ще ви буде позволено да смените данните към профила си.</span>
+						<span class="card-title grey-text text-darken-4">Цъкнете върху профилната си снимка. Тя ще ви препрати към вашият профил, след това трябва да цъкнете върху бутона с молива и ще ви бъде позволено да смените данните към профила си.</span>
 					</div></td>
 				<td><div id="post" class="card">
 						<div class="card-image waves-effect waves-block waves-light">
@@ -92,8 +95,8 @@
 							<span class="card-title activator grey-text text-darken-4">За кой е предназначен сайта?</span>
 						</div>
 						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Сайта е предназначен за ученици, които искат да да използват някоя от услугите("сергия" или "изгубяни вещи").
-								Сайта също така може да служи за нови запознанства и приятелства в ученици.
+							<span class="card-title grey-text text-darken-4">Сайта е предназначен за ученици, които искат да използват някоя от услугите("Сергия" или "Изгубяни вещи").
+								Сайта също така може да служи за нови запознанства и приятелства в училище.
 							</span>
 						</div></td>
 				<td><div id="post" class="card">
@@ -101,11 +104,11 @@
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
 					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Как да задам май въпрос?<i class="material-icons right">...</i></span>
+						<span class="card-title activator grey-text text-darken-4">Как да задам мой въпрос?<i class="material-icons right">...</i></span>
 						
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Горе в дясно има бутон на който пише "Попитай ни" той ще те препрати към страница чрез която ще можеш да ни изпратиш имайл.</span>
+						<span class="card-title grey-text text-darken-4">Горе в дясно има бутон, на който пише "Попитай ни", той ще те препрати към страница чрез която ще можеш да ни изпратиш имайл.</span>
 						
 					</div></td>
 			</tr>

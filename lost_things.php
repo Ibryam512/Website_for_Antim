@@ -22,7 +22,7 @@
                 	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
             	}
             	else{
-                	echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il>";
             	}
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
@@ -36,7 +36,9 @@
 		</div>
 		<div id="search">
 			<form  method="post" action="lost_things.php"> 
-				<input style="text-align: center;" placeholder="Търси" name="search" class="validate">
+				<div class="input-field col s12 " style="background-color: white;" >
+                  <input style="text-align: center;" placeholder="Търси" name="search" id="search" type="text" class="validate">
+                </div>
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>

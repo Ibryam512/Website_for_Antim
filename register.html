@@ -3,7 +3,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Въпроси</title>
+		<title>Регистрирай се</title>
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
@@ -14,31 +14,34 @@
         <h1 style="text-align:center">Моето училище</h1>
 		<div class="row" style="text-align: center;">
 			<a style='margin-right:10px' href='login.html' class='waves-effect waves-light'>Имате акаунт</a>
-            <form action="register%.php" method="POST" class="col s12">
+            <form  action="register%.php" method="POST" class="col s12">
               <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Първо име" name="name" id="name" type="text" class="validate">
+                <div class="input-field col s12 " style="background-color: white;" >
+                  <input style="text-align: center;" placeholder="Първо име" name="name" id="name" type="text" class="validate">
                 </div>
-                <div class="input-field col s12"> 
-                  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
+                <div class="input-field col s12" style="background-color: white;"> 
+                  <input style="text-align: center;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
                 </div>
-                <div  class="input-field col s12">
-                  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
+                <div  class="input-field col s12" style="background-color: white;">
+                  <input style="text-align: center;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Парола" name="password" id="password" type="password" class="validate">
+                <div class="input-field col s12" style="background-color: white;">
+                  <input style="text-align: center;" placeholder="Парола" name="password" id="password" type="password" class="validate">
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Имейл" name="email" id="email" type="email" class="validate">
+                <div class="input-field col s12" style="background-color: white;"	>
+				  <input style="text-align: center;" placeholder="Имейл" name="email" id="email" type="email" class="validate">
+				<div>
+					<input type="checkbox" id="check" name="check" style="text-align: center;">
+				</div>
                 </div>
               </div>
               <div class="input-field col s12" style="text-align: center;margin-top: 10;">
                 <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
-              </div>
+			  </div>
             </form>
           </div>
     </body>
@@ -53,22 +56,11 @@ $(document).ready(function(){
 		   var email = $('#email').val();
 		   
 		   
-		   if(name == '')
-		   {
-				alert("Моля, напишете имената си");
-				return false;
-				
-		   }
-		   if(secname == '')
+		   if(name == ''||secname == ''||lastname == '')
 		   {
 				alert("Моля, напишете имената си");
 				return false;
 		   }
-		   if(lastname == '')  
-           {  
-                alert("Моля, напишете имената си");
-                return false;  
-           }
 		   if(pass == '')
            {
 				alert("Моля, напишете паролата си");
