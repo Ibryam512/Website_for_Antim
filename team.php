@@ -14,7 +14,17 @@
 		<div id="menu">
 			<div id="menu">
 			<ul>
-				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
+				<?php
+            	session_start();
+            	if(!empty($_SESSION['image'])){
+                	$i=$_SESSION['image'];
+                	$l="pic/PROF/".$i;
+                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
+            	}
+            	else{
+                	echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
+            	}
+        		?> 
 				<li id="options"><a style="background-color: white;" href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
 				<li id="options"><a href="messages.php">Съобщения</a></li>
