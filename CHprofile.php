@@ -77,7 +77,7 @@
         	$sql="SELECT * FROM users";
         	$result = $conn->query($sql);
 			$int = 0;
-			$dbID;
+			$dbID = -1;
         	while($int < $row=$result->num_rows){
           		$row = $result->fetch_assoc();
           		$dbEmail = $row['e-mail'];
@@ -88,59 +88,63 @@
 			  	}
           		$int++;
 			}	
+			//ако сме намерили такъв портебител
+			if($dbID != -1){
 			
-			
-				$emailii=$_POST['email'];
-				$passii=$_POST['password'];
-				$name=$_POST['name'];
-				$secName=$_POST['secName'];
-				$lastName=$_POST['lastName'];
+					$emailii=$_POST['email'];
+					$passii=$_POST['password'];
+					$name=$_POST['name'];
+					$secName=$_POST['secName'];
+					$lastName=$_POST['lastName'];
 
-				// взимаме данните от профилната му снимка
-				$image = $_FILES["photo"]["tmp_name"];
+					// взимаме данните от профилната му снимка
+					$image = $_FILES["photo"]["tmp_name"];
 
-			// ако е избрал снимка 
-			if(empty($image)){
-				//дали са попълнени полетата
-				if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
-						
-						$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
-						$result = $conn->query($sql);
-						$_SESSION['email']=$emailii;
-						$_SESSION['password']=$passii;
-						$_SESSION['name']=$name;
-						$_SESSION['secName']=$secName;
-						$_SESSION['lastName']=$lastName;
-						header("Location: Profile.php");
-						exit();
+				// ако е избрал снимка 
+				if(empty($image)){
+					//дали са попълнени полетата
+					if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
+							
+							$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
+							$result = $conn->query($sql);
+							$_SESSION['email']=$emailii;
+							$_SESSION['password']=$passii;
+							$_SESSION['name']=$name;
+							$_SESSION['secName']=$secName;
+							$_SESSION['lastName']=$lastName;
+							header("Location: Profile.php");
+							exit();
+					}
+					else{
+						echo"???????";
+					}
 				}
+				//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
+				//сменяме цялата информация за профила
+				else if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
+					$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
+					$result = $conn->query($sql);
+					$_SESSION['email']=$emailii;
+					$_SESSION['password']=$passii;
+					$_SESSION['name']=$name;
+					$_SESSION['secName']=$secName;
+					$_SESSION['lastName']=$lastName;
+					move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+					$Fname=basename('pic/'.$_FILES['photo']['name']);
+					$_SESSION['image']=$Fname;
+					header("Location: Profile.php");
+					exit();
+				}
+				// трябва да сменим само снимката на профила
 				else{
-					echo"???????";
+					move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
+					$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
+					$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
+					$conn->query($sql);
+					$_SESSION['image']=$Fname;
+					header("Location: Profile.php");
+					exit();
 				}
-			}
-			//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
-			//сменяме цялата информация за профила
-			else if(!empty($_POST['name'])&&!empty($_POST['secName'])&&!empty($_POST['lastName'])&&!empty($_POST['password'])&&!empty($_POST['email'])){
-				$sql="UPDATE `users` SET `e-mail`='$email',`pass`='$password',`name`='$name',`secName`='$secName',`lastName`='$lastName' WHERE id=$dbID";
-				$result = $conn->query($sql);
-				$_SESSION['email']=$emailii;
-				$_SESSION['password']=$passii;
-				$_SESSION['name']=$name;
-				$_SESSION['secName']=$secName;
-				$_SESSION['lastName']=$lastName;
-				move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
-				$Fname=basename('pic/'.$_FILES['photo']['name']);
-				$_SESSION['image']=$Fname;
-				header("Location: Profile.php");
-				exit();
-			}
-			// трябва да сменим само снимката на профила
-			else{
-				move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
-				$Fname=basename('pic/'.$_FILES['photo']['name']);
-				$_SESSION['image']=$Fname;
-				header("Location: Profile.php");
-				exit();
 			}
 		}	
 	
