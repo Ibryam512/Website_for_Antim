@@ -9,7 +9,7 @@
 		$id = $_SESSION['ID'];
 		}
 		else{
-			
+		header("Location: login.html");
 		return;
 		}
 		$image = $_FILES["item_photo"]["tmp_name"];

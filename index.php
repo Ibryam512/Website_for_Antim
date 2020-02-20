@@ -109,7 +109,7 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
-						$id = $row["ID"];
+						$id = $row["IID"];
 						if($smth % 2 == 0)
 						{
 							echo"<tr>

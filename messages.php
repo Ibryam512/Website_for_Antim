@@ -52,7 +52,7 @@
 				echo "<div class='container'><p>$name</p><span>$message</span><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
 				<input style='text-align: center;' placeholder='Отговор' name='message' class='validate'>
-				<button class='btn waves-effect waves-light' type='submit' name='send'>Прати</button>
+				<button class='btn waves-effect waves-light' type='submit' name='send'>Изпрати</button>
 				</form> <form method='post' action='delete.php?id=$mid'>
 				<button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></form> </div>";
 			}

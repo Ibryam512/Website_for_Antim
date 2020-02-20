@@ -61,9 +61,13 @@
 							<p>$desc</p>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
-							<h4 style='text-align: center;'>Потребител</h4>
-							<p>$name $secName $lastName</p>
-							<p>Клас</p>
+							<h4 style='text-align: center;'>Връзка с потребител</h4>
+							<p>На: $name $secName $lastName</p>
+							<form  method='post' action='send.php?to=$userID'> 
+								<p>Съобщение:</p>
+								<input style='text-align: center;' placeholder='Съобщение' name='message' class='validate'>
+								<button class='btn waves-effect waves-light' type='submit' name='send'>Изпрати</button>
+							</form>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Дата</h4>
