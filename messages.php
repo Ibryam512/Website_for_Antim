@@ -17,16 +17,24 @@
 				<il id="options"><a href="Profile.php"><button style="border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;"><img style="border-radius: 5000px;" src="pic/profilePic.png"height="44" width="44"></button></a></il> 
 				<li id="options"><a href="team.html">За нас</a></li>
 				<li id="options"><a href="questions.html">Въпроси</a></li>
-				<li id="options"><a href="messages.php">Съобщения</a></li>
+				<li id="options"><a style="background-color: white;"href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
         </div>
         <?php
+			//връзка с базата данни
 			include 'connect.php';
 			$conn = OpenCon();
 			session_start();
+			//ако няма влезнал потребител го пренасочва към страницата за вход
+			if(!isset($_SESSION["ID"]))
+			{
+				header("Location: login.html");
+				return;
+			}
+			//заявка
 			$from_id = $_SESSION["ID"];
 			$mname = $_SESSION["name"];
 			$sql = "SELECT * FROM messages
@@ -34,6 +42,7 @@
 							ON messages.from_ID = users.ID
 							WHERE messages.to_ID = $from_id";
 			$result = $conn->query($sql);
+			//извеждане на нужната информация
 			while($row = $result->fetch_assoc())
 			{
 				$id = $row["from_ID"];
