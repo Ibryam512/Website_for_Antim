@@ -43,3 +43,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         }
 }
 ?>
+<script>
+  alert("Грешен имейл или парола!!!");
+  location.replace("login.html");
+</script>

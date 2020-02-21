@@ -112,7 +112,6 @@
 							LEFT JOIN images
 							ON items.imageID = images.ID
 							ORDER BY items.IID DESC;";
-							
 					$result = $conn->query($sql);
 					$smth = 0;
 					//извеждаме нужната информация

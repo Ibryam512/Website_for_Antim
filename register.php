@@ -59,3 +59,7 @@ if(isset($email)&&isset($password)&&isset($name)&&isset($secName)&&isset($lastNa
         }
 }
 ?>
+<script>
+alert("Вече такъв акаунт съществува.");
+location.replace("register.html");
+</script>
