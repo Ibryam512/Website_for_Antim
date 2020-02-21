@@ -96,6 +96,8 @@
 			  	}
           		$int++;
 			}	
+			$email=hash('sha256',$_POST['email']."Ibrqm,Venci");
+			$password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 			//ако сме намерили такъв портебител
 			if($dbID != -1){
 			

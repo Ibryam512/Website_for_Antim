@@ -33,9 +33,6 @@
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
 		</div>
-		<div>
-				<p>За да видите отговорите на самите въпроси цъкнете върху тях</p>
-		</div>
 		<table style="width:100%">
 			<div style="text-align: right; margin-top: 20px;margin-right: 20px;">
 				<a href="ASKus.php"><button style="background-color: steelblue;" type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Попитай ни</button></a>
@@ -62,7 +59,7 @@
 					</div>
 					<div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">
-							"Изгубени вещи" е място, където всеки един човек може да публикува обява, за намерена вещ.
+							"Изгубени вещи" е място, където всеки един човек може да публикува обява за намерена вещ.
 						</span>
 					</div></td>
 				<td><div id="post" class="card">
@@ -73,7 +70,7 @@
 						<span class="card-title activator grey-text text-darken-4">Защо да използваме сайта?</span>
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Тук може да продадете на учениците по-малки от вас вашите учебници, който вече не използвате.Или да продадете униформата, която вече не носите, понеже ви е станала малка.</span>
+						<span class="card-title grey-text text-darken-4">Тук може да продадете на по-малките от вас ученици вашите учебници, които вече не използвате.Също така да продадете униформата, която вече не носите, понеже ви е станала малка.</span>
 					</div></td>
 			</tr>
 			<tr>
@@ -85,18 +82,18 @@
 						<span class="card-title activator grey-text text-darken-4">Как да сменя данните към профила си?</span>
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Цъкнете върху профилната си снимка. Тя ще ви препрати към вашият профил, след това трябва да цъкнете върху бутона с молива и ще ви бъде позволено да смените данните към профила си.</span>
+						<span class="card-title grey-text text-darken-4">Цъкнете върху профилната си снимка. Тя ще ви препрати към вашия профил, след това трябва да цъкнете върху бутона с молива и ще ви бъде позволено да смените данните.</span>
 					</div></td>
 				<td><div id="post" class="card">
 						<div class="card-image waves-effect waves-block waves-light">
 							<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 						</div>
 						<div class="card-content">
-							<span class="card-title activator grey-text text-darken-4">За кой е предназначен сайта?</span>
+							<span class="card-title activator grey-text text-darken-4">За кого е предназначен сайтът?</span>
 						</div>
 						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Сайта е предназначен за ученици, които искат да използват някоя от услугите("Сергия" или "Изгубяни вещи").
-								Сайта също така може да служи за нови запознанства и приятелства в училище.
+							<span class="card-title grey-text text-darken-4">Сайтът е предназначен за ученици, които искат да използват някоя от услугите("Сергия" или "Изгубени вещи").
+								Той също така може да служи за нови запознанства и приятелства в училище.
 							</span>
 						</div></td>
 				<td><div id="post" class="card">
@@ -108,7 +105,7 @@
 						
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Горе в дясно има бутон, на който пише "Попитай ни", той ще те препрати към страница чрез която ще можеш да ни изпратиш имайл.</span>
+						<span class="card-title grey-text text-darken-4">Горе в дясно има бутон, на който пише "Попитай ни". Той ще ви препрати към страница, чрез която ще можете да ни изпратите имейл.</span>
 						
 					</div></td>
 			</tr>

@@ -36,7 +36,7 @@
 		</div>
 		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
 			<div class="row">
-				<form class="col s12" id="form" action="ASKus%.php" method="post" enctype='multipart/form-data'>
+				<form class="col s12" id="form" action="ASKus.php" method="post" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
 						<input id="name" type="text" class="validate" name="name"id="title">
@@ -62,3 +62,15 @@
 		</div>
 	</body>
 </html>
+<?php
+if(isset($_POST['action'])){
+	//изпрашане на имейл
+	$to_email = "bamko2003@gmail.com";
+	$subject = 'Testing PHP Mail';
+	$message = 'email by: '. $_POST["name"]. 'email: '. $_POST["email"]. 'message: '. $_POST["message"];
+	$headers = 'From: noreply @ company . com';
+	mail($to_email,$subject,$message,$headers);
+	header("Location: questions.php");
+}
+
+?>
