@@ -37,7 +37,7 @@
 			//връзка с базата данни
 			include 'connect.php';
 			$conn = OpenCon();
-			session_start();
+			// session_start();
 			//ако няма влезнал потребител го пренасочва към страницата за вход
 			if(!isset($_SESSION["ID"]))
 			{

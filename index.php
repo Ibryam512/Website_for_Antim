@@ -30,7 +30,7 @@
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a style="background-color: white;" href="index.php">Сергия</a></li>
-				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
+				<li id="options" title="Добави"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
 		</div>
@@ -71,11 +71,10 @@
 							echo"<tr>
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+										<a href='detail.php?item=$id' title='пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -87,11 +86,10 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -126,11 +124,10 @@
 							echo"<tr>
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -142,11 +139,10 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' />
+										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><a href='detail.php?item=$id'>Пълен размер</a></p>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
