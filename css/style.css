@@ -1,7 +1,9 @@
 body {
 	background-repeat: repeat-y; 
 	background-size: auto;
-	background-image: url("background.png");
+	background-image: url("background.jpg");
+	background: rgb(136,234,189);
+	background: linear-gradient(0deg, rgba(136,234,189,1) 0%, rgba(6,159,78,1) 50%, rgba(2,82,34,1) 100%);
 }
 	
 ul {

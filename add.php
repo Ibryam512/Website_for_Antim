@@ -183,17 +183,21 @@ $(document).ready(function(){
 				$sql = "INSERT INTO items
 						(title, description, price, date, imageID, userID)
 						VALUES ('$title', '$desc', $price, '$date', $last_id, '$id')";
+						$conn->query($sql);
+						CloseCon($conn);
+						header("Location: index.php");
+						ob_enf_fluch();
 			}
 			else
 			{
 				$sql = "INSERT INTO lthings
 						(title, description, date, imageID, userID)
 						VALUES ('$title', '$desc', '$date', $last_id, '$id')";
+						$conn->query($sql);
+						CloseCon($conn);
+						header("Location: lost_things.php");
+						ob_enf_fluch();
 			}
-			$conn->query($sql);
-			CloseCon($conn);
-			header("Location: index.php");
-			ob_enf_fluch();
 		}
 	}
 	if(isset($_POST['action'])){

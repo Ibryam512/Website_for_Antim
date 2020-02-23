@@ -53,18 +53,20 @@
 			{
 				$title = $row["title"];
 				$desc = $row["description"];
-				$price = $row["price"];
 				$image = $row["image"];
 				$date = $row["date"];
 				$id = $row["IID"];
 				$name = $row["name"];
 				$secName = $row["secName"];
 				$lastName = $row["lastName"];
+				$userID = $row["userID"];
 				if($item == $id)
 				{
 					echo "<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h3 style='text-align: center;'>$title</h3>
-							<img src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
+							<div style='text-align: center;' >
+							<img style='object-fit:cover;' src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
+							</div>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Описание</h4>

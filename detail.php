@@ -65,7 +65,9 @@
 				{
 					echo "<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h3 style='text-align: center;'>$title</h3>
-							<img src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
+							<div style='text-align: center;' >
+							<img style='object-fit:cover;' src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
+							</div>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h4 style='text-align: center;'>Описание</h4>

@@ -68,10 +68,10 @@
 						$id = $row["ID"];
 						if($smth % 2 == 0)
 						{
-							echo"<tr>
+							echo"<tr >
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
@@ -86,7 +86,7 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
@@ -124,7 +124,7 @@
 							echo"<tr>
 									<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
@@ -139,7 +139,7 @@
 						{
 							echo"	<td><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img src='data:image/jpeg;base64,".base64_encode($image)."' height='100' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
