@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Добавяне на обява</title>
+		<title>Попитай ни</title>
+		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
@@ -31,7 +32,7 @@
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
-				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
+				<li id="image"><img src="pic/LOGO.png" height="45" width="90"></li>
 			</ul>
 		</div>
 		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">

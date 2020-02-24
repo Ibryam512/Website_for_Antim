@@ -3,14 +3,17 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Антималник</title>
+		<title>Сергия</title>
+		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
 	</head>
-	<body>
+	<body style="background: rgb(0,52,28);
+			background: linear-gradient(0deg, rgba(0,52,28,1) 0%, rgba(0,116,63,1) 50%, rgba(141,240,194,1) 90%);margin-bottom:50px">
+		
 		<div id="menu">
 			<div id="menu">
 			<ul>
@@ -42,7 +45,7 @@
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
-		<table style="width:100%">
+		<table width="100%" height="100%">
 			<?php
 				//включваме файлът за връзка с базата данни
 				include 'connect.php';
@@ -74,7 +77,7 @@
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<span  class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -122,11 +125,11 @@
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td><div id='post' class='card'>
+									<td><div id='post' class='card' >
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
-									<div class='card-content'>
+									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>
@@ -141,7 +144,7 @@
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
-									<div class='card-content'>
+									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>

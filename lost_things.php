@@ -4,13 +4,15 @@
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
 		<title>Изгубени вещи</title>
+		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
 	</head>
-	<body>
+	<body style="background: rgb(0,52,28);
+			background: linear-gradient(0deg, rgba(0,52,28,1) 0%, rgba(0,116,63,1) 50%, rgba(141,240,194,1) 90%);margin-bottom:50px">
 		<div id="menu">
 			<div id="menu">
 			<ul>

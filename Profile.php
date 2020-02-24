@@ -6,7 +6,8 @@ ob_start();
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Антималник</title>
+        <title>Antimalnik</title>
+        <link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
@@ -33,7 +34,7 @@ ob_start();
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
-				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
+				<li id="image"><img src="pic/LOGO.png" height="45" width="90"></li>
 			</ul>
         </div>
         <div style="text-align: center;">

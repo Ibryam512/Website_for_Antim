@@ -3,7 +3,8 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Въпроси</title>
+		<title>Antimalnik</title>
+		<link rel="icon" href="pic/LOGO.png" >
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<script src="js/jquery.js"></script>
@@ -30,10 +31,13 @@
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
-				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
+				<li id="image"><img src="pic/LOGO.png" height="45" width="90"></li>
 			</ul>
 		</div>
-		<div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: 10%">
+		<div style="text-align: center;" >
+		<img src="pic/LOGO.png"style="max-height:300;">
+		</div>
+		<div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: %">
 			<h4 style="text-align: center;">За нас</h4>
 			<p>Ние сме ученици, които желаят да подобрят както средата на обучение, така и самия начин на 
 				учене. Ние създадохме тази платформа с цел улесняване на учениците при намиране на учебници 
