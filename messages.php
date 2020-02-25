@@ -73,9 +73,12 @@
     </body>
 </html>
 <script>
+//създаване на филтър със забранени думи
 $(document).ready(function(){  
       $('#send').click(function(){  
+	  //взимаме съобщението
 		   var message = $('#message').val();
+		   //забранените думи
 		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси"];
 		   if(message == '')
 		   {

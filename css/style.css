@@ -1,6 +1,7 @@
 body {
 	background-size: auto;
 	background-image: url("background.png");
+	background-attachment: fixed;
 }
 	
 ul {

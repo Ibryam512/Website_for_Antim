@@ -11,8 +11,7 @@
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
 	</head>
-	<body style="background: rgb(0,52,28);
-			background: linear-gradient(0deg, rgba(0,52,28,1) 0%, rgba(0,116,63,1) 50%, rgba(141,240,194,1) 90%);margin-bottom:50px">
+	<body>
 		<div id="menu">
 			<div id="menu">
 			<ul>
