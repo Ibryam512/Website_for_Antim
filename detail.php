@@ -83,8 +83,8 @@
 							<p>На: $name $secName $lastName</p>
 							<form  method='post' action='send.php?to=$userID'> 
 								<p>Съобщение:</p>
-								<input style='text-align: center;' placeholder='Съобщение' name='message' class='validate'>
-								<button class='btn waves-effect waves-light' type='submit' name='send'>Изпрати</button>
+								<input style='text-align: center;' placeholder='Съобщение' name='message' id='message' class='validate'>
+								<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
 							</form>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
@@ -98,3 +98,26 @@
 		?>
 	</body>
 </html>
+<script>
+$(document).ready(function(){  
+      $('#send').click(function(){  
+		   var message = $('#message').val();
+		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси"];
+		   if(message == '')
+		   {
+				alert("Полето за съобщение е празно");
+				return false;
+		   }
+		   for(var i = 0; i < filter.length; i++)
+		   {
+			   if(message.includes(filter[i]))
+			   {
+				   alert("Полето за съобщение съдържа обидни думи или фрази");
+				   return false;
+				   break;
+			   }
+		   }
+      });  
+ });  
+
+</script>

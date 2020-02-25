@@ -62,8 +62,8 @@
 				$mid = $row["MID"];
 				echo "<div class='container'><p>$name</p><span>$message</span><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
-				<input style='text-align: center;' placeholder='Отговор' name='message' class='validate'>
-				<button class='btn waves-effect waves-light' type='submit' name='send'>Изпрати</button>
+				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate'>
+				<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
 				</form> <form method='post' action='delete.php?id=$mid'>
 				<button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></form> </div>";
 			}
@@ -72,3 +72,26 @@
 
     </body>
 </html>
+<script>
+$(document).ready(function(){  
+      $('#send').click(function(){  
+		   var message = $('#message').val();
+		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси"];
+		   if(message == '')
+		   {
+				alert("Полето за съобщение е празно");
+				return false;
+		   }
+		   for(var i = 0; i < filter.length; i++)
+		   {
+			   if(message.includes(filter[i]))
+			   {
+				   alert("Полето за съобщение съдържа обидни думи или фрази");
+				   return false;
+				   break;
+			   }
+		   }
+      });  
+ });  
+
+</script>
