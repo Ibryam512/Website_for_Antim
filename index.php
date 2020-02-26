@@ -77,7 +77,7 @@
 						if($smth % 2 == 0)
 						{
 							echo"<tr >
-									<td><div id='post' class='card'>
+									<td width="50%"><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -92,7 +92,7 @@
 						}
 						else
 						{
-							echo"	<td><div id='post' class='card'>
+							echo"	<td width="50%"><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -130,7 +130,7 @@
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td><div id='post' class='card' >
+									<td width="50%"><div id='post' class='card' >
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -145,7 +145,7 @@
 						}
 						else
 						{
-							echo"	<td><div id='post' class='card'>
+							echo"	<td width="50%"><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
