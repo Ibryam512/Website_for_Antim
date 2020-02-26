@@ -16,17 +16,22 @@
 		<div id="menu">
 			<div id="menu">
 			<ul>
-				<?php
+				<ul id="dropdown1" class="dropdown-content">
+					<li><a href="Profile.php">Профил</a></li>
+					<li class="divider"></li>
+					<li><a href="#!">Мои обяви</a></li>
+				</ul>
+			<?php
             	session_start();
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il> ";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo"<il id='options'><a href='Profile.php'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
-        		?>
+        		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
 				<li id="options"><a href="questions.php">Въпроси</a></li>
 				<li id="options"><a href="messages.php">Съобщения</a></li>

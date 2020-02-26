@@ -25,7 +25,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
           $name = $row['name'];
           $secName=$row['secName'];
           $lastName=$row['lastName'];
-		      $id = $row['id'];
+		      $id = $row['ID'];
           // има създаден профил и иска да велзе в него
           if($dbEmail === $email  &&  $dbPassword === $password){
             session_start();
