@@ -1,4 +1,5 @@
 <?php
+	//изтриване на собствена обява
 	include "connect.php";
 	$conn = OpenCon();
 	$id = $_GET["id"];

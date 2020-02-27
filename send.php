@@ -1,4 +1,5 @@
 <?php
+	//връзка с базата данни
 	include "connect.php";
 	$conn = OpenCon();
 	$to_id = $_GET["to"];
@@ -9,6 +10,7 @@
 		header("Location: login.html");
 		return;
 	}
+	//изпращане на съобщение
 	$from_id = $_SESSION["ID"];
 	$sql = "INSERT INTO messages (from_ID, to_ID, message) VALUES ($from_id, $to_id, '$message')";
 	$conn->query($sql);
