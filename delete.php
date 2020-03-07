@@ -4,5 +4,5 @@
 	$mid = $_GET["id"];
 	$sql = "DELETE FROM `messages` WHERE MID = $mid";
 	$conn->query($sql);
-	header("Location: index.php");
+	header("Location: messages.php");
 ?>

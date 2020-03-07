@@ -1,5 +1,14 @@
 <?php
+session_start();
 ob_start();
+if(isset($_SESSION['ID'])){
+		$id = $_SESSION['ID'];
+		}
+		else{
+		header("Location: login.php");
+		ob_enf_fluch();
+		return;
+		}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,17 +31,21 @@ ob_start();
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Мои обяви</a></li>
+					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+            	if(!isset($_SESSION["ID"]))
+	            {
+	             	header("Location: login.php");
+	            	return;
+	            }
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
@@ -48,13 +61,13 @@ ob_start();
 				<form class="col s12" id="form" action="" method="post" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="title" type="text" class="validate" name="title"id="title">
+						<input placeholder="До 100 символа" id="title" type="text" class="validate" name="title"id="title">
 						<label for="title">Заглавие</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="details" type="text" class="validate" name="desc">
+						<input placeholder="До 400 символа" id="details" type="text" class="validate" name="desc">
 						<label for="details">Описание</label>
 					</div>
 				</div>
@@ -118,9 +131,17 @@ $(document).ready(function(){
 				return false;
 				
 		   }
+		   else if(title.length > 100){
+		       alert("Моля, изберете по-кратко заглавие");
+				return false;
+		   }
 		   if(desc == '')
 		   {
 				alert("Моля, сложете описание");
+				return false;
+		   }
+		   else if(desc.length > 400){
+		       alert("Моля, напишете по=кратко описание");
 				return false;
 		   }
 		   if(image_name == '')  
@@ -171,7 +192,8 @@ $(document).ready(function(){
 		$id = $_SESSION['ID'];
 		}
 		else{
-		header("Location: login.html");
+		header("Location: login.php");
+		ob_enf_fluch();
 		return;
 		}
 		$image = $_FILES["item_photo"]["tmp_name"];

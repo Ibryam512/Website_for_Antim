@@ -3,9 +3,9 @@
 function OpenCon()
 {
     $host="localhost";
-    $user="root";
-    $password="";
-    $db="website_for_antim";
+    $user="id12716257_website_for_antim";
+    $password="123123";
+    $db="id12716257_website_for_antim";
     $conn=new mysqli($host,$user,$password,$db);
     return $conn;
 }

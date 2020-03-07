@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -21,14 +24,14 @@
 					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+            	
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?> 
 				
@@ -44,7 +47,7 @@
 		</div>
 		<div id="search">
 			<form  method="post" action="index.php"> 
-				<div class="input-field col s12 " style="background-color: white;" >
+				<div class="input-field col s12 " style="background-color: white;">
                   <input style="text-align: center;" placeholder="Търси" name="search" id="search" type="text" class="validate">
                 </div>
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
@@ -73,31 +76,29 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
+						$price=$row['price'];
 						$id = $row["IID"];
 						if($smth % 2 == 0)
 						{
-							echo"<tr >
-									<td width="50%"><div id='post' class='card'>
+							echo"<tr>
+									<td width='50%'><div id='post' class='card' >
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
-										<span  class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
 									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td>";
+									</td>";
 							$smth++;		
 						}
 						else
 						{
-							echo"	<td width="50%"><div id='post' class='card'>
+							echo"<td width='50%'><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -106,7 +107,13 @@
 							$smth++;
 						}
 					}
-					
+					if($smth == 1){
+					    echo"<td width='50%'></td>";
+					}
+					else
+					{
+					    echo"Няма намерени резултати";
+					}
 				}
 				//функция за извеждане на всички постове
 				function Show()
@@ -126,16 +133,17 @@
 						$title = $row["title"];
 						$desc = $row["description"];
 						$image = $row["image"];
+						$price=$row['price'];
 						$id = $row["IID"];
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td width="50%"><div id='post' class='card' >
+									<td width='50%'><div id='post' class='card' >
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -145,12 +153,12 @@
 						}
 						else
 						{
-							echo"	<td width="50%"><div id='post' class='card'>
+							echo"	<td width='50%'><div id='post' class='card'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>

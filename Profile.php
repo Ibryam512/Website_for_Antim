@@ -1,4 +1,5 @@
 <?php
+session_start();
 ob_start();
 ?>
 <html>
@@ -21,17 +22,18 @@ ob_start();
             <ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Мои обяви</a></li>
+					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+            	
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	//echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='my_items.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo"<li id='options'><a href='my_items.php'>Моите обяви</a></li>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	//echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='my_items.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
@@ -58,8 +60,8 @@ ob_start();
                   
                   if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
                        echo"<div style='text-align: center;'>";
-                       echo"<a style='margin-right:1%' href='login.html' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
-                       echo"<a style='margin-left:1%' href='register.html' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
+                       echo"<a style='margin-right:1%' href='login.php' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
+                       echo"<a style='margin-left:1%' href='register.php' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
                        echo"</div>";
                        exit();
                    }
@@ -117,13 +119,14 @@ ob_start();
 </html>
 <?php
 if(isset($_POST['logout'])){
+    unset($_SESSION['ID']);
     unset($_SESSION['email']);
     unset($_SESSION['password']);
     unset($_SESSION['name']);
     unset($_SESSION['secName']);
     unset($_SESSION['lastName']);
     unset($_SESSION['image']);
-   header("Location:Profile.php");
+    header("Location:Profile.php");
     ob_enf_fluch();
 }
 ?>

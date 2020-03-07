@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -18,17 +21,17 @@
 				<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Мои обяви</a></li>
+					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+            	
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?>  
 				<li id="options"><a href="team.php">За нас</a></li>

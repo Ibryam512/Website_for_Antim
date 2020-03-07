@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start();
+?>
 <html>
     <head>
 		<meta charset="utf-8">
@@ -18,21 +22,25 @@
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Мои обяви</a></li>
+					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+			if(!isset($_SESSION["ID"]))
+	        {
+	        	header("Location: login.php");
+	        	return;
+	        }
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?> 
-				<li id="options"><a href="team.html">За нас</a></li>
-				<li id="options"><a href="questions.html">Въпроси</a></li>
+				<li id="options"><a href="team.php">За нас</a></li>
+				<li id="options"><a href="questions.php">Въпроси</a></li>
 				<li id="options"><a href="messages.php">Съобщения</a></li>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
@@ -55,22 +63,22 @@
 			</div>
 			<input type="file" name="photo" id="photo">
 			<div class="row">
-			<div class="input-field col s12" style="background-color: white;">
+			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
 			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate">
 			</div>
-			<div class="input-field col s12" style="background-color: white;"> 
+			<div class="input-field col s6" style="background-color: white;margin-left: 25%;"> 
 			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
 			</div>
-			<div  class="input-field col s12" style="background-color: white;">
+			<div  class="input-field col s6" style="background-color: white;margin-left: 25%;">
 			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
 			</div>
-			<div class="input-field col s12" style="background-color: white;">
+			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
 			  <input placeholder="Парола" name="password" id="password" type="password" class="validate">
 			</div>
-			<div class="input-field col s12" style="background-color: white;">
+			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
 			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate">
 			</div>
-		  	<div class="input-field col s12" style="text-align: center;margin-top: 10;">	
+		  	<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
 			<button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
 		  	</div>
 		</div>
@@ -129,10 +137,11 @@
 							$_SESSION['secName']=$secName;
 							$_SESSION['lastName']=$lastName;
 							header("Location: Profile.php");
+							ob_enf_fluch();
 							exit();
 					}
 					else{
-						echo"???????";
+						echo"Няма промени";
 					}
 				}
 				//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
@@ -154,6 +163,7 @@
 						$conn->query($sql);
 						$_SESSION['image']=$Fname;
 						header("Location: Profile.php");
+						ob_enf_fluch();
 						exit();
 					}
 					else{
@@ -172,6 +182,7 @@
 						$conn->query($sql);
 						$_SESSION['image']=$Fname;
 						header("Location: Profile.php");
+						ob_enf_fluch();
 						exit();
 					}
 					else{

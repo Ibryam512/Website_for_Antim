@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -18,17 +21,21 @@
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Мои обяви</a></li>
+					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 			<?php
-            	session_start();
+            	if(!isset($_SESSION["ID"]))
+            	{
+	            	header("Location: login.php");
+	            	return;
+            	}
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='my_items.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='#!' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='my_items.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
             	}
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
@@ -54,9 +61,11 @@
 			ON lthings.userID = users.ID
 			ORDER BY lthings.IID DESC;";
 			$result = $conn->query($sql);
+			$ho=0;
 			//извеждане на нужната информация
 			while($row = $result->fetch_assoc())
 			{
+			    $ho=1;
 				$title = $row["title"];
 				$desc = $row["description"];
 				$image = $row["image"];
@@ -71,7 +80,7 @@
 					echo "<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
 							<h3 style='text-align: center;'>$title</h3>
 							<div style='text-align: center;' >
-							<img style='object-fit:cover;' src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
+							<img style='object-fit:contain;max-height:500;max-width:100%' src='data:image/jpeg;base64,".base64_encode($image)."' height='500' width='980' class='img-thumnail' />
 							</div>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>
@@ -94,7 +103,9 @@
 						break;
 				}
 			}
-			
+			if($ho == 0){
+			    echo"<p style='text-align: center;'>Възникна проблем</p>";
+			}
 		?>
 	</body>
 </html>
