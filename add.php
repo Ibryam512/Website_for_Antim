@@ -204,8 +204,9 @@ $(document).ready(function(){
 			$sql = "INSERT INTO images (image) VALUES ('$imgContent')";
 			$conn->query($sql);
 			$last_id = $conn->insert_id;
-			$title = $title;
-			$desc = $desc;
+			$title = mysqli_real_escape_string($conn,$title);
+			$desc = mysqli_real_escape_string($conn,$desc);
+			$date=mysqli_real_escape_string($conn,$date);
 			if($type == "Обява")
 			{
 				$sql = "INSERT INTO items

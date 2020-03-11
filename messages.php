@@ -91,21 +91,26 @@ $(document).ready(function(){
       $('#send').click(function(){  
 	  //взимаме съобщението
 		   var message = $('#message').val();
+		   
 		   //забранените думи
-		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси"];
+		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "ебаси",
+		   "GEY", "GEI", "BASI", "GEQ", "EBASI", "EBA", "PEDAL", "PEDERAS", "PEDERAST", "KURVA", "KURWA", "PISHKA", "KUR", "KOR", "ГЕЙ", "ПЕДАЛ", "ПЕДЕРАС", "ПЕДЕРАСТ", "КУРВА", "ПИШКА", "КУР", "КОР", "ЕБА", "ЕБАСИ"];
 		   if(message == '')
 		   {
 				alert("Полето за съобщение е празно");
 				return false;
 		   }
-		   for(var i = 0; i < filter.length; i++)
+		   else
 		   {
-			   if(message.includes(filter[i]))
-			   {
-				   alert("Полето за съобщение съдържа обидни думи или фрази");
-				   return false;
-				   break;
-			   }
+    		   for(var i = 0; i < filter.length; i++)
+    		   {
+    			   if(message.includes(filter[i]))
+    			   {
+    				   alert("Полето за съобщение съдържа обидни думи или фрази");
+    				   return false;
+    				   break;
+    			   }
+    		   }
 		   }
       });  
  });  

@@ -1,9 +1,15 @@
 <?php
+    session_start();
 	include "connect.php";
 	$conn = OpenCon();
-	$to_id = $_GET["to"];
-	$message = $_POST["message"];
-	session_start();
+	$to_id =  $_GET["to"];
+	$from_id = $_SESSION["ID"];
+	if($to_id === $from_id){
+	    header("Location: index.php");
+	    return;
+	}
+	$message =  mysqli_real_escape_string($conn,$_POST["message"]);
+	
 	if(!isset($_SESSION["ID"]))
 	{
 		header("Location: login.php");
@@ -13,7 +19,7 @@
 	{
 	    exit;
 	}
-	$from_id = $_SESSION["ID"];
+	
 	$sql = "INSERT INTO messages (from_ID, to_ID, message) VALUES ($from_id, $to_id, '$message')";
 	$conn->query($sql);
 	header("Location: messages.php");

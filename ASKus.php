@@ -54,13 +54,13 @@ ob_start();
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="email" type="text" class="validate" name="email"id="title">
+						<input id="email" type="text" class="validate" name="email">
 						<label for="email">Имейл</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="message" type="text" class="validate" name="message">
+						<input id="message" type="text" class="validate" name="message" placeholder="До 500 символа">
 						<label for="message">Въпрос</label>
 					</div>
 				</div>
@@ -70,18 +70,21 @@ ob_start();
 		</div>
 	</body>
 </html>
-
 <script>
+$(document).ready(function(){  
+      $('#action').click(function(){  
     var name=$('#name').val();
     var email = $('#email').val();
     var mess=$('#message').val();
+   
+   if(name == '')
+   {
+        alert("Моля, напишете името си");
+        return false;
+   }
    if(email == '')
    {
-    alert("Моля, напишете вашия имейл");
-    return false;
-   }
-   if(name == ''){
-       alert("Моля, напишете вашия името си");
+        alert("Моля, напишете вашия имейл");
         return false;
    }
    if(mess == '')
@@ -89,8 +92,15 @@ ob_start();
        alert("Моля, напишете съобщение");
         return false;
    }
+   else if (mess.length > 500)
+   {
+       alert("Моля, напишете по-кратко съобщение");
+        return false;
+   }
+  }); 
+ });  
+   
 </script>
-
 <?php
 if(isset($_POST['name'])&&isset($_POST['email'])&&isset($_POST['message'])){
     if(isset($_POST['action'])){

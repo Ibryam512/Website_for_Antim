@@ -73,9 +73,9 @@ if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&iss
         $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
 
         //взимаме именат на потребителя
-        $name=$_POST['name'];
-        $secName=$_POST['secName'];
-        $lastName=$_POST['lastName'];
+        $name= mysqli_real_escape_string($conn,$_POST['name']);
+        $secName=mysqli_real_escape_string($conn,$_POST['secName']);
+        $lastName=mysqli_real_escape_string($conn,$_POST['lastName']);
 
 
         //подсигуряваме се дали вече няма създаден профил с този имейл
@@ -105,9 +105,9 @@ if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&iss
 			$_SESSION['ID'] = $id;
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
-            $_SESSION['name']=$name;
-            $_SESSION['secName']=$secName;
-            $_SESSION['lastName']=$lastName;
+            $_SESSION['name']=mysqli_real_escape_string($conn,$name);
+            $_SESSION['secName']=mysqli_real_escape_string($conn,$secName);
+            $_SESSION['lastName']=mysqli_real_escape_string($conn,$lastName);
 
             //препращаме потребителя към току-що създаеният му профил
             header("Location: Profile.php");

@@ -51,7 +51,7 @@ session_start();
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
-		<table width="100%"">
+		<table width="100%">
 			<?php
 				//връзка с базата данни
 				include 'connect.php';
@@ -59,7 +59,23 @@ session_start();
 				{
 					//отваряне на връзка
 					$conn = OpenCon();
-					$search = strtolower($_POST["search"]);
+					if(isset($_POST["search"])){
+					    //само някой ще се покажат
+					    $search = strtolower($_POST["search"]);
+					    $F="'%";
+					    $E="%'";
+					    $pos=strpos($search,$F);
+					    $pos2=strpos($search,$E);
+					    if($pos !== false || $pos2 !== false)
+					    {
+					        echo"Няма намерени резултати";
+					        return;
+					    }
+					}
+					else{
+					    //всички ще се покажат
+					    $search = "";
+					}
 					//изпълнение на заявка
 					$sql = "SELECT * FROM lthings
 							LEFT JOIN images
@@ -77,7 +93,7 @@ session_start();
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td width='50%'><div id='post' class='card'>
+									<td width='50%'><div id='post' class='card' style='max-width:700;'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -92,7 +108,7 @@ session_start();
 						}
 						else
 						{
-							echo"	<td width='50%'><div id='post' class='card'>
+							echo"	<td width='50%'><div id='post' class='card' style='max-width:700;'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -109,70 +125,13 @@ session_start();
 					if($smth == 1){
 					    echo"<td width='50%'></td>";
 					}
-					else
+					else if($smth==0)
 					{
 					    echo"Няма намерени резултати";
 					}
 					
 				}
-				function Show()
-				{
-					$conn = OpenCon();
-					$sql = "SELECT * FROM lthings
-							LEFT JOIN images
-							ON lthings.imageID = images.ID
-							ORDER BY lthings.IID DESC;";
-							
-					$result = $conn->query($sql);
-					$smth = 0;
-					while($row = $result->fetch_assoc())
-					{
-						$title = $row["title"];
-						$desc = $row["description"];
-						$image = $row["image"];
-						$id = $row["IID"];
-
-						if($smth % 2 == 0)
-						{
-							echo"<tr>
-									<td width='50%' ><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td>";
-							$smth++;		
-						}
-						else
-						{
-							echo"	<td width='50%' ><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
-					}
-				}
-				if(isset($_POST["submit"]))
-				{
-					Search();
-				}
-				else
-				{
-					Show();
-				}
+				Search();
 			?>
 		</table>
 	</body>

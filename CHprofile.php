@@ -28,6 +28,7 @@ ob_start();
 			if(!isset($_SESSION["ID"]))
 	        {
 	        	header("Location: login.php");
+	        	ob_enf_fluch();
 	        	return;
 	        }
             	if(!empty($_SESSION['image'])){
@@ -49,6 +50,7 @@ ob_start();
 		</div>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div style="text-align: center;">
+		    
 			<div>
 			<?php
             if(!empty($_SESSION['image'])){
@@ -59,28 +61,36 @@ ob_start();
             else{
                 echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
             }
-			?>
-			</div>
+            
+            $name = $_SESSION['name'];
+            $secName = $_SESSION['secName'];
+            $lastName=$_SESSION['lastName'];
+            $pass=$_SESSION['password'];
+            $email=$_SESSION['email'];
+            
+            echo'</div>
 			<input type="file" name="photo" id="photo">
 			<div class="row">
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate">
+			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;"> 
-			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
+			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
 			</div>
 			<div  class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
+			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Парола" name="password" id="password" type="password" class="validate">
+			  <input placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate">
+			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
 			</div>
 		  	<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
 			<button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
-		  	</div>
+		  	</div>';
+		  	
+			?>
 		</div>
 	</form>
 	</html>
@@ -120,7 +130,6 @@ ob_start();
 					$name=$_POST['name'];
 					$secName=$_POST['secName'];
 					$lastName=$_POST['lastName'];
-
 					// взимаме данните от профилната му снимка
 					$image = $_FILES["photo"]["tmp_name"];
 

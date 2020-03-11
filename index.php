@@ -62,121 +62,81 @@ session_start();
 				{
 					//отваряме връзка
 					$conn = OpenCon();
+					//прожеряваме дали трябва да покажем всичко или само част от обявите
+					if(isset($_POST["search"])){
+					    //само някой ще се покажат
+					    $search = strtolower($_POST["search"]);
+					    $F="'%";
+					    $E="%'";
+					    $pos=strpos($search,$F);
+					    $pos2=strpos($search,$E);
+					    if($pos !== false || $pos2 !== false)
+					    {
+					        echo"Няма намерени резултати";
+					        return;
+					    }
+					}
+					else{
+					    //всички ще се покажат
+					    $search = "";
+					}
 					//изпълняваме заявка
-					$search = strtolower($_POST["search"]);
 					$sql = "SELECT * FROM items
 							LEFT JOIN images
 							ON items.imageID = images.ID
 							WHERE LOWER(title) LIKE '%$search%'";
 					$result = $conn->query($sql);
 					$smth = 0;
-					//извеждаме нужната информация
-					while($row = $result->fetch_assoc())
-					{
-						$title = $row["title"];
-						$desc = $row["description"];
-						$image = $row["image"];
-						$price=$row['price'];
-						$id = $row["IID"];
-						if($smth % 2 == 0)
-						{
-							echo"<tr>
-									<td width='50%'><div id='post' class='card' >
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-									</div>
-									</td>";
-							$smth++;		
-						}
-						else
-						{
-							echo"<td width='50%'><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
-					}
+    					//извеждаме нужната информация
+    					while($row = $result->fetch_assoc())
+    					{
+    						$title = $row["title"];
+    						$desc = $row["description"];
+    						$image = $row["image"];
+    						$price=$row['price'];
+    						$id = $row["IID"];
+    						if($smth % 2 == 0)
+    						{
+    							echo"<tr>
+    									<td width='50%'><div id='post' class='card' style='max-width:700;' >
+    									<div class='card-image waves-effect waves-block waves-light'>
+    										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500;' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+    									</div>
+    									<div class='card-content'style='background-color: white;'>
+    										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
+    									</div>
+    									<div class='card-reveal'>
+    										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+    										<p>$desc</p>
+    									</div></td>";
+    							$smth++;		
+    						}
+    						else
+    						{
+    							echo"<td width='50%'><div id='post' class='card' style='max-width:700;'>
+    									<div class='card-image waves-effect waves-block waves-light'>
+    										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+    									</div>
+    									<div class='card-content'style='background-color: white;'>
+    										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
+    									</div>
+    									<div class='card-reveal'>
+    										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+    										<p>$desc</p>
+    									</div></td></tr>";
+    							$smth++;
+    						}
+    					}
 					if($smth == 1){
 					    echo"<td width='50%'></td>";
 					}
-					else
+					else if($smth==0)
 					{
 					    echo"Няма намерени резултати";
+					    return;
 					}
 				}
-				//функция за извеждане на всички постове
-				function Show()
-				{
-					//отваряме връзка
-					$conn = OpenCon();
-					//изпълняваме заявка
-					$sql = "SELECT * FROM items
-							LEFT JOIN images
-							ON items.imageID = images.ID
-							ORDER BY items.IID DESC;";
-					$result = $conn->query($sql);
-					$smth = 0;
-					//извеждаме нужната информация
-					while($row = $result->fetch_assoc())
-					{
-						$title = $row["title"];
-						$desc = $row["description"];
-						$image = $row["image"];
-						$price=$row['price'];
-						$id = $row["IID"];
-						if($smth % 2 == 0)
-						{
-							echo"<tr>
-									<td width='50%'><div id='post' class='card' >
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td>";
-							$smth++;		
-						}
-						else
-						{
-							echo"	<td width='50%'><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
-					}
-				}
-				//проверка дали потребителя търси пост
-				if(isset($_POST["submit"]))
-				{
-					Search();
-				}
-				else
-				{
-					Show();
-				}
+				Search();
 			?>
 		</table>
 	</body>
