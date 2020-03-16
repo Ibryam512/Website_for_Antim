@@ -70,8 +70,9 @@ ob_start()
 				$id = $row["from_ID"];
 				$name = $row["name"];
 				$message = $row["message"];
+				$date = $row["date"];
 				$mid = $row["MID"];
-				echo "<div class='container'><p>$name</p><span>$message</span><a href></a>
+				echo "<div class='container'><p>$name</p><p>Изпратено на: $date</p><span>$message</span><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
 				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate'>
 				<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>

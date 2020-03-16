@@ -4,6 +4,7 @@
 	$conn = OpenCon();
 	$to_id =  $_GET["to"];
 	$from_id = $_SESSION["ID"];
+	$date = date("Y-m-d h:i:sa").'';
 	if($to_id === $from_id){
 	    header("Location: index.php");
 	    return;
@@ -20,7 +21,7 @@
 	    exit;
 	}
 	
-	$sql = "INSERT INTO messages (from_ID, to_ID, message) VALUES ($from_id, $to_id, '$message')";
+	$sql = "INSERT INTO messages (from_ID, to_ID, message, date) VALUES ($from_id, $to_id, '$message', '$date')";
 	$conn->query($sql);
 	header("Location: messages.php");
 	ob_enf_fluch();
