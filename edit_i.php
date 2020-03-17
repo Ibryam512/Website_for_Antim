@@ -36,7 +36,8 @@ if(isset($_SESSION['ID'])){
 			<?php
             	if(!isset($_SESSION["ID"]))
 	            {
-	             	header("Location: login.php");
+					 header("Location: login.php");
+					 ob_enf_fluch();
 	            	return;
 	            }
             	if(!empty($_SESSION['image'])){
