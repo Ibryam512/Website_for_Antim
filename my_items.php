@@ -92,7 +92,7 @@ ob_start();
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-										<p>За продажба</p>
+										<p><b>За продажба</b></p>
 										<a href='edit_i.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
 										<a href='delete_item.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
 									</div>
@@ -110,7 +110,7 @@ ob_start();
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-										<p>За продажба</p>
+										<p><b>За продажба</b></p>
 										<a href='edit_i.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
 										<a href='delete_item.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
 									</div>
@@ -149,7 +149,7 @@ ob_start();
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p>изгубена вещ</p>
+										<p><b>Изгубена вещ</b></p>
 										<a href='edit_l.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
 										<a href='delete_lthing.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
 									</div>
@@ -167,7 +167,7 @@ ob_start();
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p>изгубена вещ</p>
+										<p><b>Изгубена вещ</b></p>
 										<a href='edit_l.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
 										<a href='delete_lthing.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
 									</div>

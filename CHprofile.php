@@ -187,6 +187,7 @@ ob_start();
 					if ($type == 'image/png' || $type == 'image/jpeg'){
 						move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
 						$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
+						//ако не е същата търкаме старата
 						$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
 						$conn->query($sql);
 						$_SESSION['image']=$Fname;

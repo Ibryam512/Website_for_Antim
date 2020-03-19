@@ -110,10 +110,12 @@ ob_start();
             echo"<h4>$email<h4>";
             ?>
         </div>
+        
         <form method="POST" action="">
         <div style="text-align: center;margin-bottom: 50;">
             <button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>
         </div>
+        
         </form>
     </body>
 </html>

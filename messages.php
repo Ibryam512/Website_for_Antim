@@ -72,12 +72,13 @@ ob_start()
 				$message = $row["message"];
 				$date = $row["date"];
 				$mid = $row["MID"];
-				echo "<div class='container'><p>$name</p><p>Изпратено на: $date</p><span>$message</span><a href></a>
+				echo "<div class='container'><b>$name</b><p><span>$message</span></p><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
 				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate'>
 				<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
 				</form> <form method='post' action='delete.php?id=$mid'>
-				<button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></form></div>";
+				<button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></form>
+				<p style='text-align:right'>Изпратено на: $date</p></div>";
 			}
 		    if($ho === 0){
 			        echo"<p style='text-align: center;'>Няма съобщения</p>";

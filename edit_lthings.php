@@ -16,8 +16,19 @@
 				header("Location: my_items.php");
 	
 	}
-	
-	Edit($_POST['title'], $_POST['desc'], $_POST['price'], $_POST['date']);
+	$F="<";
+	$E=">";
+	$title = $_POST['title'];
+	$T=strpos($title,$F);
+	$T2=strpos($title,$E);
+	$desc = $_POST['desc'];
+	$D=strpos($desc,$F);
+	$D2=strpos($desc,$F);
+	if($T !== false && $T2 !== false || $D !== false && $D2 !== false){
+	   header("Location: my_items.php");
+	   exit();
+	}
+	Edit($title, $desc, $_POST['price'], $_POST['date']);
 	
 	
 ?>

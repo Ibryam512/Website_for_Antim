@@ -72,7 +72,7 @@ if(isset($_SESSION['ID'])){
 		
 		 echo "<div class='card-panel grey lighten-3' style='margin-left: 30%; transform: translate(-20%);'>
 			<div class='row'>
-				<form class='col s12' id='form' action='edit_items.php?id=$id' method='post' enctype='multipart/form-data'>
+				<form class='col s12' id='form' action='edit_item.php?id=$id' method='POST' enctype='multipart/form-data'>
 				<div class='row'>
 					<div class='input-field col s12'>
 						<input placeholder='До 100 символа' id='title' type='text' class='validate' name='title'id='title' value='$title'>

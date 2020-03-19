@@ -15,6 +15,12 @@ session_start();
 		<script src="js/script.js"></script>
 	</head>
 	<body>
+	    
+	    <div class="loader_bg">
+	        <div class="loader"></div>
+	    </div>
+	    
+	    
 		<div id="menu">
 			<div id="menu">
 			<ul>

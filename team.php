@@ -43,7 +43,7 @@ session_start();
 			</ul>
 		</div>
 		<div style="text-align: center;" >
-		<img src="pic/LOGO.png"style="max-height:300;">
+		<img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
 		</div>
 		<div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: %">
 			<h4 style="text-align: center;">За нас</h4>

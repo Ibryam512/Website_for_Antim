@@ -9,6 +9,15 @@
 	    header("Location: index.php");
 	    return;
 	}
+	$F="<";
+	$E=">";
+	$title = $_POST['message'];
+	$T=strpos($title,$F);
+	$T2=strpos($title,$E);
+	if($T !== false && $T2 !== false){
+	   header("Location: index.php");
+	   exit();
+	}
 	$message =  mysqli_real_escape_string($conn,$_POST["message"]);
 	
 	if(!isset($_SESSION["ID"]))
@@ -18,6 +27,7 @@
 	}
 	if(!isset($message))
 	{
+	    header("Location: messages.php");
 	    exit;
 	}
 	

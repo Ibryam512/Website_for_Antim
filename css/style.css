@@ -1,9 +1,11 @@
+
 body {
 	background-size: auto;
 	background-image: url("background.png");
 	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
-	
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -23,8 +25,9 @@ li a {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px 16px;
     text-decoration: none;
+    
 }
 
 li a:hover {

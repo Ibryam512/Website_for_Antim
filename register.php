@@ -13,7 +13,7 @@
 	</head>
 	<body>
         <div style='text-align: center;'>
-        <img src="pic/LOGO.png"style="max-height:300;">
+        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
         </div>
 		<div class="row" style="text-align: center;">
 			<a style='margin-right:10px' href='login.php' class='waves-effect waves-light'>Вече имате акаунт?</a>
@@ -27,7 +27,7 @@
 					  </p>
 			<div class="row">  
                 <div class="input-field col s6 " style="background-color: white;margin-left:25%" >
-                  <input style="text-align: center;" placeholder="Първо име" name="name" id="name" type="text" class="validate">
+                  <input style="text-align: center;min-width:40%" placeholder="Първо име" name="name" id="name" type="text" class="validate">
                 </div>
                 
                 <div class="input-field col s6" style="background-color: white;margin-left:25%"> 

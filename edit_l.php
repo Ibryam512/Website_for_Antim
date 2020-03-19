@@ -85,12 +85,6 @@ if(isset($_SESSION['ID'])){
 					</div>
 				</div>
 				<div class='row'>
-					<div class='input-field col s3'>
-						<input id='price' type='number' step='0.01' class='validate' name='price' value='$price'>
-						<label for='price'>Цена (лева)</label>
-					</div>
-				</div>
-				<div class='row'>
 					<div class='input-field col s12'>
 						<input id='end_date' type='text' class='datepicker' name='date' value='$date'>
 						<label for='end_date'>До кога обявата да е активна?</label>

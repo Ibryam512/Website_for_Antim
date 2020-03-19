@@ -18,7 +18,7 @@ ob_start();
 	</head>
 	<body>
 	    <div style='text-align: center;'>
-        <img src="pic/LOGO.png"style="max-height:300;">
+        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
         </div>
         <div style='text-align: center;'>
       <a href='register.php' class='waves-effect waves-light'>Нямате акаунт?</a>
