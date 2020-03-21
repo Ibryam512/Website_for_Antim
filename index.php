@@ -4,6 +4,7 @@ session_start();
 <html>
 	<head>
 		<meta charset="utf-8">
+		
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
 		<title>Сергия</title>
@@ -16,19 +17,13 @@ session_start();
 	</head>
 	<body>
 	    
-	    <div class="loader_bg">
-	        <div class="loader"></div>
-	    </div>
-	    
-	    
 		<div id="menu">
-			<div id="menu">
 			<ul>
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
 					<li><a href="my_items.php">Мои обяви</a></li>
-				</ul>
+			</ul>
 			<?php
             	
             	if(!empty($_SESSION['image'])){

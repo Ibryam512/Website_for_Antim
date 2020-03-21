@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start();
+?>
 <html>
     <head>
 		<meta charset="utf-8">
@@ -101,7 +105,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&iss
 			$id = $conn->insert_id;
             $emailii=$_POST['email'];
             $passii=$_POST['password'];
-            session_start();
+            
 			$_SESSION['ID'] = $id;
             $_SESSION['email']=$emailii;
             $_SESSION['password']=$passii;
@@ -111,6 +115,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&iss
 
             //препращаме потребителя към току-що създаеният му профил
             header("Location: Profile.php");
+            ob_enf_fluch();
             exit();
         }
         echo"<font style='text-align: center;' color='red'>Имейлът вече е зает</font>";

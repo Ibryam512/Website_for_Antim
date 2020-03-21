@@ -17,7 +17,6 @@ ob_start();
     </head>
     <body>
         <div id="menu">
-			<div id="menu">
 			<ul>
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
@@ -102,7 +101,7 @@ ob_start();
 		//ако са кликнали бутона за запазване
 		if(isset($_POST['save'])){
 
-			$email=hash('sha256',$_SESSION['email']."Ibrqm,Venci");
+			$email1=hash('sha256',$_SESSION['email']."Ibrqm,Venci");
 			$password=hash('sha256',$_SESSION['password']."Ibrqmov,Nenov");
 			
 			//взимаме id-то на вече влезналия в профила си портребител
@@ -114,7 +113,7 @@ ob_start();
           		$row = $result->fetch_assoc();
           		$dbEmail = $row['e-mail'];
           		$dbPassword = $row['pass'];
-          		if($dbEmail === $email  &&  $dbPassword === $password){
+          		if($dbEmail === $email1  &&  $dbPassword === $password){
 					$dbID=$row['id'];
 				  	break;
 			  	}
@@ -150,7 +149,7 @@ ob_start();
 							exit();
 					}
 					else{
-						echo"Няма промени";
+						echo"Не сте попълнили правилно полетата";
 					}
 				}
 				//дали са попълнени полетата->ние рябва да сменим и снимката и данните към профила му
@@ -176,7 +175,7 @@ ob_start();
 						exit();
 					}
 					else{
-						echo"<h1>Избрали сте грешен тип файл!!!</h1>";
+						echo"<h1 color='red'>Избрали сте грешен тип файл!!!</h1>";
 						exit();
 					}
 				}

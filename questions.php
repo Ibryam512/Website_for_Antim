@@ -16,7 +16,7 @@ session_start();
 	</head>
 	<body>
 		<div id="menu">
-			<div id="menu">
+			
 			<ul>
 				<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
