@@ -69,7 +69,7 @@ ob_start();
         <?php
             if(!empty($_SESSION['image'])){
                 $i=$_SESSION['image'];
-                $l="pic/PROF/".$i;
+                $l="/desktop/pic/PROF/".$i;
                 echo"<img style='border-radius: 5000px;' src='$l' height='400'width='400'>";
             }
             else{
