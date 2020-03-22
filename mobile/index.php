@@ -124,12 +124,12 @@ session_start();
     										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:800;' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
     									</div>
     									<div class='card-content'style='background-color: white;'>
-    										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
+    										<span class='card-title activator grey-text text-darken-4' style='font-size: 27px;'>$title<i class='material-icons right'>$price лв.</i></span>
     									</div>
     									<div class='card-reveal'>
-    										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+    										<span class='card-title grey-text text-darken-4' style='font-size: 27px;'>$title<i class='material-icons right'>затвори</i></span>
     										<p>$desc</p>
-    									</div></td>";
+    									</div></td></tr>";
     							$smth++;		
     						//}
     						//else

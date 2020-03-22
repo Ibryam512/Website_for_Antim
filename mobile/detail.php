@@ -115,8 +115,8 @@ ob_start();
 							<p>На: $name $secName $lastName</p>
 							<form  method='post' action='send.php?to=$userID'> 
 								<p>Съобщение:</p>
-								<input style='text-align: center;' placeholder='Съобщение' name='message' id='message' class='validate'>
-								<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
+								<input style='text-align: center; font-size: 27px;' placeholder='Съобщение' name='message' id='message' class='validate'>
+								<button class='btn waves-effect waves-light' type='submit' name='send' id='send' style='font-size: 24px;'>Изпрати</button>
 							</form>
 						</div>
 						<div class='card-panel grey lighten-3' style='margin-left: 17%; transform: translate(-10%);'>

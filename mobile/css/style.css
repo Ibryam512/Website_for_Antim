@@ -5,6 +5,10 @@ body {
 	background-attachment: fixed;
 	
 }
+p {
+	font-size: 27px;
+	
+}
 /* #menu{ */
     /* width:100%; */
     /* height:50px; */

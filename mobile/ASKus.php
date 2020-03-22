@@ -65,28 +65,31 @@ ob_start();
 				<!-- <li id="image"><img src="pic/image.png" height="45" width="45"></li> -->
 			<!-- </ul> -->
 		<!-- </div> -->
-		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);height:70%">
+		<div class="card-panel grey lighten-3" style="margin-left: 30%; margin-top: 40%; transform: translate(-20%);">
 			<div class="row" height='100%'>
 				<form class="col s12" id="form" action="" method="POST" enctype='multipart/form-data'>
+				<div class="row"></div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="name" type="text" class="validate" name="name">
-						<label for="name">Име</label>
+						<input id="name" type="text" class="validate" name="name" style="font-size: 27px;">
+						<label for="name" style="font-size: 27px;">Име</label>
 					</div>
 				</div>
+				<div class="row"></div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="email" type="text" class="validate" name="email">
-						<label for="email">Имейл</label>
+						<input id="email" type="text" class="validate" name="email" style="font-size: 27px;">
+						<label for="email" style="font-size: 27px;">Имейл</label>
 					</div>
 				</div>
+				<div class="row"></div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="message" type="text" class="validate" name="message" placeholder="До 500 символа">
-						<label for="message">Въпрос</label>
+						<input id="message" type="text" class="validate" name="message" placeholder="До 500 символа" style="font-size: 27px;">
+						<label for="message" style="font-size: 27px;">Въпрос</label>
 					</div>
 				</div>
-				 <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Изпрати</button>
+				 <button class="btn waves-effect waves-light" type="submit" name="action" id="action" style="font-size: 24px;">Изпрати</button>
 				</form>
 			</div>
 		</div>

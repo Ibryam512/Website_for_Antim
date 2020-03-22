@@ -87,34 +87,34 @@ if(isset($_SESSION['ID'])){
 			$date = $row['date'];
 			CloseCon($conn);
 		
-		 echo "<div class='card-panel grey lighten-3' style='margin-left: 30%; transform: translate(-20%);'>
+		 echo "<div class='card-panel grey lighten-3' style='margin-left: 30%; margin-top: 40%; transform: translate(-20%);'>
 			<div class='row'>
 				<form class='col s12' id='form' action='edit_item.php?id=$id' method='POST' enctype='multipart/form-data'>
 				<div class='row'>
 					<div class='input-field col s12'>
-						<input placeholder='До 100 символа' id='title' type='text' class='validate' name='title'id='title' value='$title'>
-						<label for='title'>Заглавие</label>
+						<input style='font-size: 27px;' placeholder='До 100 символа' id='title' type='text' class='validate' name='title'id='title' value='$title'>
+						<label for='title' style='font-size: 27px;'>Заглавие</label>
 					</div>
 				</div>
 				<div class='row'>
 					<div class='input-field col s12'>
-						<input placeholder='До 400 символа' id='details' type='text' class='validate' name='desc' value='$desc'>
-						<label for='details'>Описание</label>
+						<input style='font-size: 27px;' placeholder='До 400 символа' id='details' type='text' class='validate' name='desc' value='$desc'>
+						<label style='font-size: 27px;' for='details'>Описание</label>
 					</div>
 				</div>
 				<div class='row'>
 					<div class='input-field col s3'>
-						<input id='price' type='number' step='0.01' class='validate' name='price' value='$price'>
-						<label for='price'>Цена (лева)</label>
+						<input style='font-size: 27px;' id='price' type='number' step='0.01' class='validate' name='price' value='$price'>
+						<label style='font-size: 27px;' for='price'>Цена (лева)</label>
 					</div>
 				</div>
 				<div class='row'>
 					<div class='input-field col s12'>
-						<input id='end_date' type='text' class='datepicker' name='date' value='$date'>
-						<label for='end_date'>До кога обявата да е активна?</label>
+						<input style='font-size: 27px;' id='end_date' type='text' class='datepicker' name='date' value='$date'>
+						<label style='font-size: 27px;' for='end_date'>До кога обявата да е активна?</label>
 					</div>
 				</div>
-				 <button class='btn waves-effect waves-light' type='submit' name='action' id='action'>Редактирай</button>
+				 <button class='btn waves-effect waves-light' type='submit' name='action' id='action' style='font-size: 24px;'>Редактирай</button>
         
 				</form>
 			</div>

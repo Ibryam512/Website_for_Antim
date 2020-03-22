@@ -74,59 +74,61 @@ if(isset($_SESSION['ID'])){
 				<!-- <li id="image"><img src="pic/image.png" height="45" width="45"></li> -->
 			<!-- </ul> -->
 		<!-- </div> -->
-		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
+		<div class="card-panel grey lighten-3" style="margin-left: 30%; margin-top: 40%; transform: translate(-20%);">
 			<div class="row">
 				<form class="col s12" id="form" action="" method="post" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
-						<input style="font-size:50px;" placeholder="До 100 символа" id="title" type="text" class="validate" name="title"id="title">
-						<label style="font-size:20px;"for="title">Заглавие</label>
+						<input style="font-size: 27px;" placeholder="До 100 символа" id="title" type="text" class="validate" name="title"id="title">
+						<label style="font-size: 27px;" for="title">Заглавие</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input placeholder="До 400 символа" id="details" type="text" class="validate" name="desc">
-						<label for="details">Описание</label>
+						<input style="font-size: 27px; "placeholder="До 400 символа" id="details" type="text" class="validate" name="desc">
+						<label style="font-size: 27px;" for="details">Описание</label>
 					</div>
 				</div>
+				<div class="row"></div>
 				<div class="row">
 					<div class="input-field col s3">
-						<input id="price" type="number" step="0.01" class="validate" name="price">
-						<label for="price">Цена (лева)</label>
+						<input id="price" type="number" step="0.01" class="validate" name="price" style="font-size: 27px;">
+						<label for="price" style="font-size: 27px;">Цена (лева)</label>
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="file-field input-field col s12">
 						<div class="btn">
-							<span>Избери снимкa</span>
-							<input type="file" name="item_photo" id="photoBtn">
+							<span style="font-size: 27px;">Избери снимкa</span>
+							<input type="file" name="item_photo" id="photoBtn" style="font-size: 24px;">
 						</div>
 						<div class="file-path-wrapper" style=>
-							<input class="file-path validate" type="text" placeholder="Снимка">
+							<input class="file-path validate" type="text" placeholder="Снимка" style="font-size: 27px;">
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<p>
 						<label>
-							<input class="with-gap" name="group3" type="radio" value="Обява"/>
-							<span>Обява</span>
+							<input style="font-size: 27px;" class="with-gap" name="group3" type="radio" value="Обява"/>
+							<span style="font-size: 27px;">Обява</span>
 						</label>
 					</p>
 					<p>
 						<label>
-							<input class="with-gap" name="group3" type="radio" value="Загубена вещ"/>
-							<span>Загубена вещ</span>
+							<input style="font-size: 27px;" class="with-gap" name="group3" type="radio" value="Загубена вещ"/>
+							<span style="font-size: 27px;">Загубена вещ</span>
 						</label>
 					</p>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="end_date" type="text" class="datepicker" name="date">
-						<label for="end_date">До кога обявата да е активна?</label>
+						<input style="font-size: 27px;" id="end_date" type="text" class="datepicker" name="date">
+						<label style="font-size: 27px;" for="end_date">До кога обявата да е активна?</label>
 					</div>
 				</div>
-				 <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Качи</button>
+				 <button class="btn waves-effect waves-light" type="submit" name="action" id="action" style="font-size: 24px;">Качи</button>
         
 				</form>
 			</div>

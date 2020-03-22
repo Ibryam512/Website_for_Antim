@@ -67,7 +67,7 @@ session_start();
 		<div style="text-align: center;" >
 		<img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
 		</div>
-		<div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: %">
+		<div class="card-panel grey lighten-3" style="margin-left: 50%; margin-top: 20%; transform: translate(-50%); width: 80%;">
 			<h4 style="text-align: center;">За нас</h4>
 			<p>Ние сме ученици, които желаят да подобрят както средата на обучение, така и самия начин на 
 				учене. Ние създадохме тази платформа с цел улесняване на учениците при намиране на учебници 
@@ -76,7 +76,7 @@ session_start();
 				или повече, в раздел "Въпроси" могат да разберат. Ако нужният отговор не е там, могат да ни
 				питат чрез формата за въпроси в същата страница.
 			</p>
-			<span>За контакт: E-mail - e.venci@abv.bg или bamko2003@gmail.com
+			<span style="font-size: 27px;"><b>За контакт: E-mail - e.venci@abv.bg или bamko2003@gmail.com</b>
 		</div>
 	</body>
 </html>

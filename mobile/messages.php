@@ -95,13 +95,13 @@ ob_start()
 				$message = $row["message"];
 				$date = $row["date"];
 				$mid = $row["MID"];
-				echo "<div class='container'><b>$name</b><p><span>$message</span></p><a href></a>
+				echo "<div class='container'><b style='font-size: 27px;'>$name</b><p style='font-size: 27px;'><span>$message</span></p><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
-				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate'>
-				<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
+				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate' style='font-size: 27px;'>
+				<button class='btn waves-effect waves-light' type='submit' name='send' id='send' style='font-size: 24px;'>Изпрати</button>
 				</form> <form method='post' action='delete.php?id=$mid'>
-				<button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></form>
-				<p style='text-align:right'>Изпратено на: $date</p></div>";
+				<button class='btn waves-effect waves-light red' type='submit' name='delete' style='font-size: 24px;'>Изтрий</button></form>
+				<p style='text-align:right' style='font-size: 27px;'>Изпратено на: $date</p></div>";
 			}
 		    if($ho === 0){
 			        echo"<p style='text-align: center;'>Няма съобщения</p>";
