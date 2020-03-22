@@ -86,9 +86,9 @@ ob_start();
 						if($smth % 2 == 0)
 						{
 							echo"<tr width='50%'>
-									<td width='50%'><div id='post' class='card'>
+									<td width='50%'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
@@ -104,9 +104,9 @@ ob_start();
 						}
 						else
 						{
-							echo"<td width='50%'><div id='post' class='card'>
+							echo"<td width='50%'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
@@ -143,15 +143,15 @@ ob_start();
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td width='50%'><div id='post' class='card' >
+									<td width='50%'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 										<p><b>Изгубена вещ</b></p>
-										<a href='edit_l.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
-										<a href='delete_lthing.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
+										<a href='edit_l.php?id=$idd'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
+										<a href='delete_lthing.php?id=$idd'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
 									</div>
 									<div class='card-reveal'>
 										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
@@ -161,9 +161,9 @@ ob_start();
 						}
 						else
 						{
-							echo"	<td width='50%'><div id='post' class='card'>
+							echo"	<td width='50%'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>

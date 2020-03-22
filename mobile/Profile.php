@@ -11,6 +11,7 @@ ob_start();
         <link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
@@ -18,7 +19,7 @@ ob_start();
     <body>
         	    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -80,8 +81,8 @@ ob_start();
                   
                   if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
                        echo"<div style='text-align: center;'>";
-                       echo"<a style='margin-right:1%' href='login.php' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
-                       echo"<a style='margin-left:1%' href='register.php' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
+                       echo"<a style='margin-right:1%;height:4%;width:40%;font-size:30px' href='login.php' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
+                       echo"<a style='margin-left:1%;height:4%;width:40%;font-size:30px' href='register.php' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
                        echo"</div>";
                        exit();
                    }
@@ -90,28 +91,28 @@ ob_start();
             </div>
         </div>
         <div style="text-align: center;">
-            <h5>Име<h5>
+            <h2>Име</h2>
             <?php 
             $name = $_SESSION['name'];
-            echo "<h4>$name<h4>";
+            echo "<h1>$name<h1>";
             ?>
         </div>
         <div style="text-align: center;">
-            <h5>Презиме<h5l>
+            <h2>Презиме</h2>
             <?php
             $secName = $_SESSION['secName'];
-            echo"<h4>$secName<h4>";
+            echo"<h1>$secName<h1>";
             ?>
         </div>
         <div style="text-align: center;">
-            <h5>Фамилия<h5>
+            <h2>Фамилия</h2>
             <?php
             $lastName=$_SESSION['lastName'];
-            echo"<h4>$lastName<h4>";
+            echo"<h1>$lastName<h1>";
             ?>
         </div>
         <div style="text-align: center;">
-            <h5>Парола<h5>
+            <h2>Парола</h2>
             <?php
             $pass=$_SESSION['password'];
             $new="";
@@ -120,20 +121,20 @@ ob_start();
                 $new .= '*';
                 $int++;
             }
-            echo"<h4>$new<h4>";
+            echo"<h1>$new<h1>";
             ?>
         </div>
         <div style="text-align: center;margin-bottom: 50;">
-            <h5>Имейл<h5>
+            <h2>Имейл</h2>
             <?php
             $email=$_SESSION['email'];
-            echo"<h4>$email<h4>";
+            echo"<h1>$email<h1>";
             ?>
         </div>
         
         <form method="POST" action="">
         <div style="text-align: center;margin-bottom: 50;">
-            <button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>
+            <button style="height:5%;width:40%;font-size:30px" type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>
         </div>
         
         </form>

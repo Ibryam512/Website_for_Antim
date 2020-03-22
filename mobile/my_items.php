@@ -11,13 +11,14 @@ ob_start();
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 		    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -102,12 +103,11 @@ ob_start();
 						$image = $row["image"];
 						$price=$row['price'];
 						$id = $row["IID"];
-						if($smth % 2 == 0)
-						{
+						
 							echo"<tr width='50%'>
-									<td width='50%'><div id='post' class='card'>
+									<td width='50%'><div id='post' class='card' style='max-width:700;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:800' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
@@ -120,25 +120,7 @@ ob_start();
 										<p>$desc</p>
 									</div></td>";
 							$smth++;		
-						}
-						else
-						{
-							echo"<td width='50%'><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-										<p><b>За продажба</b></p>
-										<a href='edit_i.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
-										<a href='delete_item.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
+						
 					}
 					
 					
@@ -159,12 +141,10 @@ ob_start();
 						$desc = $row["description"];
 						$image = $row["image"];
 						$id = $row["IID"];
-						if($smth % 2 == 0)
-						{
 							echo"<tr>
-									<td width='50%'><div id='post' class='card' >
+									<td width='50%'><div id='post' class='card'style='max-width:700;' >
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:800' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
 									<div class='card-content'style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
@@ -177,25 +157,7 @@ ob_start();
 										<p>$desc</p>
 									</div></td>";
 							$smth++;		
-						}
-						else
-						{
-							echo"	<td width='50%'><div id='post' class='card'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-										<p><b>Изгубена вещ</b></p>
-										<a href='edit_l.php?id=$id'><button class='btn waves-effect waves-light blue' type='submit' name='edit'>Редактирай</button></a>
-										<a href='delete_lthing.php?id=$id'><button class='btn waves-effect waves-light red' type='submit' name='delete'>Изтрий</button></a>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
+						
 					}
 					if($ho == 0){
 					    echo"<p style='text-align: center;'>Нямате обяви</p>";

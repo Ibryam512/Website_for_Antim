@@ -11,51 +11,52 @@ ob_start();
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 	<body>
         <div style='text-align: center;'>
-        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
+        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;margin-top:30%">
         </div>
 		<div class="row" style="text-align: center;">
-			<a style='margin-right:10px' href='login.php' class='waves-effect waves-light'>Вече имате акаунт?</a>
+			<a style='margin-right:10px;font-size:40px' href='login.php' class='waves-effect waves-light'>Вече имате акаунт?</a>
             <form  action="" method="POST" class="col s12">
               <div class="row">
 					   <p>
 						<label>
 						  <input type="checkbox" name='check' id='check' />
-						  <span style="color: black;" >Съгласни ли сте с условията за използване. Подробности <a href="info.html">ТУК</a></span>
+						  <span style="color: black;font-size:25px" >Съгласни ли сте с условията за използване. Подробности <a href="info.html">ТУК</a></span>
 						</label>
 					  </p>
 			<div class="row">  
-                <div class="input-field col s6 " style="background-color: white;margin-left:25%" >
-                  <input style="text-align: center;min-width:40%" placeholder="Първо име" name="name" id="name" type="text" class="validate">
+                <div class="input-field col s6 " style="background-color: white;margin-left: 15%;height:auto;width:auto;">
+                  <input style="text-align: center;width:100%;font-size:50px;height:auto;background-color: white;" placeholder="Първо име" name="name" id="name" type="text" class="validate">
                 </div>
                 
-                <div class="input-field col s6" style="background-color: white;margin-left:25%"> 
-                  <input style="text-align: center;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
+                <div class="input-field col s6" style="background-color: white;margin-left: 15%;height:auto;width:auto;"> 
+                  <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
                 </div>
                 
-                <div  class="input-field col s6" style="background-color: white;margin-left:25%">
-                  <input style="text-align: center;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
+                <div  class="input-field col s6" style="background-color: white;margin-left: 15%;height:auto;width:auto;">
+                  <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
                 </div>
               
-                <div class="input-field col s6" style="background-color: white;margin-left:25%">
-                  <input style="text-align: center;" placeholder="Парола" name="password" id="password" type="password" class="validate">
+                <div class="input-field col s6" style="background-color: white;margin-left: 15%;height:auto;width:auto;">
+                  <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Парола" name="password" id="password" type="password" class="validate">
                 </div>
               
-                <div class="input-field col s6" style="background-color: white;margin-left:25%">
-                  <input style="text-align: center;" placeholder="Повтори паролата" name="password2" id="password2" type="password" class="validate">
+                <div class="input-field col s6" style="background-color: white;margin-left: 15%;height:auto;width:auto;">
+                  <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Повтори паролата" name="password2" id="password2" type="password" class="validate">
                 </div>
               
-                <div class="input-field col s6" style="background-color: white;margin-left:25%">
-				  <input style="text-align: center;" placeholder="Имейл" name="email" id="email" type="email" class="validate">
+                <div class="input-field col s6" style="background-color: white;margin-left: 15%;height:auto;width:auto;">
+				  <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Имейл" name="email" id="email" type="email" class="validate">
 				</div>
 			  
               <div class="input-field col s12" style="text-align: center;">
-                <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
+                <button style="text-align: center;height:5%;width:20%;font-size:40px" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
 			  </div>
             </form>
           </div>

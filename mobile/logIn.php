@@ -18,28 +18,30 @@ ob_start();
 	</head>
 	<body>
 	    <div style='text-align: center;'>
-        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
+        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;margin-top:30%">
         </div>
+    <div id='log'>  
         <div style='text-align: center;'>
-      <a href='register.php' class='waves-effect waves-light'>Нямате акаунт?</a>
+      <a href='register.php' class='waves-effect waves-light' style="font-size:40px">Нямате акаунт?</a>
       </div>
       <form style='text-align: center;' action="" method="POST">
         <div class="row">
-          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 25%;">
-            <input style="text-align: center;" placeholder="Имейл" name="email" id="email" class="validate">
+          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 15%;height:auto;width:auto;">
+            <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Имейл" name="email" id="email" class="validate">
           </div>
         </div>
         <div class="row" style="text-align: center;">
-          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 25%;">
-            <input style="text-align: center" placeholder="Парола" name="password" id="password" type="password"  class="validate">
+          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 15%;height:auto;width:auto;">
+            <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Парола" name="password" id="password" type="password"  class="validate">
           </div>
         </div>
         <div class="row">
           <div   style="text-align: center;">
-            <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
+            <button style="text-align: center;height:5%;width:20%;font-size:40px" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
           </div>
         </div>
       </form>
+    </div>  
       <div style="text-align: center;">
       <?php
         // връзка с бата данни

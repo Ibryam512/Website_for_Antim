@@ -20,7 +20,7 @@ session_start();
 	<body>
 	    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -68,10 +68,10 @@ session_start();
 		<!-- </div> -->
 		<div id="search">
 			<form  method="post" action="index.php"> 
-				<div class="input-field col s12 " style="background-color: white;">
-                  <input style="text-align: center;" placeholder="Търси" name="search" id="search" type="text" class="validate">
+				<div class="input-field col s12 " style="background-color: white;height:auto;width:auto;">
+                  <input style="text-align: center;font-size:50px;height:5%" placeholder="Търси" name="search" id="search" type="text" class="validate">
                 </div>
-				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
+				<button style="text-align: center;height:4%;width:17%;font-size:30px" class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
 		<table width="100%" height="100%">
@@ -116,12 +116,12 @@ session_start();
     						$image = $row["image"];
     						$price=$row['price'];
     						$id = $row["IID"];
-    						if($smth % 2 == 0)
-    						{
+    						//if($smth % 2 == 0)
+    						//{
     							echo"<tr>
     									<td width='50%'><div id='post' class='card' style='max-width:700;' >
     									<div class='card-image waves-effect waves-block waves-light'>
-    										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500;' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+    										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:800;' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
     									</div>
     									<div class='card-content'style='background-color: white;'>
     										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
@@ -131,31 +131,31 @@ session_start();
     										<p>$desc</p>
     									</div></td>";
     							$smth++;		
-    						}
-    						else
-    						{
-    							echo"<td width='50%'><div id='post' class='card' style='max-width:700;'>
-    									<div class='card-image waves-effect waves-block waves-light'>
-    										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-    									</div>
-    									<div class='card-content'style='background-color: white;'>
-    										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-    									</div>
-    									<div class='card-reveal'>
-    										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-    										<p>$desc</p>
-    									</div></td></tr>";
-    							$smth++;
-    						}
+    						//}
+    						//else
+    						//{
+    							//echo"<td width='50%'><div id='post' class='card' style='max-width:700;'>
+    									//<div class='card-image waves-effect waves-block waves-light'>
+    										//<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+    									//</div>
+    									//<div class='card-content'style='background-color: white;'>
+    										//<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
+    									//</div>
+    									//<div class='card-reveal'>
+    										//<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+    										//<p>$desc</p>
+    									//</div></td></tr>";
+    							//$smth++;
+    						//}
     					}
 					if($smth == 1){
 					    echo"<td width='50%'></td>";
 					}
 					else if($smth==0)
 					{
-					    echo"Няма намерени резултати";
-					    return;
-					}
+					   echo"Няма намерени резултати";
+					   return;
+				    }
 				}
 				Search();
 			?>

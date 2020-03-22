@@ -51,7 +51,7 @@ session_start();
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
-		<table width="100%">
+		<table width="100%" height="100%">
 			<?php
 				//връзка с базата данни
 				include 'connect.php';
@@ -93,11 +93,11 @@ session_start();
 						if($smth % 2 == 0)
 						{
 							echo"<tr>
-									<td width='50%'><div id='post' class='card' style='max-width:700;'>
+									<td width='50%'style='text-align:center'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
-									<div class='card-content'>
+									<div class='card-content' style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>
@@ -108,11 +108,11 @@ session_start();
 						}
 						else
 						{
-							echo"	<td width='50%'><div id='post' class='card' style='max-width:700;'>
+							echo"	<td width='50%'style='text-align:center'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
-									<div class='card-content'>
+									<div class='card-content' style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>

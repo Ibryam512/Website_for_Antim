@@ -3,6 +3,7 @@ body {
 	background-size: 100% 100%;
 	background-image: url("background.png");
 	background-attachment: fixed;
+	
 }
 /* #menu{ */
     /* width:100%; */
@@ -38,7 +39,10 @@ body {
 /* a {  */
 	/* color: #b3ffff; */
 /* } */
+
 #post{
+    margin-left: 10%;
+    margin-right: 10%;
 	transition: all .25s ease-in-out;
 	display: block;
 	transform: translate(7%, 50%);
@@ -49,6 +53,7 @@ body {
   overflow: hidden;
   background-color: #333;
   position: relative;
+  width:100%;
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
@@ -61,31 +66,32 @@ body {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 300%;
   display: block;
 }
 
 /* Style the hamburger menu */
 .topnav a.icon {
-  background: black;
+  background: #333;
   display: block;
   position: absolute;
   right: 0;
   top: 0;
+  height:100%;
+  width:7%;
 }
 
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #333;
   color: black;
 }
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: #88eabd;
+  background-color: #88eabd;/*zelenoto*/
   color: white;
 }
-
 #upload {
 	background-color: #edecf9;
 	margin-top: 5%;

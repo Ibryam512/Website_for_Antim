@@ -39,6 +39,7 @@ a {
 	color: #b3ffff;
 }
 #post{
+    
 	transition: all .25s ease-in-out;
 	display: block;
 	transform: translate(7%, 50%);

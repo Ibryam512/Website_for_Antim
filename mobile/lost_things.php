@@ -10,6 +10,7 @@ session_start();
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
@@ -17,7 +18,7 @@ session_start();
 	<body>
 			    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -66,12 +67,12 @@ session_start();
 		<div id="search">
 			<form  method="post" action="lost_things.php"> 
 				<div class="input-field col s12 " style="background-color: white;" >
-                  <input style="text-align: center;" placeholder="Търси" name="search" id="search" type="text" class="validate">
+                  <input style="text-align: center;font-size:50px;height:5%" placeholder="Търси" name="search" id="search" type="text" class="validate">
                 </div>
-				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
+				<button style="text-align: center;height:4%;width:17%;font-size:30px" class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
-		<table width="100%">
+		<table height="100%" width="100%">
 			<?php
 				//връзка с базата данни
 				include 'connect.php';
@@ -110,14 +111,14 @@ session_start();
 						$desc = $row["description"];
 						$image = $row["image"];
 						$id = $row["IID"];
-						if($smth % 2 == 0)
-						{
+						//if($smth % 2 == 0)
+						//{
 							echo"<tr>
 									<td width='50%'><div id='post' class='card' style='max-width:700;'>
 									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:800' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
-									<div class='card-content'>
+									<div class='card-content' style='background-color: white;'>
 										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
 									</div>
 									<div class='card-reveal'>
@@ -125,22 +126,22 @@ session_start();
 										<p>$desc</p>
 									</div></td>";
 							$smth++;		
-						}
-						else
-						{
-							echo"	<td width='50%'><div id='post' class='card' style='max-width:700;'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
-							$smth++;
-						}
+						//}
+						//else
+						//{
+							//echo"	<td width='50%'><div id='post' class='card' style='max-width:700;'>
+									//<div class='card-image waves-effect waves-block waves-light'>
+										//<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+									//</div>
+									//<div class='card-content'>
+										//<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
+									//</div>
+									//<div class='card-reveal'>
+										//<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
+										//<p>$desc</p>
+									//</div></td></tr>";
+							//$smth++;
+						//}
 					}
 					if($smth == 1){
 					    echo"<td width='50%'></td>";

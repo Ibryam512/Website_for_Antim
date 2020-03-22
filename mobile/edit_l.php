@@ -20,6 +20,7 @@ if(isset($_SESSION['ID'])){
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
@@ -27,7 +28,7 @@ if(isset($_SESSION['ID'])){
 	<body>
 			    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>

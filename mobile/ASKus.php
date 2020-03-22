@@ -11,6 +11,7 @@ ob_start();
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/materialize.js"></script>
 		<script src="js/script.js"></script>
@@ -18,7 +19,7 @@ ob_start();
 	<body>
 			    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active">Мену</a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -64,8 +65,8 @@ ob_start();
 				<!-- <li id="image"><img src="pic/image.png" height="45" width="45"></li> -->
 			<!-- </ul> -->
 		<!-- </div> -->
-		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
-			<div class="row">
+		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);height:70%">
+			<div class="row" height='100%'>
 				<form class="col s12" id="form" action="" method="POST" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
