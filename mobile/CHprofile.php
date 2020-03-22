@@ -86,25 +86,25 @@ ob_start();
             $email=$_SESSION['email'];
             
             echo'</div>
-			<input type="file" name="photo" id="photo">
+			<input style="font-size:30px;height:auto;width:auto;margin-left:25%;margin-top:5%" type="file" name="photo" id="photo">
 			<div class="row">
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
+			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;"> 
-			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
+			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
 			</div>
 			<div  class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
+			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
+			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
+			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
 			</div>
 		  	<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
-			<button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
+			<button style="text-align: center;height:5%;width:50%;font-size:40px" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
 		  	</div>';
 		  	
 			?>
