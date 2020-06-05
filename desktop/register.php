@@ -27,7 +27,7 @@
     </style>
 	</head>
 	<body>
-    <div style="text-align: center;">
+    <div class="center-align">
       <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
     </div>
     <div class="row center-align">  
@@ -37,32 +37,38 @@
             <h1>Регистрация</h1>
             <div class="row">
               <div class="input-field col s12">
-                <input style="text-align: center;min-width:40%" placeholder="Първо име" name="name" id="name" type="text" class="validate">
+                <input name="name" id="name" type="text" class="validate">
+                <label for="name">Име</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12"> 
-                <input style="text-align: center;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate">
+                <input name="secName" id="secName" type="text" class="validate">
+                <label for="secName">Презиме</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input style="text-align: center;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate">
+                <input name="lastName" id="lastName" type="text" class="validate">
+                <label for="lastName">Фамилия</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input style="text-align: center;" placeholder="Парола" name="password" id="password" type="password" class="validate">
+                <input name="password" id="password" type="password" class="validate">
+                <label for="password">Парола</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input style="text-align: center;" placeholder="Повтори паролата" name="password2" id="password2" type="password" class="validate">
+                <input name="password2" id="password2" type="password" class="validate">
+                <label for="password2">Потвърди паролата</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input style="text-align: center;" placeholder="Имейл" name="email" id="email" type="email" class="validate">
+                <input name="email" id="email" type="email" class="validate">
+                <label for="email">Имейл</label>
               </div>
             </div>
             <div class="row">
@@ -72,8 +78,8 @@
               </label>
             </div>
             <div class="row">
-              <div class="input-field col s12" style="text-align: center;">
-                <button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
+              <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
               </div>
             </div>
             <div class="row">
