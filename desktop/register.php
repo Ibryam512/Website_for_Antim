@@ -36,6 +36,69 @@
           <form  action="" method="POST" class="col s12">
             <h1>Регистрация</h1>
             <div class="row">
+              <?php
+                //свързвеаме се с базата данни
+                include 'profileCon.php';
+                $conn=OpenCon();
+
+                //проверяваме дали са попълнени полетата
+                if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&isset($_POST['secName'])&&isset($_POST['lastName']))
+                {
+                  //при евентуална грешка при връзката с базата данни
+                  if($conn->connect_error){
+                      die('Conn failed !!!! '.$conn->connect_error);
+                  }
+                  //взимаме хешираните данни напортебителя
+                  $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
+                  $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
+
+                  //взимаме именат на потребителя
+                  $name= mysqli_real_escape_string($conn,$_POST['name']);
+                  $secName=mysqli_real_escape_string($conn,$_POST['secName']);
+                  $lastName=mysqli_real_escape_string($conn,$_POST['lastName']);
+
+
+                  //подсигуряваме се дали вече няма създаден профил с този имейл
+                  $sql1="SELECT * FROM users";
+                  $result = $conn->query($sql1);
+                  $id = 0;
+                  $mom = false;
+                  while($id < $row=$result->num_rows){
+                    $row = $result->fetch_assoc();
+                    $bdEmail=$row['e-mail'];
+                    if($email==$bdEmail){
+                        $mom=true;
+                    }
+                    $id++;
+                  }
+
+                  // ако не е бил използван този профил
+                  if($mom == false){
+
+                    //добавяме портребитеял в базата данни
+                    $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
+                    $result = $conn->query($sql);
+                    $id = $conn->insert_id;
+                    $emailii=$_POST['email'];
+                    $passii=$_POST['password'];
+                    
+                    $_SESSION['ID'] = $id;
+                    $_SESSION['email']=$emailii;
+                    $_SESSION['password']=$passii;
+                    $_SESSION['name']=mysqli_real_escape_string($conn,$name);
+                    $_SESSION['secName']=mysqli_real_escape_string($conn,$secName);
+                    $_SESSION['lastName']=mysqli_real_escape_string($conn,$lastName);
+
+                    //препращаме потребителя към току-що създаеният му профил
+                    header("Location: Profile.php");
+                    ob_enf_fluch();
+                    exit();
+                  }
+                  echo "<font style='text-align: center;' color='red'>Имейлът вече е зает</font>";
+                }
+              ?>
+            </div>
+            <div class="row">
               <div class="input-field col s12">
                 <input name="name" id="name" type="text" class="validate">
                 <label for="name">Име</label>
@@ -88,69 +151,6 @@
           </form>
         </div>
       </div>
-    </div>
-    <div style="margin-bottom:50;">
-      <?php
-        //свързвеаме се с базата данни
-        include 'profileCon.php';
-        $conn=OpenCon();
-
-        //проверяваме дали са попълнени полетата
-        if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&isset($_POST['secName'])&&isset($_POST['lastName']))
-        {
-          //при евентуална грешка при връзката с базата данни
-          if($conn->connect_error){
-              die('Conn failed !!!! '.$conn->connect_error);
-          }
-          //взимаме хешираните данни напортебителя
-          $email=hash('sha256',$_POST['email']."Ibrqm,Venci");
-          $password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");
-
-          //взимаме именат на потребителя
-          $name= mysqli_real_escape_string($conn,$_POST['name']);
-          $secName=mysqli_real_escape_string($conn,$_POST['secName']);
-          $lastName=mysqli_real_escape_string($conn,$_POST['lastName']);
-
-
-          //подсигуряваме се дали вече няма създаден профил с този имейл
-          $sql1="SELECT * FROM users";
-          $result = $conn->query($sql1);
-          $id = 0;
-          $mom = false;
-          while($id < $row=$result->num_rows){
-            $row = $result->fetch_assoc();
-            $bdEmail=$row['e-mail'];
-            if($email==$bdEmail){
-                $mom=true;
-            }
-            $id++;
-          }
-
-          // ако не е бил използван този профил
-          if($mom == false){
-
-            //добавяме портребитеял в базата данни
-            $sql="INSERT INTO `users`(`e-mail`, `pass`, `name`, `secName`, `lastName`) VALUES ('$email','$password','$name','$secName','$lastName')";
-            $result = $conn->query($sql);
-		      	$id = $conn->insert_id;
-            $emailii=$_POST['email'];
-            $passii=$_POST['password'];
-            
-			      $_SESSION['ID'] = $id;
-            $_SESSION['email']=$emailii;
-            $_SESSION['password']=$passii;
-            $_SESSION['name']=mysqli_real_escape_string($conn,$name);
-            $_SESSION['secName']=mysqli_real_escape_string($conn,$secName);
-            $_SESSION['lastName']=mysqli_real_escape_string($conn,$lastName);
-
-            //препращаме потребителя към току-що създаеният му профил
-            header("Location: Profile.php");
-            ob_enf_fluch();
-            exit();
-          }
-          echo"<font style='text-align: center;' color='red'>Имейлът вече е зает</font>";
-        }
-      ?>
     </div>
   </body>
 </html>
