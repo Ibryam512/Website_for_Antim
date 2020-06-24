@@ -17,8 +17,9 @@ ob_start();
 		<script src="js/script.js"></script>
 	</head>
 	<body>
+	<div style="vertical-align:middle">    
 	    <div style='text-align: center;'>
-        <img src="pic/LOGO.png"style="max-height:100%;max-width:100%;margin-top:30%">
+        <img src="pic/LOGO.png">
         </div>
     <div id='log'>  
         <div style='text-align: center;'>
@@ -26,24 +27,26 @@ ob_start();
       </div>
       <form style='text-align: center;' action="" method="POST">
         <div class="row">
-          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 15%;height:auto;width:auto;">
-            <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Имейл" name="email" id="email" class="validate">
+          <div class="input-field col s12" style="text-align: center;background-color: white;height:auto;">
+            <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Имейл" name="email" id="email" class="validate">
           </div>
         </div>
         <div class="row" style="text-align: center;">
-          <div class="input-field col s6" style="text-align: center;background-color: white;margin-left: 15%;height:auto;width:auto;">
-            <input style="text-align: center;font-size:50px;height:auto;width:auto;background-color: white;" placeholder="Парола" name="password" id="password" type="password"  class="validate">
+          <div class="input-field col s12" style="text-align: center;background-color: white;height:auto;">
+            <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Парола" name="password" id="password" type="password"  class="validate">
           </div>
         </div>
         <div class="row">
           <div   style="text-align: center;">
-            <button style="text-align: center;height:5%;width:20%;font-size:40px" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
+            <button style="text-align: center;height:7%;width:50%;font-size:30px" class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
           </div>
         </div>
       </form>
     </div>  
       <div style="text-align: center;">
       <?php
+      if(isset($_POST['action']))
+      {
         // връзка с бата данни
     include 'profileCon.php';
     $conn = OpenCon();
@@ -86,29 +89,15 @@ ob_start();
           }
           $int++;
         }
-        echo"<div><font style='text-align: center;' color='red'>Грешен имейл или парола</font></div>";
+        echo"<div><font style='text-align: center;font-size:40px' color='red'>Грешен имейл или парола</font></div>";
     }
+    else{
+    echo"<div><font style='text-align: center;font-size:40px' color='red'>Не сте попълнили полетата</font></div>";
+    }
+ }
 ?>
 </div>
     </div>
   </body>
 </html>
-<script>
-$(document).ready(function(){  
-  $('#action').click(function(){ 
-      var password = $('#password').val();
-      var email = $('#email').val();
-   
-      if(email == '')
-   {
-    alert("Моля, напишете вашия имейл");
-    return false;
-   }
-   if(password == '')
-       {
-    alert("Моля, напишете паролата си");
-    return false;
-   }
-  });  
-});  
-</script>
+

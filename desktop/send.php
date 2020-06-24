@@ -6,7 +6,7 @@
 	$from_id = $_SESSION["ID"];
 	$date = date("Y-m-d h:i:sa").'';
 	if($to_id === $from_id){
-	    header("Location: index.php");
+	    header("Location: " . $_SERVER["HTTP_REFERER"]);
 	    return;
 	}
 	$F="<";
@@ -31,9 +31,9 @@
 	    exit;
 	}
 	
-	$sql = "INSERT INTO messages (from_ID, to_ID, message, date) VALUES ($from_id, $to_id, '$message', '$date')";
+	$sql = "INSERT INTO messages (from_ID, to_ID, message, date, seen) VALUES ($from_id, $to_id, '$message', '$date', false)";
 	$conn->query($sql);
-	header("Location: messages.php");
+	header("Location: " . $_SERVER["HTTP_REFERER"]);
 	ob_enf_fluch();
 ?>
 <script>

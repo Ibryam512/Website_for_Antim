@@ -16,31 +16,65 @@ session_start();
 	</head>
 	<body>
 		<div id="menu">
-			
 			<ul>
 			<ul id="dropdown1" class="dropdown-content">
 					<li><a href="Profile.php">Профил</a></li>
 					<li class="divider"></li>
 					<li><a href="my_items.php">Мои обяви</a></li>
-				</ul>
-			<?php
-            	
+			</ul>
+            <?php
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
                 	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+            	    if(empty($_SESSION['ID'])){
+            	        echo "<li id='options' ><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
+            	        
+                	echo "<li id='options'><a class='waves-effect waves-light btn' href='login.php' style='margin-top:6;width:100;'><i class='material-icons'>Вход</i></a></li>";
+            	    }
+            	    else if(!empty($_SESSION['ID'])){
+            	    echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+            	    }
             	}
-        		?> 
+			?>
 				<li id="options"><a href="team.php">За нас</a></li>
 				<li id="options"><a href="questions.php">Въпроси</a></li>
-				<li id="options"><a href="messages.php">Съобщения</a></li>
+					<?php
+				 include 'connect.php';
+				if(!empty($_SESSION['ID']))
+				{
+				    $id = $_SESSION['ID'];
+				   
+				    $conn = OpenCon();
+				    $sql = "SELECT * FROM messages
+				            WHERE seen = FALSE AND to_id = $id";
+				    $result = $conn->query($sql);
+				    $messages = 0;
+				    while($row = $result->fetch_assoc())
+				    {
+				        $messages++;
+				    }
+				    if($messages > 0)
+				    {
+				      echo "<li id='options'><a href='messages.php' class='notification'><span>Съобщения</span><span class='badge'>$messages</span></a></li>";
+				    }
+				    else
+				    {
+				        echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+				    }
+				}
+				else
+				{
+				    echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+				}
+				
+				?>
 				<li id="options"><a style="background-color: white;" href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
-				<li id="options"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%"><i class="material-icons">+</i></a></li>
-				<li id="image"><img style="border-radius:5000px" src="pic/lost.png" height="45" width="45"></li>
+				<li id="options" title="Добави"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
+				<li id="image"><img style='border-radius:10000' src="pic/lost.png" height="45" width="45"></li>
 			</ul>
 		</div>
 		<div id="search">
@@ -51,10 +85,28 @@ session_start();
 				<button class="btn waves-effect waves-light" type="submit" name="submit">Търси</button>
 			</form> 
 		</div>
-		<table width="100%" height="100%">
+		<table width="100%" height="100%" style="border-collapse: unset;">
 			<?php
+			    function DisCard($id,$image,$title,$desc){
+			        echo"<td width='50%' id='card-table'>
+			        <center>
+			                    <div id='post' class='card z-depth-5 hoverable' style='transform:translate(0%,0%)'>
+									<div class='card-image waves-effect waves-block waves-light'>
+										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
+									</div>
+									<div class='card-content' style='background-color: white;'>
+										<span title='Надникни' class='card-title activator grey-text text-darken-4'>$title</span>
+									</div>
+									<div class='card-reveal'>
+										<span class='card-title grey-text text-darken-4'>$title</span>
+										<p>$desc</p>
+								    </div>
+								</div>
+					</center>
+						 </td>";
+			    }
 				//връзка с базата данни
-				include 'connect.php';
+				//include 'connect.php';
 				function Search()
 				{
 					//отваряне на връзка
@@ -92,33 +144,14 @@ session_start();
 						$id = $row["IID"];
 						if($smth % 2 == 0)
 						{
-							echo"<tr>
-									<td width='50%'style='text-align:center'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content' style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td>";
+							echo"<tr>";
+							echo DisCard($id,$image,$title,$desc);
 							$smth++;		
 						}
 						else
 						{
-							echo"	<td width='50%'style='text-align:center'><div id='post' class='card' style='max-width:600;margin-left:10%;'>
-									<div class='card-image waves-effect waves-block waves-light'>
-										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									</div>
-									<div class='card-content' style='background-color: white;'>
-										<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									</div>
-									<div class='card-reveal'>
-										<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										<p>$desc</p>
-									</div></td></tr>";
+						    echo DisCard($id,$image,$title,$desc);
+							echo"</tr>";
 							$smth++;
 						}
 					}

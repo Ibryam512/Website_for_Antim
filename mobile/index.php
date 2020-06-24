@@ -26,7 +26,34 @@ session_start();
 				<a href="index.php">Сергия</a>
 				<a href="lost_things.php">Изгубени вещи</a>
 				<a href="add.php">Добави</a>
-				<a href="messages.php">Съобщения</a>
+					<?php
+				 include 'connect.php';
+				if(!empty($_SESSION['ID']))
+				{
+				    $id = $_SESSION['ID'];
+				   
+				    $conn = OpenCon();
+				    $sql = "SELECT * FROM messages
+				            WHERE seen = FALSE AND to_id = $id";
+				    $result = $conn->query($sql);
+				    $messages = 0;
+				    while($row = $result->fetch_assoc())
+				    {
+				        $messages++;
+				    }
+				    if($messages > 0)
+				    {
+				      echo "<a href='messages.php' class='notification'>Съобщения<span class='badge'>$messages</span></a>";
+				    }
+				    else
+				    {
+				        echo "<a href='messages.php'>Съобщения</a>";
+				    }
+				}
+				else
+				{
+				    echo "<a href='messages.php'>Съобщения</a>";
+				}?>
 				<a href="questions.php">Въпроси</a>
 				<a href="Profile.php">Профил</a>
 				<a href="my_items.php">Мои обяви</a>
@@ -37,35 +64,7 @@ session_start();
 				<i class="fa fa-bars"></i>
 			</a>
 		</div>
-		<!-- <div id="menu"> -->
-			<!-- <ul> -->
-			<!-- <ul id="dropdown1" class="dropdown-content"> -->
-					<!-- <li><a href="Profile.php">Профил</a></li> -->
-					<!-- <li class="divider"></li> -->
-					<!-- <li><a href="my_items.php">Мои обяви</a></li> -->
-			<!-- </ul> -->
-			<?php
-            	
-            	// if(!empty($_SESSION['image'])){
-                	// $i=$_SESSION['image'];
-                	// $l="pic/PROF/".$i;
-                	// echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
-            	// }
-            	// else{
-                	// echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
-            	// }
-        		// ?> 
-				
-				
-				<!-- <li id="options"><a href="team.php">За нас</a></li> -->
-				<!-- <li id="options"><a href="questions.php">Въпроси</a></li> -->
-				<!-- <li id="options"><a href="messages.php">Съобщения</a></li> -->
-				<!-- <li id="options"><a href="lost_things.php">Изгубени вещи</a></li> -->
-				<!-- <li id="options"><a style="background-color: white;" href="index.php">Сергия</a></li> -->
-				<!-- <li id="options" title="Добави"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li> -->
-				<!-- <li id="image"><img src="pic/image.png" height="45" width="45"></li> -->
-			<!-- </ul> -->
-		<!-- </div> -->
+		
 		<div id="search">
 			<form  method="post" action="index.php"> 
 				<div class="input-field col s12 " style="background-color: white;height:auto;width:auto;">
@@ -77,7 +76,7 @@ session_start();
 		<table width="100%" height="100%">
 			<?php
 				//включваме файлът за връзка с базата данни
-				include 'connect.php';
+				//include 'connect.php';
 				//функция за търсене на постове
 				function Search()
 				{
@@ -148,10 +147,10 @@ session_start();
     							//$smth++;
     						//}
     					}
-					if($smth == 1){
-					    echo"<td width='50%'></td>";
-					}
-					else if($smth==0)
+					//if($smth == 1){
+					   // echo"<td width='50%'></td>";
+					//}
+					if($smth==0)
 					{
 					   echo"Няма намерени резултати";
 					   return;

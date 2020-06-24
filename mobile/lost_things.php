@@ -126,27 +126,10 @@ session_start();
 										<p>$desc</p>
 									</div></td>";
 							$smth++;		
-						//}
-						//else
-						//{
-							//echo"	<td width='50%'><div id='post' class='card' style='max-width:700;'>
-									//<div class='card-image waves-effect waves-block waves-light'>
-										//<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:500' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-									//</div>
-									//<div class='card-content'>
-										//<span class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>...</i></span>
-									//</div>
-									//<div class='card-reveal'>
-										//<span class='card-title grey-text text-darken-4'>$title<i class='material-icons right'>затвори</i></span>
-										//<p>$desc</p>
-									//</div></td></tr>";
-							//$smth++;
-						//}
+						
 					}
-					if($smth == 1){
-					    echo"<td width='50%'></td>";
-					}
-					else if($smth==0)
+					
+					if($smth==0)
 					{
 					    echo"Няма намерени резултати";
 					}

@@ -35,7 +35,7 @@ ob_start();
       <div class="card col m4 offset-m4">
         <div class="card-content">
           <form  action="" method="POST" class="col s12">
-            <h1>Логин</h1>
+            <h1>Вход</h1>
             <div class="row">
               <div class="center-align">
                 <?php

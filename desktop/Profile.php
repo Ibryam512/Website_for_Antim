@@ -31,7 +31,36 @@ ob_start();
         		?> 
 				<li id="options"><a href="team.php">За нас</a></li>
 				<li id="options"><a href="questions.php">Въпроси</a></li>
-				<li id="options"><a href="messages.php">Съобщения</a></li>
+					<?php
+				 include 'connect.php';
+				if(!empty($_SESSION['ID']))
+				{
+				    $id = $_SESSION['ID'];
+				   
+				    $conn = OpenCon();
+				    $sql = "SELECT * FROM messages
+				            WHERE seen = FALSE AND to_id = $id";
+				    $result = $conn->query($sql);
+				    $messages = 0;
+				    while($row = $result->fetch_assoc())
+				    {
+				        $messages++;
+				    }
+				    if($messages > 0)
+				    {
+				      echo "<li id='options'><a href='messages.php' class='notification'><span>Съобщения</span><span class='badge'>$messages</span></a></li>";
+				    }
+				    else
+				    {
+				        echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+				    }
+				}
+				else
+				{
+				    echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+				}
+				
+				?>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
 				<li id="image"><img src="pic/LOGO.png" height="45" width="90"></li>
@@ -48,7 +77,7 @@ ob_start();
                 echo"<img style='border-radius: 5000px;' src='pic/profilePic.png' height='400'width='400'>";
             }
         ?>
-        <div>
+        <div >
             <?php
                   
                   if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
@@ -62,6 +91,7 @@ ob_start();
                 <a href="CHprofile.php"><button style="border-radius: 5000px;cursor: pointer;background-color: initial;border: initial;" ><img style="border-radius: 5000000px;" src="pic/Edit.png" height="40"></button></a>
             </div>
         </div>
+       
         <div style="text-align: center;">
             <h5>Име<h5>
             <?php 
@@ -103,7 +133,7 @@ ob_start();
             echo"<h4>$email<h4>";
             ?>
         </div>
-        
+    
         <form method="POST" action="">
         <div style="text-align: center;margin-bottom: 50;">
             <button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>

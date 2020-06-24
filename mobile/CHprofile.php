@@ -19,7 +19,7 @@ ob_start();
     <body>
         	    <!-- Top Navigation Menu -->
 		<div class="topnav">
-			<a href="#home" class="active"></a>
+			<a href="#home" class="active">Меню</a>
 		<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="index.php">Сергия</a>
@@ -36,43 +36,15 @@ ob_start();
 				<i class="fa fa-bars"></i>
 			</a>
 		</div>
-		<!-- <div id="menu"> -->
-			<!-- <ul> -->
-			<!-- <ul id="dropdown1" class="dropdown-content"> -->
-					<!-- <li><a href="Profile.php">Профил</a></li> -->
-					<!-- <li class="divider"></li> -->
-					<!-- <li><a href="my_items.php">Мои обяви</a></li> -->
-			<!-- </ul> -->
-			<?php
-            	
-            	// if(!empty($_SESSION['image'])){
-                	// $i=$_SESSION['image'];
-                	// $l="pic/PROF/".$i;
-                	// echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
-            	// }
-            	// else{
-                	// echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
-            	// }
-        		// ?> 
-				
-				
-				<!-- <li id="options"><a href="team.php">За нас</a></li> -->
-				<!-- <li id="options"><a href="questions.php">Въпроси</a></li> -->
-				<!-- <li id="options"><a href="messages.php">Съобщения</a></li> -->
-				<!-- <li id="options"><a href="lost_things.php">Изгубени вещи</a></li> -->
-				<!-- <li id="options"><a style="background-color: white;" href="index.php">Сергия</a></li> -->
-				<!-- <li id="options" title="Добави"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li> -->
-				<!-- <li id="image"><img src="pic/image.png" height="45" width="45"></li> -->
-			<!-- </ul> -->
-		<!-- </div> -->
+		
 	<form action="" method="POST" enctype="multipart/form-data">
-		<div style="text-align: center;">
+		<div style="text-align: center">
 		    
 			<div>
 			<?php
             if(!empty($_SESSION['image'])){
                 $i=$_SESSION['image'];
-                $l="pic/PROF/".$i;
+                $l="/desktop/pic/PROF/".$i;
                 echo"<img style='border-radius: 5000px;' src='$l' height='400'width='400'>";
             }
             else{
@@ -86,25 +58,25 @@ ob_start();
             $email=$_SESSION['email'];
             
             echo'</div>
-			<input style="font-size:30px;height:auto;width:auto;margin-left:25%;margin-top:5%" type="file" name="photo" id="photo">
+			<input style="font-size:30px;height:auto;width:auto;margin-left:20%;margin-top:5%" type="file" name="photo" id="photo">
 			<div class="row">
-			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
+			<div class="input-field col s12" style="background-color: white;">
+			  <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
 			</div>
-			<div class="input-field col s6" style="background-color: white;margin-left: 25%;"> 
-			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
+			<div class="input-field col s12" style="background-color: white;"> 
+			  <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
 			</div>
-			<div  class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
+			<div  class="input-field col s12" style="background-color: white;">
+			  <input style="text-align: center;font-size:50px;height:90;background-color: white;;" placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
 			</div>
-			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
+			<div class="input-field col s12" style="background-color: white;">
+			  <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
 			</div>
-			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input style="font-size:50px;height:auto;width:auto;" placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
+			<div class="input-field col s12" style="background-color: white;">
+			  <input style="text-align: center;font-size:50px;height:90;background-color: white;" placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
 			</div>
-		  	<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
-			<button style="text-align: center;height:5%;width:50%;font-size:40px" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
+		  	<div class="input-field col s12" style="text-align: center;">	
+			<button style="text-align: center;height:7%;width:50%;font-size:30px" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
 		  	</div>';
 		  	
 			?>
@@ -203,7 +175,7 @@ ob_start();
 					//проверка типа на файл
 					if ($type == 'image/png' || $type == 'image/jpeg'){
 						move_uploaded_file($image,'pic/PROF/'.$_FILES['photo']['name']);
-						$Fname=basename('pic/PROF/'.$_FILES['photo']['name']);
+						$Fname=basename('/desktop/pic/PROF/'.$_FILES['photo']['name']);
 						//ако не е същата търкаме старата
 						$sql="UPDATE `users` SET`pic`='$Fname' WHERE id=$dbID";
 						$conn->query($sql);
