@@ -72,7 +72,7 @@ if(isset($_SESSION['ID'])){
 				    }
 				    else
 				    {
-				        echo "i id='options'><a href='messages.php'>Съобщения</a></li>";
+				        echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
 				    }
 				}
 				else

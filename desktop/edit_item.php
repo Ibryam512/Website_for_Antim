@@ -1,6 +1,6 @@
 <?php
 	include 'connect.php';
-
+	session_start();
 	function Edit($title, $desc, $price, $date)
 	{
 		$conn = OpenCon();
@@ -8,13 +8,31 @@
 		//проверяваме типа на фаила, който ни е подаден
 		$title = mysqli_real_escape_string($conn,$title);
 		$desc = mysqli_real_escape_string($conn,$desc);
-		$date=mysqli_real_escape_string($conn,$date);	
-		$sql = "UPDATE `items` SET `title`='$title',`description`='$desc',`price`=$price,`date`='$date' WHERE IID = $id";
-				$conn->query($sql);
-				CloseCon($conn);			
+		$date=mysqli_real_escape_string($conn,$date);
+		$sql = "SELECT * FROM items WHERE IID = $id";
+		$check = false;
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc())
+		{
+			if($row['userID'] == $_SESSION['ID'])
+			{
+				$check = true;
+				break;
+			}
+		}
+		
+		if($check)
+		{
+			$sql = "UPDATE `items` SET `title`='$title',`description`='$desc',`price`=$price,`date`='$date' WHERE IID = $id";
+			$conn->query($sql);
+			CloseCon($conn);			
 				
-				header("Location: my_items.php");
-				
+			header("Location: my_items.php");
+		}
+		else
+		{
+			header("Location: index.php");
+		}
 	
 	}
 	

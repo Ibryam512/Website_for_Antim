@@ -1,5 +1,7 @@
 <?php
 	include 'connect.php';
+	session_start();
+
 
 	function Edit($title, $desc, $date)
 	{
@@ -9,11 +11,29 @@
 		$title = mysqli_real_escape_string($conn,$title);
 		$desc = mysqli_real_escape_string($conn,$desc);
 		$date=mysqli_real_escape_string($conn,$date);	
-		$sql = "UPDATE `lthings` SET `title`='$title',`description`='$desc', `date`='$date' WHERE IID = $id";
-				$conn->query($sql);
-				CloseCon($conn);			
-				
-				header("Location: my_items.php");
+		$sql = "SELECT * FROM lthings WHERE IID = $id";
+		$check = false;
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc())
+		{
+			if($row['userID'] == $_SESSION['ID'])
+			{
+				$check = true;
+				break;
+			}
+		}
+		if($check)
+		{
+			$sql = "UPDATE `lthings` SET `title`='$title',`description`='$desc', `date`='$date' WHERE IID = $id";
+					$conn->query($sql);
+					CloseCon($conn);			
+					
+					header("Location: my_items.php");
+		}
+		else
+		{
+			header("Location: lost_things.php");
+		}
 	
 	}
 	$F="<";
@@ -28,7 +48,7 @@
 	   header("Location: my_items.php");
 	   exit();
 	}
-	Edit($title, $desc, $_POST['price'], $_POST['date']);
+	Edit($title, $desc, $_POST['date']);
 	
 	
 ?>
