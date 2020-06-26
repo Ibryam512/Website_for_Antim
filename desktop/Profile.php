@@ -133,7 +133,7 @@
 						<div style="text-align: center;margin-bottom: 50;">
 							<div class="input-field col s6">
 								<?php
-									$value = $_SESSION['lastName'];
+									$value = $_SESSION['email'];
 									echo "<input id='name' disabled value='$value'>";
 								?>
 								<label class='active' for='name'>Имейл</label>
