@@ -19,57 +19,53 @@ ob_start();
         <div id="menu">
 			<ul>
 			<ul id="dropdown1" class="dropdown-content">
-					<li><a href="Profile.php">Профил</a></li>
-					<li class="divider"></li>
-					<li><a href="my_items.php">Мои обяви</a></li>
+				<li><a href="Profile.php">Профил</a></li>
+				<li class="divider"></li>
+				<li><a href="my_items.php">Мои обяви</a></li>
 			</ul>
             <?php
-            	if(!empty($_SESSION['image'])){
-                	$i=$_SESSION['image'];
-                	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
-            	}
-            	else{
-            	    if(empty($_SESSION['ID'])){
-            	        echo "<li id='options' ><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
-            	        
-                	echo "<li id='options'><a class='waves-effect waves-light btn' href='login.php' style='margin-top:6;width:100;'><i class='material-icons'>Вход</i></a></li>";
-            	    }
-            	    else if(!empty($_SESSION['ID'])){
-            	    echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
-            	    }
-            	}
+				if(!empty($_SESSION['image'])){
+					$i=$_SESSION['image'];
+					$l="pic/PROF/".$i;
+					echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+				}
+				else{
+					if(empty($_SESSION['ID'])){
+						echo "<li id='options' ><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
+						echo "<li id='options'><a class='waves-effect waves-light btn' href='login.php' style='margin-top:6;width:100;'><i class='material-icons'>Вход</i></a></li>";
+					}
+					else if(!empty($_SESSION['ID'])){
+						echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+					}
+				}
 			?>
 				<li id="options"><a href="team.php">За нас</a></li>
 				<li id="options"><a href="questions.php">Въпроси</a></li>
 					<?php
-				 include 'connect.php';
-				 $conn = OpenCon();
+				include 'connect.php';
+				$conn = OpenCon();
 				if(!empty($_SESSION['ID']))
 				{
-				    $id = $_SESSION['ID'];
-				   
-				    
-				    $sql = "SELECT * FROM messages
-				            WHERE seen = FALSE AND to_id = $id";
-				    $result = $conn->query($sql);
-				    $messages = 0;
-				    while($row = $result->fetch_assoc())
-				    {
-				        $messages++;
-				    }
-				    if($messages > 0)
-				    {
-				      echo "<li id='options'><a href='messages.php' class='notification'><span>Съобщения</span><span class='badge'>$messages</span></a></li>";
-				    }
-				    else
-				    {
-				        echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
-				    }
+					$id = $_SESSION['ID'];
+				    $sql = "SELECT * FROM messages WHERE seen = FALSE AND to_id = $id";
+					$result = $conn->query($sql);
+					$messages = 0;
+					while($row = $result->fetch_assoc())
+					{
+						$messages++;
+					}
+					if($messages > 0)
+					{
+						echo "<li id='options'><a href='messages.php' class='notification'><span>Съобщения</span><span class='badge'>$messages</span></a></li>";
+					}
+					else
+					{
+						echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+					}
 				}
 				else
 				{
-				    echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
+					echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
 				}
 				
 				?>
@@ -81,7 +77,6 @@ ob_start();
 		</div>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div style="text-align: center;">
-		    
 			<div>
 			<?php
             if(!empty($_SESSION['image'])){
@@ -104,24 +99,23 @@ ob_start();
 			<input type="file" name="photo" id="photo">
 			<div class="row">
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
+				<input placeholder="Първо име" name="name" id="name" type="text" class="validate" value='.$name.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;"> 
-			  <input placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
+				<input placeholder="Второ име" name="secName" id="secName" type="text" class="validate" value='.$secName.'>
 			</div>
 			<div  class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
+				<input placeholder="Фамилия" name="lastName" id="lastName" type="text" class="validate" value='.$lastName.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
+				<input placeholder="Парола" name="password" id="password" type="password" class="validate" value='.$pass.'>
 			</div>
 			<div class="input-field col s6" style="background-color: white;margin-left: 25%;">
-			  <input placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
+				<input placeholder="Имейл" name="email" id="email" type="email" class="validate" value='.$email.'>
 			</div>
-		  	<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
+			<div class="input-field col s6" style="text-align: center;margin-left: 25%;">	
 			<button style="text-align: center;" class="btn waves-effect waves-light" type="submit" name="save" id="save">Запази</button>
-		  	</div>';
-		  	
+			</div>';
 			?>
 		</div>
 	</form>
@@ -139,18 +133,18 @@ ob_start();
 			
 			//взимаме id-то на вече влезналия в профила си портребител
         	$sql="SELECT * FROM users";
-        	$result = $conn->query($sql);
+			$result = $conn->query($sql);
 			$int = 0;
 			$dbID = -1;
-        	while($int < $row=$result->num_rows){
-          		$row = $result->fetch_assoc();
-          		$dbEmail = $row['e-mail'];
-          		$dbPassword = $row['pass'];
-          		if($dbEmail === $email1  &&  $dbPassword === $password){
+			while($int < $row=$result->num_rows){
+				$row = $result->fetch_assoc();
+				$dbEmail = $row['e-mail'];
+				$dbPassword = $row['pass'];
+				if($dbEmail === $email1  &&  $dbPassword === $password){
 					$dbID=$row['id'];
-				  	break;
-			  	}
-          		$int++;
+					break;
+				}
+				$int++;
 			}	
 			$email=hash('sha256',$_POST['email']."Ibrqm,Venci");
 			$password=hash('sha256',$_POST['password']."Ibrqmov,Nenov");

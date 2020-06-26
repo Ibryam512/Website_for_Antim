@@ -52,7 +52,7 @@ a {
     padding:6% 0;
     vertical-align: top;
 }
-.container {
+/* .container {
 	border: 2px solid #dedede;
 	background-color: #f1f1f1;
 	border-radius: 5px;
@@ -63,7 +63,7 @@ a {
 	content: "";
 	clear: both;
 	display: table;
-}
+} */
 
 
 .hide{
