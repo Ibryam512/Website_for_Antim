@@ -24,41 +24,29 @@
 					<li><a href="my_items.php">Мои обяви</a></li>
 				</ul>
 				<?php
-					if(!empty($_SESSION['ID'])){
+					if (!empty($_SESSION['ID']))
 						echo"<li id='options'><a href='my_items.php'>Моите обяви</a></li>";
-					}
 				?> 
 				<li id="options"><a href="team.php">За нас</a></li>
 				<li id="options"><a href="questions.php">Въпроси</a></li>
 				<?php
 					include 'connect.php';
-					if(!empty($_SESSION['ID']))
-					{
+					if (!empty($_SESSION['ID'])) {
 						$id = $_SESSION['ID'];
-						
 						$conn = OpenCon();
 						$sql = "SELECT * FROM messages
 								WHERE seen = FALSE AND to_id = $id";
 						$result = $conn->query($sql);
 						$messages = 0;
 						while($row = $result->fetch_assoc())
-						{
 							$messages++;
-						}
 						if($messages > 0)
-						{
 							echo "<li id='options'><a href='messages.php' class='notification'><span>Съобщения</span><span class='badge'>$messages</span></a></li>";
-						}
 						else
-						{
 							echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
-						}
 					}
 					else
-					{
 						echo "<li id='options'><a href='messages.php'>Съобщения</a></li>";
-					}
-				
 				?>
 				<li id="options"><a href="lost_things.php">Изгубени вещи</a></li>
 				<li id="options"><a href="index.php">Сергия</a></li>
@@ -66,7 +54,7 @@
 			</ul>
 		</div>
 		<?php
-			if(!isset($_SESSION['email'])||!isset($_SESSION['password'])){
+			if (!isset($_SESSION['email'])||!isset($_SESSION['password'])) {
 				echo"<div style='text-align: center;'>";
 				echo"<a style='margin-right:1%' href='login.php' class='waves-effect waves-light btn-large'>Влез в акаунта си</a>";
 				echo"<a style='margin-left:1%' href='register.php' class='waves-effect waves-light btn-large'>Регистрирай се</a>";
@@ -149,8 +137,8 @@
 							</div>
 						</div>
 						<form method="POST" action="">
-							<div style="text-align: center;margin-bottom: 50;">
-								<button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Излез от профила</button>
+							<div style="text-align: center; margin-bottom: 50;">
+								<button type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large'>Излез от профила</button>
 							</div>
 						</form>
 					</div>
@@ -160,7 +148,7 @@
 	</body>
 </html>
 <?php
-	if(isset($_POST['logout'])){
+	if (isset($_POST['logout'])) {
 		unset($_SESSION['ID']);
 		unset($_SESSION['email']);
 		unset($_SESSION['password']);
