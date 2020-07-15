@@ -36,16 +36,25 @@ if(isset($_SESSION['ID'])){
             	if(!empty($_SESSION['image'])){
                 	$i=$_SESSION['image'];
                 	$l="pic/PROF/".$i;
-                	echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
+					echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'>
+					<button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'>
+					<img style='border-radius: 5000px;' src='$l'height='44' width='44'></button></a></il></div>";
             	}
             	else{
             	    if(empty($_SESSION['ID'])){
-            	        echo "<li id='options' ><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
+						echo "<li id='options' >
+						<a class='waves-effect waves-light btn' onclick='openFormR()' style='width:220;margin-top:6;margin-left:6'>
+						<i class='material-icons'>Регистрирай се</i></a></li>";
             	        
-                	echo "<li id='options'><a class='waves-effect waves-light btn' href='login.php' style='margin-top:6;width:100;'><i class='material-icons'>Вход</i></a></li>";
+						echo "<li id='options'><a class='waves-effect waves-light btn' onclick='openForm()' style='margin-top:6;width:100;'>
+						<i class='material-icons'>Вход</i></a></li>";
             	    }
             	    else if(!empty($_SESSION['ID'])){
-            	    echo "<div class='nav-wrapper'><il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'><button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'><img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'></button></a></il></div>";
+						echo "<div class='nav-wrapper'>
+						<il id='options'><a class='dropdown-trigger' href='Profile.php' data-target='dropdown1'>
+						<button style='border-radius: 5000px;cursor: pointer;background-color:initial;border: initial;'>
+						<img style='border-radius: 5000px;' src='pic/profilePic.png'height='44' width='44'>
+						</button></a></il></div>";
             	    }
             	}
 			?>
@@ -86,6 +95,49 @@ if(isset($_SESSION['ID'])){
 				<li id="options" title="Добави"><a class="btn-floating btn-medium waves-effect waves-light blue pulse" href="add.php" style="margin-top: 10%;"><i class="material-icons">+</i></a></li>
 				<li id="image"><img src="pic/image.png" height="45" width="45"></li>
 			</ul>
+		</div>
+		<!--Forms to slide-->
+		<div class="form-popup" id="myForm">
+			<form action="php/login.php" class="form-container">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()"><img src="pic/close.png" width="20"></button>
+
+				<center>
+				<h4 style="color: black;">Вход</h4>
+				</center>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="text" placeholder="Въведете имейл" name="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" required>
+
+				<button type="submit" class="btn">Вход</button>
+			</form>
+		</div>
+		<div class="form-popup" id="myFormR">
+			<form action="php/register.php" class="form-containerR">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()"><img src="pic/close.png" width="20"></button>
+
+				<center>
+				<h4 style="color: black;">Регистрирай се</h4>
+				</center>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="text" placeholder="Въведете имейл" name="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" required>
+				
+				<label for="psw"><b>Повтори паролата</b></label>
+				<input type="password" placeholder="Повтори паролата" name="psw" required>
+				
+				<label for="email"><b>Име и фамилия</b></label>
+				<input type="text" placeholder="Име и фамилия" name="email" required>
+
+				<button type="submit" class="btn">Регистрирай се</button>
+			</form>
 		</div>
 		<?php
 		//	include 'connect.php';
@@ -173,5 +225,34 @@ $(document).ready(function(){
 	
  });  
 
+
+
+ 
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.sidenav');
+				var instances = M.Sidenav.init(elems, options);
+			});
+				$(document).ready(function(){
+				$('.sidenav').sidenav();
+			});
+			function openForm() {
+				document.getElementById("myFormR").style.display = "none";
+			document.getElementById("myForm").style.display = "block";
+			}
+			
+			function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+			}
+
+
+			function openFormR() {
+				document.getElementById("myForm").style.display = "none";
+			document.getElementById("myFormR").style.display = "block";
+			}
+			
+			function closeFormR() {
+			document.getElementById("myFormR").style.display = "none";
+			}
+		
 </script>
 

@@ -87,6 +87,49 @@ if(isset($_SESSION['ID'])){
 				<li id="image"><img src="pic/lost.png" height="45" width="45"></li>
 			</ul>
 		</div>
+		<!--Forms to slide-->
+		<div class="form-popup" id="myForm">
+			<form action="php/login.php" class="form-container">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()"><img src="pic/close.png" width="20"></button>
+
+				<center>
+				<h4 style="color: black;">Вход</h4>
+				</center>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="text" placeholder="Въведете имейл" name="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" required>
+
+				<button type="submit" class="btn">Вход</button>
+			</form>
+		</div>
+		<div class="form-popup" id="myFormR">
+			<form action="php/register.php" class="form-containerR">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()"><img src="pic/close.png" width="20"></button>
+
+				<center>
+				<h4 style="color: black;">Регистрирай се</h4>
+				</center>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="text" placeholder="Въведете имейл" name="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" required>
+				
+				<label for="psw"><b>Повтори паролата</b></label>
+				<input type="password" placeholder="Повтори паролата" name="psw" required>
+				
+				<label for="email"><b>Име и фамилия</b></label>
+				<input type="text" placeholder="Име и фамилия" name="email" required>
+
+				<button type="submit" class="btn">Регистрирай се</button>
+			</form>
+		</div>
 		<?php
 		//	include 'connect.php';
 			$conn = OpenCon();
@@ -166,5 +209,34 @@ $(document).ready(function(){
 	
  });  
 
+
+ 
+
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.sidenav');
+				var instances = M.Sidenav.init(elems, options);
+			});
+				$(document).ready(function(){
+				$('.sidenav').sidenav();
+			});
+			function openForm() {
+				document.getElementById("myFormR").style.display = "none";
+			document.getElementById("myForm").style.display = "block";
+			}
+			
+			function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+			}
+
+
+			function openFormR() {
+				document.getElementById("myForm").style.display = "none";
+			document.getElementById("myFormR").style.display = "block";
+			}
+			
+			function closeFormR() {
+			document.getElementById("myFormR").style.display = "none";
+			}
+		
 </script>
 
