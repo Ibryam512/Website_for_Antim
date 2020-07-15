@@ -82,7 +82,7 @@ session_start();
 				<a href="ASKus.php"><button style="background-color: steelblue;" type="submit" id="logout" name="logout" class='waves-effect waves-light btn-large' >Попитай ни</button></a>
 			</div>
 			<tr>
-				<td style="width:33%"><div id="post" class="card">
+				<td style="width:33%"><div class="post card">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
@@ -94,7 +94,7 @@ session_start();
 							"Сергия" представлява място, на което всеки един от нашите потребители може да публикува собствена обява, за да може например да продаде старата си униформа или учебник.
 						</span>
 					</div></td>
-				<td style="width:33.3333333333%"><div id="post" class="card">
+				<td style="width:33.3333333333%"><div class="post card">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
@@ -106,7 +106,7 @@ session_start();
 							"Изгубени вещи" е място, където всеки един човек може да публикува обява за намерена вещ.
 						</span>
 					</div></td>
-				<td style="width:33%"><div id="post" class="card">
+				<td style="width:33%"><div class="post card">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
@@ -118,7 +118,7 @@ session_start();
 					</div></td>
 			</tr>
 			<tr>
-				<td style="width:33%"><div id="post" class="card">
+				<td style="width:33%"><div class="post card">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
@@ -128,7 +128,7 @@ session_start();
 					<div class="card-reveal">
 						<span style="text-align: center;" class="card-title grey-text text-darken-4">Цъкнете върху профилната си снимка. Тя ще ви препрати към вашия профил, след това трябва да цъкнете върху бутона с молива и ще ви бъде позволено да смените данните.</span>
 					</div></td>
-				<td style="width:33%"><div id="post" class="card centered">
+				<td style="width:33%"><div class="post card centered">
 						<div class="card-image waves-effect waves-block waves-light">
 							<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 						</div>
@@ -140,7 +140,7 @@ session_start();
 								Той също така може да служи за нови запознанства и приятелства в училище.
 							</span>
 						</div></td>
-				<td style="width:33%"><div id="post" class="card">
+				<td style="width:33%"><div class="post card">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img style="object-fit:contain;"  src="pic/vupros.png" height="100">
 					</div>
@@ -154,6 +154,11 @@ session_start();
 					</div></td>
 			</tr>
 		</table>
+		<script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 	</body>
 </html>
 <!-- поиграй си с дизайна, за да разбереш повечето неща. той е в css\style.css

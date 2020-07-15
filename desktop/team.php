@@ -79,7 +79,7 @@ session_start();
 		<div style="text-align: center;" >
 		<img src="pic/LOGO.png"style="max-height:100%;max-width:100%;">
 		</div>
-		<div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: %">
+		<div class="post card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: %">
 			<h4 style="text-align: center;">За нас</h4>
 			<p>Ние сме ученици, които желаят да подобрят както средата на обучение, така и самия начин на 
 				учене. Ние създадохме тази платформа с цел улесняване на учениците при намиране на учебници 
@@ -90,5 +90,10 @@ session_start();
 			</p>
 			<span>За контакт: E-mail - e.venci@abv.bg или bamko2003@gmail.com
 		</div>
+		<script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 	</body>
 </html>

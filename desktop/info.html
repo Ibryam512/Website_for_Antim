@@ -12,7 +12,7 @@
 		<script src="js/script.js"></script>
     </head>
     <body>
-        <div class="card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: 10%">
+        <div class="post card-panel grey lighten-3" style="margin-left: 50%; transform: translate(-50%); margin-top: 10%">
 			<h4 style="text-align: center;">Условия</h4>
 			<p>
                 Общи условия за ползване на сайт „Антималник”
@@ -29,6 +29,11 @@
         <div   style="text-align: center;margin-top: 10;">
             <a href="register.php"><button style="text-align: center;" class="btn waves-effect waves-light">Обратно</button></a>
           </div>
+          <script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
     </body>
 </html>
     

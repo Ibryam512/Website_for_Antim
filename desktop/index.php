@@ -30,7 +30,7 @@
 					}
 					else{
 						if(empty($_SESSION['ID'])){
-							echo "<li id='options' ><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
+							echo "<li id='options'><a class='waves-effect waves-light btn' href='register.php' style='width:220;margin-top:6;margin-left:6'><i class='material-icons'>Регистрирай се</i></a></li>";
 							
 						echo "<li id='options'><a class='waves-effect waves-light btn' href='login.php' style='margin-top:6;width:100;'><i class='material-icons'>Вход</i></a></li>";
 						}
@@ -91,27 +91,26 @@
 				</div>
 			</div>
 		</div>
-		<table width="100%" height="100%" style="border-collapse: unset;">
+	<div class="row" width="100%" height="100%" style="border-collapse: unset;">
 			
 			<?php
 				function DisCard($id,$image,$title,$price,$desc){
-					echo"
-					<td width='auto' id='card-table'>
-						<center>
-							<div id='post' class='card z-depth-5 hoverable' >
-								<div class='card-image waves-effect waves-block waves-light '>
-									<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:600;' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
-								</div>
-								<div class='card-content'style='background-color: white;'>
-									<span title='Надникни' class='card-title activator grey-text text-darken-4'>$title<i class='material-icons right'>$price лв.</i></span>
-								</div>
-								<div class='card-reveal'>
-									<span class='card-title grey-text text-darken-4 center-align'>$title</span>
-									<p class='center-align'>$desc</p>
-								</div>
+					
+					echo "
+					<div class='card-table col s4 m4 l4'>
+						<div class='post card z-depth-5 hoverable' style='transform:translate(0%,0%)'>
+							<div class='card-image waves-effect waves-block waves-light'>
+								<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64," . base64_encode($image) . "' class='img-thumnail' /></a>
 							</div>
-						</center>
-					</td>";
+							<div class='card-content' style='background-color: white;'>
+								<span title='Надникни' class='card-title activator grey-text text-darken-4'>$title</span>
+							</div>
+							<div class='card-reveal'>
+								<span class='card-title grey-text text-darken-4'>$title</span>
+								<p>$desc</p>
+							</div>
+						</div>
+					</div>";
 				}
 				//включваме файлът за връзка с базата данни
 				//include 'connect.php';
@@ -177,6 +176,11 @@
 				}
 				Search();
 			?>
-		</table>
+		</div>
+		<script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 	</body>
 </html>

@@ -78,7 +78,10 @@ ob_start()
 				$message = $row["message"];
 				$date = $row["date"];
 				$mid = $row["MID"];
-				echo "<div class='container' style='margin-top:50'><b>$name</b><p><span>$message</span></p><a href></a>
+				echo "<div class='post container' style='margin-top:50; border: 2px solid #dedede;
+	background-color: #f1f1f1;
+	border-radius: 5px;
+	padding: 10px;'><b>$name</b><p><span>$message</span></p><a href></a>
 					<form  method='post' action='send.php?to=$id'> 
 				<input style='text-align: center;' placeholder='Отговор' name='message' id='message' class='validate'>
 				<button class='btn waves-effect waves-light' type='submit' name='send' id='send'>Изпрати</button>
@@ -95,6 +98,11 @@ ob_start()
 		?>
         <div style="text-align: center; margin-top: 10px; margin-bottom: 10px;"><a href="sent.php" class='waves-effect waves-light btn' >Виж изпратени</a></div>
     </body>
+    <script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 </html>
 <script>
 //създаване на филтър със забранени думи

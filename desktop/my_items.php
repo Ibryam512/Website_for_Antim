@@ -81,7 +81,7 @@ ob_start();
 			    function DisCard($id,$image,$title,$price,$desc){
 			        echo"<td width='50%' id='card-table'>
 			        <center>
-			                <div id='post' class='card' style='max-width:600;'>
+			                <div class='post card' style='max-width:600;'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -102,7 +102,7 @@ ob_start();
 			    function DisCardLost($id,$image,$title,$desc){
 			        echo"<td width='50%' id='card-table'>
 			        <center>
-			                <div id='post' class='card' style='max-width:600;'>
+			                <div class='post card' style='max-width:600;'>
 									<div class='card-image waves-effect waves-block waves-light'>
 										<a href='detail_lt.php?item=$id' title='Пълен размер'><img style='max-height:600' src='data:image/jpeg;base64,".base64_encode($image)."' class='img-thumnail' /></a>
 									</div>
@@ -210,5 +210,10 @@ ob_start();
 				Show();
 			?>
 		</table>
+		<script>
+			let i = 0;
+			[...document.querySelectorAll(".post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 	</body>
 </html>
