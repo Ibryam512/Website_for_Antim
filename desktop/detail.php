@@ -91,45 +91,56 @@ ob_start();
 		</div>
 		<!--Forms to slide-->
 		<div class="form-popup" id="myForm">
-			<form action="php/login.php" class="form-container">
+			<form action="login.php" class="form-container">
 
-				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()"><img src="pic/close.png" width="20"></button>
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()">Х</button>
 
 				<center>
 				<h4 style="color: black;">Вход</h4>
 				</center>
 
 				<label for="email"><b>Имейл</b></label>
-				<input type="text" placeholder="Въведете имейл" name="email" required>
+				<input type="email" placeholder="Въведете имейл" name="email" required>
 
 				<label for="psw"><b>Парола</b></label>
 				<input type="password" placeholder="Въведете парола" name="psw" required>
 
-				<button type="submit" class="btn">Вход</button>
+				<button type="submit" class="btn" id="log">Вход</button>
 			</form>
 		</div>
 		<div class="form-popup" id="myFormR">
-			<form action="php/register.php" class="form-containerR">
+			<form action="register.php" class="form-containerR">
 
-				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()"><img src="pic/close.png" width="20"></button>
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()">Х</button>
 
 				<center>
 				<h4 style="color: black;">Регистрирай се</h4>
 				</center>
+				
+				<label for="name"><b>Име</b></label>
+				<input type="text" placeholder="Име" name="name" id="name" required>
+				
+				<label for="secName"><b>Презиме</b></label>
+				<input type="text" placeholder="Презиме" name="secName" id="secName" required>
+				
+				<label for="lastName"><b>Фамилия</b></label>
+				<input type="text" placeholder="Фамилия" name="lastName" id="lastName" required>
 
 				<label for="email"><b>Имейл</b></label>
-				<input type="text" placeholder="Въведете имейл" name="email" required>
+				<input type="email" placeholder="Въведете имейл" name="email" id="email" required>
 
 				<label for="psw"><b>Парола</b></label>
-				<input type="password" placeholder="Въведете парола" name="psw" required>
+				<input type="password" placeholder="Въведете парола" name="psw" id="password" required>
 				
-				<label for="psw"><b>Повтори паролата</b></label>
-				<input type="password" placeholder="Повтори паролата" name="psw" required>
+				<label for="psw2"><b>Повтори паролата</b></label>
+				<input type="password" placeholder="Повтори паролата" name="psw2" id="password2" required>
 				
-				<label for="email"><b>Име и фамилия</b></label>
-				<input type="text" placeholder="Име и фамилия" name="email" required>
+                 <label>
+                <input type="checkbox" class="filled-in" name="check" id="check" />
+                <span style="color: black;" ><a href="info.html" target="_blank">Условия за използване.</a></span>
+              </label>
 
-				<button type="submit" class="btn">Регистрирай се</button>
+				<button type="submit" class="btn" id="reg">Регистрирай се</button>
 			</form>
 		</div>
 		<?php
@@ -257,4 +268,65 @@ document.addEventListener('DOMContentLoaded', function() {
 			function closeFormR() {
 			document.getElementById("myFormR").style.display = "none";
 			}
+			
+			 $(document).ready(function(){  
+    $('#reg').click(function(){  
+      var name = $('#name').val();
+      var secname = $('#secName').val();
+      var lastname = $('#lastName').val();
+      var pass = $('#password').val();
+      var pass2 = $('#password2').val(); 
+      var email = $('#email').val();
+      var check = $('#check').val();
+		   
+      if(name == ''||secname == ''||lastname == '')
+      {
+				alert("Моля, напишете имената си");
+				return false;
+      }
+      if(pass == '')
+      {
+				alert("Моля, напишете паролата си");
+				return false;
+      }
+      if(pass2 == ''){
+        alert("Моля, повторете паролата си");
+        return false;
+      }
+      else if(pass.length < 6 )
+      {
+				alert("Паролата трябва да е с минимум 6 знака");
+				return false;
+      }
+      else if(pass != pass2){
+        alert("Паролата e грешна");
+				return false;
+      }
+      if(email == '')
+      {
+				alert("Моля, напишете вашия имейл");
+				return false;
+      }
+      if(!document.getElementById('check').checked){
+        alert("Моля, съгласете се с условията");
+				return false;
+      }
+    });  
+  });  
+  $(document).ready(function(){  
+    $('#log').click(function(){ 
+      var password = $('#password').val();
+      var email = $('#email').val();
+      if(email == '')
+      {
+        alert("Моля, напишете вашия имейл");
+        return false;
+      }
+      if(password == '')
+      {
+        alert("Моля, напишете паролата си");
+        return false;
+      }
+    });  
+  });  
 </script>

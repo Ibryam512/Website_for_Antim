@@ -40,7 +40,22 @@
                 //свързвеаме се с базата данни
                 include 'profileCon.php';
                 $conn=OpenCon();
-
+                if(isset($_POST['email']))
+                  {
+                      $_GET['email'] = $_POST['email'];
+                      $_GET['psw'] = $_POST['password'];
+                      $_GET['name'] = $_POST['name'];
+                      $_GET['secName'] = $_POST['secName'];
+                      $_GET['lastName'] = $_POST['lastName'];
+                  }
+                if(isset($_GET['email']))
+                {
+                    $_POST['email'] = $_GET['email'];
+                    $_POST['name'] = $_GET['name'];
+                    $_POST['secName'] = $_GET['secName'];
+                    $_POST['lastName'] = $_GET['lastName'];
+                    $_POST['password'] = $_GET['psw'];
+                }
                 //проверяваме дали са попълнени полетата
                 if(isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['name'])&&isset($_POST['secName'])&&isset($_POST['lastName']))
                 {
@@ -193,9 +208,10 @@
 				alert("Моля, напишете вашия имейл");
 				return false;
       }
-      if(check.checked == true){
+      if(!document.getElementById('check').checked){
         alert("Моля, съгласете се с условията");
 				return false;
+      }
       }
     });  
   });  

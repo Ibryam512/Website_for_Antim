@@ -212,7 +212,7 @@ $(document).ready(function(){
 
  
 
-			document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
 				var elems = document.querySelectorAll('.sidenav');
 				var instances = M.Sidenav.init(elems, options);
 			});
@@ -237,6 +237,67 @@ $(document).ready(function(){
 			function closeFormR() {
 			document.getElementById("myFormR").style.display = "none";
 			}
+			
+			 $(document).ready(function(){  
+    $('#reg').click(function(){  
+      var name = $('#name').val();
+      var secname = $('#secName').val();
+      var lastname = $('#lastName').val();
+      var pass = $('#password').val();
+      var pass2 = $('#password2').val(); 
+      var email = $('#email').val();
+      var check = $('#check').val();
+		   
+      if(name == ''||secname == ''||lastname == '')
+      {
+				alert("Моля, напишете имената си");
+				return false;
+      }
+      if(pass == '')
+      {
+				alert("Моля, напишете паролата си");
+				return false;
+      }
+      if(pass2 == ''){
+        alert("Моля, повторете паролата си");
+        return false;
+      }
+      else if(pass.length < 6 )
+      {
+				alert("Паролата трябва да е с минимум 6 знака");
+				return false;
+      }
+      else if(pass != pass2){
+        alert("Паролата e грешна");
+				return false;
+      }
+      if(email == '')
+      {
+				alert("Моля, напишете вашия имейл");
+				return false;
+      }
+      if(!document.getElementById('check').checked){
+        alert("Моля, съгласете се с условията");
+				return false;
+      }
+    });  
+  });  
+  $(document).ready(function(){  
+    $('#log').click(function(){ 
+      var password = $('#password').val();
+      var email = $('#email').val();
+      if(email == '')
+      {
+        alert("Моля, напишете вашия имейл");
+        return false;
+      }
+      if(password == '')
+      {
+        alert("Моля, напишете паролата си");
+        return false;
+      }
+    });  
+  });  
 		
 </script>
 

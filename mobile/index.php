@@ -159,5 +159,10 @@ session_start();
 				Search();
 			?>
 		</table>
+		<script>
+			let i = 0;
+			[...document.querySelectorAll("#post")]
+			.forEach(post => setTimeout(() => post.className += " shown", 150 * i++));
+		</script>
 	</body>
 </html>

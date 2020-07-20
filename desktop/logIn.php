@@ -42,6 +42,18 @@ ob_start();
                   // връзка с бата данни
                   include 'profileCon.php';
                   $conn = OpenCon();
+                  if(isset($_POST['email']))
+                  {
+                      $_GET['email'] = $_POST['email'];
+                      $_GET['psw'] = $_POST['password'];
+                  }
+                   if(isset($_GET['email']) && isset($_GET['psw']))
+                   {
+                        $_POST['email'] = $_GET['email'];
+                        $_POST['password'] = $_GET['psw'];
+                        unset($_GET['email']);
+                        unset($_GET['psw']);
+                   }
                   //проверяваме да ли са попълнени полетата за email и password
                   if(!empty($_POST['email'])&&!empty($_POST['password'])){
                     if($conn->connect_error){
