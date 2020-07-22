@@ -98,10 +98,10 @@ if(isset($_SESSION['ID'])){
 				</center>
 
 				<label for="email"><b>Имейл</b></label>
-				<input type="text" placeholder="Въведете имейл" name="email" required>
+				<input type="email" placeholder="Въведете имейл" name="email" id="email" required>
 
 				<label for="psw"><b>Парола</b></label>
-				<input type="password" placeholder="Въведете парола" name="psw" required>
+				<input type="password" placeholder="Въведете парола" name="psw" id="password" required>
 
 				<button type="submit" class="btn">Вход</button>
 			</form>

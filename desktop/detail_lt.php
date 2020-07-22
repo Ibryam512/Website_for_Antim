@@ -88,60 +88,7 @@ ob_start();
 				<li id="image"><img src="pic/lost.png" height="45" width="45"></li>
 			</ul>
 		</div>
-		<!--Forms to slide-->
-		<div class="form-popup" id="myForm">
-			<form action="login.php" class="form-container">
-
-				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()">Х</button>
-
-				<center>
-				<h4 style="color: black;">Вход</h4>
-				</center>
-
-				<label for="email"><b>Имейл</b></label>
-				<input type="email" placeholder="Въведете имейл" name="email" required>
-
-				<label for="psw"><b>Парола</b></label>
-				<input type="password" placeholder="Въведете парола" name="psw" required>
-
-				<button type="submit" class="btn" id="log">Вход</button>
-			</form>
-		</div>
-		<div class="form-popup" id="myFormR">
-			<form action="register.php" class="form-containerR">
-
-				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()">Х</button>
-
-				<center>
-				<h4 style="color: black;">Регистрирай се</h4>
-				</center>
-				
-				<label for="name"><b>Име</b></label>
-				<input type="text" placeholder="Име" name="name" id="name" required>
-				
-				<label for="secName"><b>Презиме</b></label>
-				<input type="text" placeholder="Презиме" name="secName" id="secName" required>
-				
-				<label for="lastName"><b>Фамилия</b></label>
-				<input type="text" placeholder="Фамилия" name="lastName" id="lastName" required>
-
-				<label for="email"><b>Имейл</b></label>
-				<input type="email" placeholder="Въведете имейл" name="email" id="email" required>
-
-				<label for="psw"><b>Парола</b></label>
-				<input type="password" placeholder="Въведете парола" name="psw" id="password" required>
-				
-				<label for="psw2"><b>Повтори паролата</b></label>
-				<input type="password" placeholder="Повтори паролата" name="psw2" id="password2" required>
-				
-                 <label>
-                <input type="checkbox" class="filled-in" name="check" id="check" />
-                <span style="color: black;" ><a href="info.html" target="_blank">Условия за използване.</a></span>
-              </label>
-
-				<button type="submit" class="btn" id="reg">Регистрирай се</button>
-			</form>
-		</div>
+		
 		<?php
 			//връзка с базата данни
 			//include 'connect.php';
@@ -208,6 +155,61 @@ ob_start();
 			    echo"<p style='text-align: center;'>Възникна проблем</p>";
 			}
 		?>
+
+		<!--Forms to slide-->
+		<div class="form-popup" id="myForm">
+			<form action="login.php" class="form-container">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeForm()">Х</button>
+
+				<center>
+				<h4 style="color: black;">Вход</h4>
+				</center>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="email" placeholder="Въведете имейл" name="email" id="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" id="password" required>
+
+				<button type="submit" class="btn" id="log">Вход</button>
+			</form>
+		</div>
+		<div class="form-popup" id="myFormR">
+			<form action="register.php" class="form-containerR">
+
+				<button type="button" style="background-color: white; border: white;margin-left: 93%;" onclick="closeFormR()">Х</button>
+
+				<center>
+				<h4 style="color: black;">Регистрирай се</h4>
+				</center>
+				
+				<label for="name"><b>Име</b></label>
+				<input type="text" placeholder="Име" name="name" id="name" required>
+				
+				<label for="secName"><b>Презиме</b></label>
+				<input type="text" placeholder="Презиме" name="secName" id="secName" required>
+				
+				<label for="lastName"><b>Фамилия</b></label>
+				<input type="text" placeholder="Фамилия" name="lastName" id="lastName" required>
+
+				<label for="email"><b>Имейл</b></label>
+				<input type="email" placeholder="Въведете имейл" name="email" id="email" required>
+
+				<label for="psw"><b>Парола</b></label>
+				<input type="password" placeholder="Въведете парола" name="psw" id="password" required>
+				
+				<label for="psw2"><b>Повтори паролата</b></label>
+				<input type="password" placeholder="Повтори паролата" name="psw2" id="password2" required>
+				
+                 <label>
+                <input type="checkbox" class="filled-in" name="check" id="check" />
+                <span style="color: black;" ><a href="info.html" target="_blank">Условия за използване.</a></span>
+              </label>
+
+				<button type="submit" class="btn" id="reg">Регистрирай се</button>
+			</form>
+		</div>
 	</body>
 </html>
 <script>
@@ -215,7 +217,8 @@ $(document).ready(function(){
       $('#send').click(function(){  
 		   var message = $('#message').val();
 		   
-		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси""GEY", "GEI", "BASI", "GEQ", "EBASI", "EBA", "PEDAL", "PEDERAS", "PEDERAST", "KURVA", "KURWA", "PISHKA", "KUR", "KOR", "ГЕЙ", "ПЕДАЛ", "ПЕДЕРАС", "ПЕДЕРАСТ", "КУРВА", "ПИШКА", "КУР", "КОР", "ЕБА", "ЕБАСИ"];
+		   var filter = ["gay", "gei", "basi", "geq", "ebasi", "eba", "pedal", "pederas", "pederast", "kurva", "kurwa", "pishka", "kur", "kor", "гей", "педал", "педерас", "педераст", "курва", "пишка", "кур", "кор", "еба", "бал", "ебаси", "GEY", "GEI", "BASI", "GEQ", "EBASI", "EBA", "PEDAL", "PEDERAS", "PEDERAST", "KURVA", "KURWA", "PISHKA", "KUR", "KOR", "ГЕЙ", "ПЕДАЛ", "ПЕДЕРАС", "ПЕДЕРАСТ", "КУРВА", "ПИШКА", "КУР", "КОР", "ЕБА", "ЕБАСИ"];
+		   if(message == '')
 		   {
 				alert("Полето за съобщение е празно");
 				return false;
