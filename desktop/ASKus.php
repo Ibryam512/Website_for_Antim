@@ -87,7 +87,7 @@ ob_start();
 		</div>
 		<div class="card-panel grey lighten-3" style="margin-left: 30%; transform: translate(-20%);">
 			<div class="row">
-				<form class="col s12" id="form" action="" method="POST" enctype='multipart/form-data'>
+				<form class="col s12" id="form" action="email.php" method="POST" enctype='multipart/form-data'>
 				<div class="row">
 					<div class="input-field col s12">
 						<input id="name" type="text" class="validate" name="name">

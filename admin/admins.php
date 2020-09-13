@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Потребители</title>
+		<title>Админи</title>
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css/style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>

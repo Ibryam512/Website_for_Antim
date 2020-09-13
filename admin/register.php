@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="Antim I, Antim">
 		<meta name="autors" content="Ibryam Ibryamov, Ventsislav Nenov">
-		<title>Регистрирай се</title>
+		<title>Регистрирай админ</title>
 		<link rel="icon" href="pic/LOGO.png">
 		<link rel="stylesheet" href="css\style.css">
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -156,18 +156,9 @@
               </div>
             </div>
             <div class="row">
-              <label>
-                <input type="checkbox" class="filled-in" name="check" id="check" />
-                <span style="color: black;" >Съгласни ли сте с условията за използване. Подробности <a href="info.html">ТУК</a></span>
-              </label>
-            </div>
-            <div class="row">
               <div class="input-field col s12">
-                <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Напред</button>
+                <button class="btn waves-effect waves-light" type="submit" name="action" id="action">Регистрирай админ</button>
               </div>
-            </div>
-            <div class="row">
-              <a style="margin-right: 10px" href="login.php" class="waves-effect waves-light">Вече имате акаунт?</a>
             </div>
           </form>
         </div>
@@ -184,7 +175,6 @@
       var pass = $('#password').val();
       var pass2 = $('#password2').val(); 
       var email = $('#email').val();
-      var check = $('#check').val();
 		   
       if(name == ''||secname == ''||lastname == '')
       {
@@ -214,10 +204,7 @@
 				alert("Моля, напишете вашия имейл");
 				return false;
       }
-      if(!document.getElementById('check').checked){
-        alert("Моля, съгласете се с условията");
-				return false;
-      }
+      
       }
     });  
   });  
